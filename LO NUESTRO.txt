@@ -7,13 +7,21 @@ Colores:
   Relleno: #F2BC3F 
 
 MySql: Control de Usuarios y Login de la Pagina Web
+Usuarios
  ->Id_usuario
- ->SuperUsuario(boolean)
- ->Nick
+ ->Nombre
+ ->DNI
  ->Imagen
- ->Contraseña
+ ->Contraseña (procedimiento creación contraseña al inicar sesión la primera vez)
+ ->HorasTrabajadas (Reset mensual)
+            ->TiempoTrabajo (procedimiento horas trabajo)
 
+Puestos
+ ->Id_puestos
+ ->Cargo
+ ->Salario (función caálculo de salario)
 
+ 
 
 Mongo: 2 Colecciones
     Pregunta:  
