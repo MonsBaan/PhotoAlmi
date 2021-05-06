@@ -1,3 +1,4 @@
+#Hola
 IP Inicial: 192.168.6.151
 IP Final: 192.168.6.160
 
@@ -7,13 +8,21 @@ Colores:
   Relleno: #F2BC3F 
 
 MySql: Control de Usuarios y Login de la Pagina Web
+Usuarios
  ->Id_usuario
- ->SuperUsuario(boolean)
- ->Nick
+ ->Nombre
+ ->DNI
  ->Imagen
- ->Contraseña
+ ->Contraseña (procedimiento creación contraseña al inicar sesión la primera vez)
+ ->HorasTrabajadas (Reset mensual)
+            ->TiempoTrabajo (procedimiento horas trabajo)
 
+Puestos
+ ->Id_puestos
+ ->Cargo
+ ->Salario (función caálculo de salario)
 
+ 
 
 Mongo: 2 Colecciones
     Pregunta:  
