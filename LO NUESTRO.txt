@@ -31,7 +31,8 @@ Mongo: 2 Colecciones
    Puntuaciones: 
    {
         Nick: String,
-        Puntuacion: Number
+        Puntuacion: Number,
+	Dificultad: String
    }
    
    
