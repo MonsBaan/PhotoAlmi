@@ -1,7 +1,11 @@
 #Hola
 IP Inicial: 192.168.6.151
 IP Final: 192.168.6.160
-
+IP IBAI : 192.168.6.151
+IP JON : 192.168.6.152
+IP AITOR : 192.168.6.15
+IP C con H: 192.168.6.15
+IP C con _: 192.168.6.15
 Colores:
   Base: #241121
   Contorno: #210C1F
