@@ -23,6 +23,7 @@ Mongo: 2 Colecciones
                      respuesta: String,
                      correcta: boolean
         }],
+        Correccion: String,
         NumAciertos: Number,
         NumFallos: Number
    }
@@ -32,4 +33,6 @@ Mongo: 2 Colecciones
         Nick: String,
         Puntuacion: Number
    }
+   
+   
 
