@@ -7,6 +7,13 @@ Colores:
   Relleno: #F2BC3F 
 
 MySql: Control de Usuarios y Login de la Pagina Web
+ ->Id_usuario
+ ->SuperUsuario(boolean)
+ ->Nick
+ ->Imagen
+ ->Contraseña
+
+
 
 Mongo: 2 Colecciones
     Pregunta:  
@@ -35,5 +42,7 @@ Mongo: 2 Colecciones
 	Dificultad: String
    }
    
+
+
    
 
