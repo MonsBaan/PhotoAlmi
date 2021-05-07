@@ -1,15 +1,18 @@
 #Hola
 IP Inicial: 192.168.6.151
 IP Final: 192.168.6.160
+
 IP IBAI : 192.168.6.151
 IP JON : 192.168.6.152
-IP AITOR : 192.168.6.15
-IP C con H: 192.168.6.15
-IP C con _: 192.168.6.15
+IP AITOR : 192.168.6.155
+IP C con H: 192.168.6.154
+IP C con _: 192.168.6.153
 Colores:
-  Base: #241121
-  Contorno: #210C1F
+  Base: #361a31
+  Contorno: #140713
   Relleno: #F2BC3F 
+Font:
+  Centaur
 
 MySql: Control de Usuarios y Login de la Pagina Web
 Usuarios
