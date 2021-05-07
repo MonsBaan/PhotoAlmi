@@ -11,6 +11,8 @@ Colores:
   Base: #241121
   Contorno: #210C1F
   Relleno: #F2BC3F 
+Font:
+  Sitka Small
 
 MySql: Control de Usuarios y Login de la Pagina Web
 Usuarios
