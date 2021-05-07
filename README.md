@@ -8,9 +8,10 @@ IP AITOR : 192.168.6.155
 IP C con H: 192.168.6.154
 IP C con _: 192.168.6.153
 Colores:
-  Base: #361a31
-  Contorno: #140713
-  Relleno: #F2BC3F 
+  Color1: #06AADB
+  Color2: #2B75AE
+  Color3: #364278
+  Color4: #2D143F
 Font:
   Centaur
 
