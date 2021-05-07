@@ -8,11 +8,11 @@ IP AITOR : 192.168.6.155
 IP C con H: 192.168.6.154
 IP C con _: 192.168.6.153
 Colores:
-  Base: #241121
+  Base: #361a31
   Contorno: #140713
   Relleno: #F2BC3F 
 Font:
-  Sitka Small
+  Centaur
 
 MySql: Control de Usuarios y Login de la Pagina Web
 Usuarios
