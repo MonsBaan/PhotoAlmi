@@ -12,7 +12,7 @@ Colores:
   Contorno: #140713
   Relleno: #F2BC3F 
 Font:
-  Sitka Small
+  Centaur
 
 MySql: Control de Usuarios y Login de la Pagina Web
 Usuarios
