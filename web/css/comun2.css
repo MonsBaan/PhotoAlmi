@@ -1,4 +1,23 @@
+#tituloWeb
+{
+  font-family: 'Lora', serif;
+  font-size: 220%;
+  color: white;
+  text-align: center;
+}
 
+#titulo
+{
+  width: 20%;
+  height: 20%;
+
+}
+
+#titulo img
+{
+  align-self: center;
+  margin: auto;
+}
 /*
 #menuHamburguesa
 {
@@ -30,7 +49,7 @@
  {
    margin: 0;
    padding: 0;
-   height: 2000px;
+   
    
    /* make it look decent enough */
    background: #06AADB;
