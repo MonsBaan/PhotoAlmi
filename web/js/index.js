@@ -34,17 +34,16 @@ $(document).ready(function() {
 });
 
 function check_username() {
-    //USUARIO NO REPETIDO 
+    //USUARIO NO REPETIDO
     var username = $('#user').val();
-    jQuery.ajax({
-        type: 'POST',
-        url: 'http://127.0.0.1/web/check_username.php',
-        data: 'username=' + username,
-        cache: false,
+    var password = $('#password').val();
+    var parametros = { 'nombre': username, 'contrasena': password, 'function': 'getUser' }
+    $.ajax({
+        data: parametros,
+        url: 'http://192.168.6.151/web/php/ajax.php',
+        type: 'post',
         success: function(response) {
-            if (response != 0) {
-                estado = 0
-            }
+            console.log("HA FUNCIONAO");
         }
     });
 
