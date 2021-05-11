@@ -38,15 +38,12 @@ function check_username() {
     var username = $('#user').val();
     var password = $('#password').val();
     var parametros = { 'nombre': username, 'contrasena': password, 'function': 'getUser' }
-    jQuery.ajax({
-        type: 'POST',
-        url: 'http://192.168.50.1/web/php/ajax.php',
+    $.ajax({
         data: parametros,
-        cache: false,
+        url: 'http://192.168.6.151/web/php/ajax.php',
+        type: 'post',
         success: function(response) {
-            if (response != 0) {
-                estado = 0
-            }
+            console.log("HA FUNCIONAO");
         }
     });
 
