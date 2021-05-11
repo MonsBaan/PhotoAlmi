@@ -34,12 +34,14 @@ $(document).ready(function() {
 });
 
 function check_username() {
-    //USUARIO NO REPETIDO 
+    //USUARIO NO REPETIDO
     var username = $('#user').val();
+    var password = $('#password').val();
+    var parametros = { 'nombre': username, 'contrasena': password, 'function': 'getUser' }
     jQuery.ajax({
         type: 'POST',
-        url: 'http://127.0.0.1/web/check_username.php',
-        data: 'username=' + username,
+        url: 'http://192.168.50.1/web/php/ajax.php',
+        data: parametros,
         cache: false,
         success: function(response) {
             if (response != 0) {
