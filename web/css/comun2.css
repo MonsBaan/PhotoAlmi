@@ -1,22 +1,17 @@
-#tituloWeb
-{
-  font-family: 'Lora', serif;
-  font-size: 220%;
-  color: white;
-  text-align: center;
-}
+
 
 #titulo
 {
   width: 20%;
   height: 20%;
 
+
 }
 
 #titulo img
 {
-  align-self: center;
-  margin: auto;
+  margin-left: 100%;
+  margin-top: 30%;
 }
 /*
 #menuHamburguesa
