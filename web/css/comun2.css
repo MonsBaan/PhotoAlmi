@@ -5,7 +5,6 @@
   width: 20%;
   height: 20%;
 
-
 }
 
 #titulo img
@@ -44,7 +43,7 @@
  {
    margin: 0;
    padding: 0;
-   
+   height: 900px;
    
    /* make it look decent enough */
    background: #06AADB;

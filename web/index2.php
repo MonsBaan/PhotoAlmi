@@ -13,6 +13,10 @@
   <link rel='stylesheet' type='text/css' href='css/panelUsuario.css'>
   <link rel='stylesheet' type='text/css' href='css/editarDatos.css'>
 
+  <?php
+  session_start();
+  include("datos.php");
+  ?>
 </head>
 
 <body>
@@ -25,7 +29,7 @@
     <span></span>
 
     <ul id="menu">
-      <a href="index2.html">
+      <a href="index2.php">
         <li>KalmiHoot</li>
       </a>
       <a href="#">
@@ -43,16 +47,25 @@
       <a href="#">
         <li>Prueba 5</li>
       </a>
-      <a href="#">
-        <li>Cerrar sesión</li>
-      </a>
+      <?php
+      if (isset($_SESSION["user"]) == true) {
+        echo "<p>Hola PEPE</p>";
+      }
+      else {
+        echo "<a href='index2.php'>";
+        echo "<li>Cerrar sesión</li>";
+        echo "</a>";
+      }
+      ?>
+
       <li></li>
     </ul>
   </div>
 
 
   <form id="formulario" action="modificarUsuario.php" method="post">
-    <div id="panelCentral">
+    <span class="close">&times;</span>
+    <div class="panelOculto" id="panelCentral">
       <div id="datosUsuario">
         <div id="nombreUsuario">
           <p>sdhjshd</p>
@@ -66,23 +79,24 @@
           <input type="password" id="password" name="password" placeholder="Almi123" />
 
         </div>
-      </div>      
+      </div>
 
       <div id="fotosUsuario">
         <div id="imagenUsuario">
           <img id='perfil' src='source/image/StaleMans.png'>
         </div>
         <div id="editarDatos">
-          <input type="button" id="editarDatosUsuario" value="Confirmar los cambios" />
+          <input type="button" id="confirmarDatosUsuario" value="Confirmar los cambios" />
         </div>
       </div>
     </div>
   </form>
-<div id="panelOculto">
-  <div id="panelCentral">
 
+  <div class="panelModificar" id="panelCentral">
     <div id="datosUsuario">
-      <div id="nombreUsuario"><p>sdhjshd</p></div>
+      <div id="nombreUsuario">
+        <p>sdhjshd</p>
+      </div>
       <div id="camposUsuario">
         <div id="direccionUsuario">
           <p>Dirección:</p>
@@ -98,7 +112,17 @@
         </div>
       </div>
     </div>
+    <div id="fotosUsuario">
+      <div id="imagenUsuario">
+        <img id='perfil' src='source/image/StaleMans.png'>
+      </div>
+      <div id="editarDatos">
+        <input type="button" id="editarDatosUsuario" value="Editar datos" />
+      </div>
+    </div>
   </div>
+
+
 
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/comun.js"></script>
