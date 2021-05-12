@@ -1,9 +1,21 @@
 $(document).ready(function () {
+var nombreDocumento = "0";
+
+    $(document).on('change', "input[type='file']",function(){
+        if ($(this).val()) {
+            var filename = $(this).val().split("\\");
+          nombreDocumento = filename = filename[filename.length-1];
+           $('.fileName').text(filename);
+        }
+
+     });
 
     $("#botonPregunta").click(function (event) {
 
-        var imagen = $("#file").val();
+        var imagen = $("#campoIMG").val();
+
         var pregunta = $("#question").val();
+
 
         //CONTROLAR SI SE SELECCIONA UN CHECKBOX
         var checkbox = $("#checkbox").val();
@@ -14,14 +26,8 @@ $(document).ready(function () {
         var respuesta4 = $("#ans4").val();
 
         var explicacion = $("#expl").val();
-
     
-        if(imagen, pregunta, respuesta1, respuesta2, respuesta3, respuesta4 & explicacion == null) 
-        {
-            const boton = document.querySelector('button')
 
-            button.disabled = true
-        }
 
 
         if (!window.confirm("¿Enviar pregunta?")) {
@@ -29,7 +35,15 @@ $(document).ready(function () {
         } else {
 
             //COMPROBAR SI TODOS LOS CAMPOS ESTÁN COMPLETOS
-
+            if(nombreDocumento == "0" | pregunta | respuesta1 | respuesta2 | respuesta3 | respuesta4 | explicacion == "" ) 
+            {
+                window.confirm("Rellena todos los datos, por favor")
+                event.preventDefault();
+            }
+            else
+            {
+                console.log(nombreDocumento);
+            }
             
             //AJAX ENVIO DE DATOS
 
