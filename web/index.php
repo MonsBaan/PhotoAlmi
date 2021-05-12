@@ -13,7 +13,6 @@
 </head>
 
 <body>
-    
     <?php
     echo "<div id='titulo'><img src='source/image/Kalmihoot.png'></div>";
     echo "<div id='CuadradoLogin'>";
@@ -26,7 +25,7 @@
     echo        "<br />";
     echo        "<div>";
     echo        "<input type='password' class='form-control' id='password' placeholer='Enter Paswword'>";
-    echo        "<span toggle='#password-field' class='fas fa-eye-slash field-icon toggle-password' id='eye' style='left: -11px;'></span>";
+    echo        "<span toggle='#password-field' class='fas fa-eye-slash eye toggle-password' id='eye' style='left: -12px;'></span>";
     echo        "</div>";
     echo        "<input type='submit' value='Enviar' id='Enviar' />";
     echo    "</form>";

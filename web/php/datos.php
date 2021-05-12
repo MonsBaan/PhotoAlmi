@@ -1,4 +1,5 @@
 <?php
+//----------------------------------CONEXION BBDD----------------------------------
 function conectarBD()
 {
   $mysqli = new mysqli("192.168.6.151", "phpRoot", "Almi123", "KalmihootWeb");
@@ -7,6 +8,7 @@ function conectarBD()
   }
   return $mysqli;
 }
+//----------------------------------SELECTS----------------------------------
 function getUser($username, $password)
 {
   $mysqli = conectarBD();
@@ -29,6 +31,7 @@ function getUser($username, $password)
     );
   }
   $mysqli->close();
-
   return $usuario;
 }
+//----------------------------------UPDATES----------------------------------
+//----------------------------------DELETES----------------------------------
