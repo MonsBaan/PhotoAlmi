@@ -33,8 +33,8 @@
       <a href="index2.php">
         <li>KalmiHoot</li>
       </a>
-      <a href="#">
-        <li>Prueba 1</li>
+      <a href="buscadorpreguntas.php">
+        <li>Preguntas</li>
       </a>
       <a href="#">
         <li>Prueba 2</li>
@@ -49,7 +49,7 @@
         <li>Prueba 5</li>
       </a>
       <?php
-      if (isset($_SESSION["user"]) == true) {
+      if (isset($_SESSION["id"]) == true) {
         echo "<p>Hola PEPE</p>";
       } else {
         echo "<a href='index2.php'>";
@@ -95,7 +95,7 @@
       </div>
 
       <div id="respuesta">
-       <!--<label id="checkbox3" for="check3">Respuesta correcta: </label>-->
+        <!--<label id="checkbox3" for="check3">Respuesta correcta: </label>-->
         <input type="checkbox" id="check3" name="check3" />
         <label id="campoRespuesta3" for="ans3">Respuesta 3: </label>
         <input type="text" id="ans3" name="ans3" placeholder="YO" />
@@ -110,7 +110,14 @@
       <label id="campoExplicacion" for="expl">Explicación: </label>
       <input type="text" id="expl" name="expl" placeholder="¿Quién sino?" />
 
-      <input type="button" id="botonPregunta" value="Enviar pregunta" />
+      <?php
+      if (isset($_SESSION["id"]) == false) {
+        echo "<input type='button' id='botonPregunta' value='Añadir pregunta' />";
+        echo "<input type='button' id='botonPregunta' value='Actualizar pregunta' />";
+      } else {
+        echo "<input type='button' id='botonPregunta' value='Actualizar pregunta' />";
+      }
+      ?>
     </div>
   </form>
 

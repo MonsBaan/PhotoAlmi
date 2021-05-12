@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
-  
+
   <title>KalmiHoot</title>
   <link rel="icon" href="source/image/StaleMans.png" type="image/icon type">
   <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
@@ -16,6 +16,7 @@
   <link rel='stylesheet' type='text/css' href='css/editarDatos.css'>
 
   <?php
+
   session_start();
   include("datos.php");
   ?>
@@ -34,7 +35,7 @@
       <a href="index2.php">
         <li>KalmiHoot</li>
       </a>
-      <a href="buscadorpeguntas.php">
+      <a href="buscadorpreguntas.php">
         <li>Preguntas</li>
       </a>
       <a href="#">
@@ -50,10 +51,9 @@
         <li>Prueba 5</li>
       </a>
       <?php
-      if (isset($_SESSION["user"]) == true) {
+      if (isset($_SESSION["id"]) == true) {
         echo "<p>Hola PEPE</p>";
-      }
-      else {
+      } else {
         echo "<a href='index2.php'>";
         echo "<li>Cerrar sesión</li>";
         echo "</a>";
@@ -63,7 +63,6 @@
       <li></li>
     </ul>
   </div>
-
 
   <form id="formulario" action="modificarUsuario.php" method="post">
     <span class="close">&times;</span>
@@ -123,8 +122,6 @@
       </div>
     </div>
   </div>
-
-
 
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/comun.js"></script>

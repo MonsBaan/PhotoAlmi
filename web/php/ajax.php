@@ -27,6 +27,14 @@ switch ($function) {
     echo $userJson;*/
 
     break;
+
+    case 'updateUser':
+      echo "Hola";
+      $user = updateUser($_POST['direccion'], $_POST['telefono'], $_POST['contrasena']);
+      /*$userJson = json_encode($user, JSON_UNESCAPED_UNICODE);
+      echo $userJson;*/
+  
+      break;
   default:
     echo "Funcion no Existente";
     break;

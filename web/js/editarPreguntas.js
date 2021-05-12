@@ -40,10 +40,7 @@ var nombreDocumento = "0";
                 window.confirm("Rellena todos los datos, por favor")
                 event.preventDefault();
             }
-            else
-            {
-                console.log(nombreDocumento);
-            }
+            
             
             //AJAX ENVIO DE DATOS
 

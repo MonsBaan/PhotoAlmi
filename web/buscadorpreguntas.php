@@ -33,8 +33,8 @@
             <a href="index2.php">
                 <li>KalmiHoot</li>
             </a>
-            <a href="#">
-                <li>Prueba 1</li>
+            <a href="buscadorpreguntas.php">
+                <li>Preguntas</li>
             </a>
             <a href="#">
                 <li>Prueba 2</li>
@@ -49,7 +49,7 @@
                 <li>Prueba 5</li>
             </a>
             <?php
-            if (isset($_SESSION["user"]) == true) {
+            if (isset($_SESSION["id"]) == true) {
                 echo "<p>Hola PEPE</p>";
             } else {
                 echo "<a href='index2.php'>";
@@ -95,7 +95,7 @@
                 <td>FOL</td>
                 <td>0</td>
                 <td>95</td>
- 
+
                 <td>BOTON EDITAR</td>
                 <td>BOTON ELIMINAR</td>
             </tr>
@@ -105,7 +105,7 @@
                 <td>FOL</td>
                 <td>0</td>
                 <td>95</td>
-     
+
                 <td>BOTON EDITAR</td>
                 <td>BOTON ELIMINAR</td>
             </tr>
@@ -134,9 +134,9 @@
             <?php
             include "datos.php";
 
-          //  $categorias = getCategorias();
+            //  $categorias = getCategorias();
 
-         /*   $numCategorias = sizeof($categorias);
+            /*   $numCategorias = sizeof($categorias);
             for ($i = 0; $i < $numCategorias; $i++) {
                 $juegos = juegosCategoria($categorias[$i]["id_categoria"]);
                 $numJuegos = sizeof($juegos);

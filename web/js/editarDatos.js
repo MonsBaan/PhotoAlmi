@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    var urlDB = "http://localhost/PhotoAlmi/web/php/ajax.php";
     $(".panelOculto").hide();
     $(".close").hide();
 
@@ -18,6 +18,23 @@ $(document).ready(function () {
             $(".panelOculto").hide();
             $(".panelModificar").show();
             $(".close").hide();
+                var direccionUser = $("#address").val();
+                var telefonoUser = $("#phone").val();
+                var passUser = $("#password").val();
+                var parametros = {
+                  direccion: direccionUser,
+                  telefono: telefonoUser,
+                  contrasena: passUser,
+                  function: "updateUser",
+                };
+            
+                $.ajax({
+                  data: parametros,
+                  url: urlDB,
+                  type: "post",
+                  success: function (response) {},
+                });
+              
 
             //AJAX ENVÍO DE DATOS
         }
@@ -28,6 +45,7 @@ $(document).ready(function () {
         if (window.confirm("¿Cancelar los datos modificados?")) {
             $(".panelModificar").show();
             $(".panelOculto").hide();
+            $(".close").hide();
         } else {
             event.preventDefault();
 
