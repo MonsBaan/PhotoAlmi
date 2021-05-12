@@ -34,7 +34,7 @@
       <a href="index2.php">
         <li>KalmiHoot</li>
       </a>
-      <a href="buscadorpeguntas.php">
+      <a href="buscadorpreguntas.php">
         <li>Preguntas</li>
       </a>
       <a href="#">
