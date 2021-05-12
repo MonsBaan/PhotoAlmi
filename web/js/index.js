@@ -1,6 +1,8 @@
 var estado = 1;
 $(document).ready(function () {
   console.log("Documento Listo");
+  var urlDB = "http://localhost/PhotoAlmi/web/php/ajax.php";
+
   $("#eye").click(function () {
     if ($(this).hasClass("fa-eye-slash")) {
       $(this).removeClass("fa-eye-slash");
@@ -28,7 +30,7 @@ $(document).ready(function () {
     
     $.ajax({
       data: parametros,
-      url: "http://192.168.50.28/PhotoAlmi/web/php/ajax.php",
+      url: urlDB,
       type: "post",
       success: function (response) {},
     });

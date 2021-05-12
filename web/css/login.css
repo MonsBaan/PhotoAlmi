@@ -43,7 +43,7 @@ input {
 
 input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #06AADB;
     color: white;
     padding: 14px 20px;
     
@@ -51,4 +51,7 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
     margin-top: 4%;
-  }
+}
+#titulo {
+    height: auto;
+}
