@@ -39,6 +39,10 @@ h1
     text-align: center;
   }
 
+  #respuesta
+  {
+      margin-top: 2%;
+  }
 /*
  #panelCentral > div {
    display: flex;

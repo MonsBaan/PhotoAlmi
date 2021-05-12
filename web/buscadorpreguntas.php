@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <title>KalmiHoot</title>
     <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
-    <link rel='stylesheet' type='text/css' href='css/comun2.css'>
+    <link rel='stylesheet' type='text/css' href='css/comun.css'>
     <link rel='stylesheet' type='text/css' href='css/panelUsuario.css'>
     <link rel='stylesheet' type='text/css' href='css/buscadorPreguntas.css'>
 
