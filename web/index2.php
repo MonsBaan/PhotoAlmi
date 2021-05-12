@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
   <title>KalmiHoot</title>
   <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
-  <link rel='stylesheet' type='text/css' href='css/comun2.css'>
+  <link rel='stylesheet' type='text/css' href='css/comun.css'>
   <link rel='stylesheet' type='text/css' href='css/panelUsuario.css'>
   <link rel='stylesheet' type='text/css' href='css/editarDatos.css'>
 
@@ -32,8 +32,8 @@
       <a href="index2.php">
         <li>KalmiHoot</li>
       </a>
-      <a href="#">
-        <li>Prueba 1</li>
+      <a href="buscadorpeguntas.php">
+        <li>Preguntas</li>
       </a>
       <a href="#">
         <li>Prueba 2</li>

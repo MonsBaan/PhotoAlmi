@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <title>KalmiHoot</title>
     <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
-    <link rel='stylesheet' type='text/css' href='css/comun2.css'>
+    <link rel='stylesheet' type='text/css' href='css/comun.css'>
     <link rel='stylesheet' type='text/css' href='css/panelUsuario.css'>
     <link rel='stylesheet' type='text/css' href='css/buscadorPreguntas.css'>
 
     <?php
     session_start();
-    include("datos.php");
+    include("php/datos.php");
     ?>
 </head>
 
@@ -83,20 +83,56 @@
                 <th>CATEGORIA</th>
                 <th>FALLOS</th>
                 <th>ACIERTOS</th>
-                <th></th>
-                <th COLSPAN=2>CREAR</th>
-            <tr >
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-                <td>EDITAR</td>
-                <td>ELIMINAR</td>
+
+                <th>EDITAR</th>
+                <th>ELIMINAR</th>
             </tr>
+
+            <tr>
+                <td>000000002</td>
+                <td>¿Quién no jugaría un buen KALMIHOOT?</td>
+                <td>FOL</td>
+                <td>0</td>
+                <td>95</td>
+ 
+                <td>BOTON EDITAR</td>
+                <td>BOTON ELIMINAR</td>
             </tr>
+            <tr>
+                <td>000000002</td>
+                <td>¿Quién no jugaría un buen KALMIHOOT?</td>
+                <td>FOL</td>
+                <td>0</td>
+                <td>95</td>
+     
+                <td>BOTON EDITAR</td>
+                <td>BOTON ELIMINAR</td>
+            </tr>
+            <tr>
+                <td>000000002</td>
+                <td>¿Quién no jugaría un buen KALMIHOOT?</td>
+                <td>FOL</td>
+                <td>0</td>
+                <td>95</td>
+
+                <td>BOTON EDITAR</td>
+                <td>BOTON ELIMINAR</td>
+            </tr>
+
+            <tr>
+                <td>000000002</td>
+                <td>¿Quién no jugaría un uen KALMIHOOT?</td>
+                <td>FOL</td>
+                <td>0</td>
+                <td>95</td>
+
+                <td>OTON EDITAR</td>
+                <td>OTON ELIMINAR</td>
+            </tr>
+
             <?php
             include "datos.php";
+
           //  $categorias = getCategorias();
 
          /*   $numCategorias = sizeof($categorias);

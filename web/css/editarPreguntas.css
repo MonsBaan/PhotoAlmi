@@ -1,0 +1,58 @@
+h1
+{
+  color: #f8f8f8;
+  font-family: 'Lora', serif;
+}
+
+ #panelCentral
+{
+  text-align: center;
+   display: flex;
+   margin: 10%;
+   height: auto;
+   top: 40%;
+   left: 25%;
+   background: #364278;
+   flex-flow: column;
+   border-radius: 1rem;
+   padding: 2%;
+   margin-left: 20%;
+   margin-right: 20%;
+ }
+
+ #panelCentral label
+ {
+  margin-top: 3%;
+ }
+
+ #botonPregunta 
+  {
+    margin-top: 5%;
+  }
+  #expl
+  {
+    height: 70px;
+  }
+
+  #img
+  {
+    text-align: center;
+  }
+
+  #respuesta
+  {
+      margin-top: 2%;
+  }
+/*
+ #panelCentral > div {
+   display: flex;
+   flex-flow: column;
+    flex: 2;
+
+ }
+ #panelCentral > div:last-child {
+
+   flex: 1;  
+   background-color: #2D143F;
+ }
+*/

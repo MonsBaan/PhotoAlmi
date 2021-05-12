@@ -18,6 +18,8 @@ $(document).ready(function () {
             $(".panelOculto").hide();
             $(".panelModificar").show();
             $(".close").hide();
+
+            //AJAX ENVÍO DE DATOS
         }
 
     });
