@@ -8,12 +8,13 @@
     <link rel='stylesheet' type='text/css' href='css/login.css'>
     <link rel='stylesheet' type='text/css' href='css/comun.css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
     <div id='CuadradoLogin'>
-        <form id='FormularioLogin'>
+        <form id='FormularioLogin' action='index2.html'>
             <label for='user'>User</label>
             <br />
             <input id='user' type='text' placeholder='Enter User' />
@@ -22,17 +23,12 @@
             <br />
             <div>
                 <input type='password' maxlength='25' class='form-control' id='password' placeholer='Enter Paswword'>
-                <span toggle='#password-field' class='fa fa-fw fa-eye field-icon toggle-password' id='eye'></span>
+                <span toggle='#password-field' class='fas fa-eye-slash field-icon toggle-password' id='eye' style="left: -6px;"></span>
             </div>
             <input type='submit' value='Enviar' id='Enviar' />
-            <br />
-            <div id="mensajeError">
-                <p>Mensaje Error</p>
-            </div>
         </form>
     </div>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/index.js"></script>
 </body>
-
 </html>

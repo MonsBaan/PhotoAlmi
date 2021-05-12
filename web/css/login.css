@@ -5,7 +5,7 @@ body {
 }
 
 #CuadradoLogin {
-    background-color: #2B75AE;
+    background-color: #364278;
     padding: 6%;
     text-align: center;
     border-radius: 15px 50px;
@@ -26,4 +26,8 @@ body {
     margin-top: 3%;
     position: relative;
     z-index: 2;
+}
+#FormularioLogin label{
+    color: white;
+    font-family: 'Lora', serif;
 }
