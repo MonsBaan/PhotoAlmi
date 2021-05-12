@@ -1,54 +1,61 @@
+/*----------------------------------FONDOS----------------------------------*/
 body {
   display: flex;
+  flex-flow: column;
   justify-content: center;
-  margin-top: 10%;
-  background-color: #06AADB;
-
+  margin-top: 5%;
+  margin-left: 35%;
+  margin-right: 35%;
+  background-color: #06aadb;
 }
-
 #CuadradoLogin {
   background-color: #364278;
-  padding: 4%;
+  margin-top: 15%;
+  padding: 8%;
   text-align: center;
   border-radius: 15px 50px;
-  padding-top: 1.5%;
-  padding-bottom: 1.5%;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
 }
-
 #FormularioLogin {
   text-align: initial;
 }
-
-.field-icon {
+/*----------------------------------OBJETOS----------------------------------*/
+/*IMAGEN OJO*/
+.eye {
   float: right;
   margin-left: -25px;
-  margin-top: 8%;
+  margin-top: 6%;
   position: relative;
   z-index: 2;
 }
+/*LABELS*/
 #FormularioLogin label {
   color: white;
   font-family: "Lora", serif;
 }
+/*TITULO IMG*/
+#titulo {
+  justify-content: center;
+}
 
+/*----------------------------------INPUTS----------------------------------*/
 input {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    box-sizing: border-box;
-  }
-
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 4%;
-  }
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+input[type="submit"] {
+  width: 100%;
+  background-color: #06aadb;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 4%;
+}

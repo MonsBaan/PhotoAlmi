@@ -21,11 +21,13 @@ include './datos.php';
 
 switch ($function) {
   case 'getUser':
-    $user = getUser($_POST['nombre'],$_POST['contrasena']);
+    echo "Hola";
+    $user = getUser($_POST['nombre'], $_POST['contrasena']);
     /*$userJson = json_encode($user, JSON_UNESCAPED_UNICODE);
     echo $userJson;*/
+
     break;
   default:
-    echo "2Funcion no Existente";
+    echo "Funcion no Existente";
     break;
 }
