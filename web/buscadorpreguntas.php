@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <title>KalmiHoot</title>
+    <link rel="icon" href="source/image/StaleMans.png" type="image/icon type">
     <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
     <link rel='stylesheet' type='text/css' href='css/comun.css'>
     <link rel='stylesheet' type='text/css' href='css/panelUsuario.css'>
