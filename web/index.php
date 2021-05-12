@@ -30,7 +30,6 @@
     echo        "<input type='submit' value='Enviar' id='Enviar' />";
     echo    "</form>";
     echo "</div>";
-    echo "<h1>Borrame</h1>";
     ?>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/index.js"></script>
