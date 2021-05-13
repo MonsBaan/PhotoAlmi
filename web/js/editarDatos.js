@@ -18,23 +18,23 @@ $(document).ready(function () {
             $(".panelOculto").hide();
             $(".panelModificar").show();
             $(".close").hide();
-                var direccionUser = $("#address").val();
-                var telefonoUser = $("#phone").val();
-                var passUser = $("#password").val();
-                var parametros = {
-                  direccion: direccionUser,
-                  telefono: telefonoUser,
-                  contrasena: passUser,
-                  function: "updateUser",
-                };
-            
-                $.ajax({
-                  data: parametros,
-                  url: urlDB,
-                  type: "post",
-                  success: function (response) {},
-                });
-              
+            var direccionUser = $("#address").val();
+            var telefonoUser = $("#phone").val();
+            var passUser = $("#password").val();
+            var parametros = {
+                direccion: direccionUser,
+                telefono: telefonoUser,
+                contrasena: passUser,
+                function: "updateUser",
+            };
+
+            $.ajax({
+                data: parametros,
+                url: urlDB,
+                type: "post",
+                success: function (response) { },
+            });
+
 
             //AJAX ENVÍO DE DATOS
         }
@@ -46,10 +46,36 @@ $(document).ready(function () {
             $(".panelModificar").show();
             $(".panelOculto").hide();
             $(".close").hide();
+
+
         } else {
             event.preventDefault();
 
         }
     });
 
+    $.ajax({
+
+        contentType: "application/json",
+        url: 'http://192.168.6.195:8080/kalmihootApi',
+
+        type: 'post',
+        dataType: 'json',
+        success: function (data) {
+            //let preguntas = JSON.stringify(data);
+            //console.log(data);
+        },
+
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.status);
+        },
+
+
+
+    });
+    /*$.get( "http://192.168.6.195:8080/kalmihootApi/preguntas", function( data )
+    {
+        let preguntas = JSON.stringify(data);
+            console.log(preguntas)
+    });*/
 });

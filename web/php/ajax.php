@@ -19,6 +19,7 @@ $function = $_POST['function'];
 include './datos.php';
 
 
+
 switch ($function) {
   case 'getUser':
     echo "Hola";
@@ -35,6 +36,9 @@ switch ($function) {
       echo $userJson;*/
   
       break;
+      case 'kalmihootApi':
+        echo "hola";
+        $datos='http://192.168.6.195:8080/kalmihootApi/preguntas';
   default:
     echo "Funcion no Existente";
     break;
