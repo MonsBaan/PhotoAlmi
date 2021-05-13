@@ -1,22 +1,25 @@
 $(document).ready(function () {
   console.log("Documento Listo");
-  var urlDB = "http://localhost/PhotoAlmi/web/php/ajax.php";
+  var urlDB = "http://192.168.6.151/PhotoAlmi/web/php/ajax.php";
   //----------------------------------AJAX----------------------------------
   //FUNCION DE LOGIN
   $("#FormularioLogin").submit(function (event) {
+    event.preventDefault();
     var nombreUser = $("#user").val();
     var passUser = $("#password").val();
     var parametros = {
-      nombre: nombreUser,
-      contrasena: passUser,
-      function: "getUser",
+      "nombre": nombreUser,
+      "contrasena": passUser,
+      "function": "getUser",
     };
 
     $.ajax({
       data: parametros,
       url: urlDB,
       type: "post",
-      success: function (response) {},
+      success: function (response) {
+
+      },
     });
   });
 
