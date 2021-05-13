@@ -10,7 +10,7 @@
 
   <title>KalmiHoot</title>
   <link rel="icon" href="source/image/StaleMans.png" type="image/icon type">
-  <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
+  <div id='titulo'><a href='index2.php'><img src='source/image/Kalmihoot.png'></a></div>
   <link rel='stylesheet' type='text/css' href='css/comun.css'>
   <link rel='stylesheet' type='text/css' href='css/panelUsuario.css'>
   <link rel='stylesheet' type='text/css' href='css/editarDatos.css'>

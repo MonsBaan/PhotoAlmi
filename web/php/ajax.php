@@ -19,12 +19,11 @@ $function = $_POST['function'];
 include './datos.php';
 
 
-
 switch ($function) {
   case 'getUser':
     $user = getUser($_POST['nombre'], $_POST['contrasena']);
-    //$userJson = json_encode($user, JSON_UNESCAPED_UNICODE);
-    //echo $userJson;
+    $userJson = json_encode($user, JSON_UNESCAPED_UNICODE);
+    echo $userJson;
 
     break;
 

@@ -2,7 +2,7 @@
 //----------------------------------CONEXION BBDD----------------------------------
 function conectarBD()
 {
-  $mysqli = new mysqli("192.168.6.151", "phpRoot", "Almi123", "KalmihootWeb");
+  $mysqli = new mysqli("192.168.6.160", "phpRoot", "Almi123", "KalmihootWeb");
   if ($mysqli->connect_errno) {
     echo "Fallo en la conexion: " . $mysqli->connect_errno;
   }
@@ -14,11 +14,11 @@ function getUser($username, $password)
   $mysqli = conectarBD();
   $sql = "SELECT nombre, apellido1, apellido2, direccion, telefono, contrasena, puesto FROM trabajadores WHERE nombre = ? AND contrasena = ?";
   $sentencia = $mysqli->prepare($sql);
-  //if (!$sentencia) { echo "Fallo en la preparación de la sentencia " . $mysqli->errno;}
+  if (!$sentencia) { echo "Fallo en la preparación de la sentencia " . $mysqli->errno;}
   $asignar = $sentencia->bind_param("ss", $username, $password);
-  //if (!$asignar) { echo "Fallo al asignar parámetros: " . $mysqli->errno;}
+  if (!$asignar) { echo "Fallo al asignar parámetros: " . $mysqli->errno;}
   $ejecucion = $sentencia->execute();
-  //if (!$ejecucion) { echo "Fallo en la ejecución: " . $mysqli->errno;}
+  if (!$ejecucion) { echo "Fallo en la ejecución: " . $mysqli->errno;}
   $nombre = "";
   $apellido1 = "";
   $apellido2 = "";
@@ -27,7 +27,7 @@ function getUser($username, $password)
   $contrasena = "";
   $puesto = -1;
   $vincular = $sentencia->bind_result($nombre, $apellido1, $apellido2, $direccion, $telefono, $contrasena, $puesto);
-  //if (!$vincular) { echo "Fallo al asociar parametros: " . $mysqli->errno;}
+  if (!$vincular) { echo "Fallo al asociar parametros: " . $mysqli->errno;}
 
   if ($sentencia->fetch()) {
     $usuario = array(
@@ -47,6 +47,12 @@ function getUser($username, $password)
 
 
 /* MONGODB
+
+MOSTRAR
+
+BORRAR
+
+
 function añadirPregunta()
 {
   $mysqli = conectarBD();
