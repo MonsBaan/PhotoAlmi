@@ -67,7 +67,7 @@
     <div id="cuerpo">
 
         <div id="elementosFiltro">
-            <label for="filtro">Introducir búsqueda</label>
+            <label id="introFiltro" for="filtro">Introducir búsqueda</label>
             <input type="text" id="filtro" name="filtro" />
             <select id="categorias">
                 <option value="FOL">FOL</option>
