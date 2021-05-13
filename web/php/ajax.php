@@ -18,10 +18,9 @@ header('Content-Type: application/JSON');
 $function = $_POST['function'];
 include './datos.php';
 
-
 switch ($function) {
-  case 'getUser':
-    $user = getUser($_POST['nombre'], $_POST['contrasena']);
+  case 'loginUser':
+    $user = loginUser($_POST['nombre'], $_POST['contrasena']);
     $userJson = json_encode($user, JSON_UNESCAPED_UNICODE);
     echo $userJson;
 
@@ -36,6 +35,6 @@ switch ($function) {
       break;
 
   default:
-    echo "Funcion no Existente";
+    echo "Funcion: ".$function." no Existente";
     break;
 }

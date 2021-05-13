@@ -9,14 +9,37 @@ function conectarBD()
   return $mysqli;
 }
 //----------------------------------SELECTS----------------------------------
-function getUser($username, $password)
+function loginUser($username, $password){
+  $mysqli = conectarBD();
+  $sql = "SELECT nombre FROM trabajadores WHERE nombre = ? AND contrasena = ?";
+  $sentencia = $mysqli->prepare($sql);
+  if (!$sentencia) { echo "loginUser fallo en la preparación de la sentencia " . $mysqli->errno;}
+  $vincular = $sentencia->bind_param("ss", $username, $password);
+  if (!$vincular) { echo "loginUser fallo asociando parametros " . $mysqli->errno;}
+
+  $ejecucion = $sentencia->execute();
+  if (!$ejecucion) { echo "loginUser fallo en la ejecución: " . $mysqli->errno;}
+  $nombre = "";
+  $vincular = $sentencia->bind_result($nombre);
+  if (!$vincular) { echo "loginUser fallo al asociar parametros: " . $mysqli->errno;}
+  if ($sentencia->fetch()) {
+    $usuario = array(
+      "nombre"=> $nombre
+    );
+  };
+
+  return $usuario;
+
+}
+
+
+
+function getUser()
 {
   $mysqli = conectarBD();
-  $sql = "SELECT nombre, apellido1, apellido2, direccion, telefono, contrasena, puesto FROM trabajadores WHERE nombre = ? AND contrasena = ?";
+  $sql = "SELECT nombre, apellido1, apellido2, direccion, telefono, contrasena, puesto FROM trabajadores";
   $sentencia = $mysqli->prepare($sql);
   if (!$sentencia) { echo "Fallo en la preparación de la sentencia " . $mysqli->errno;}
-  $asignar = $sentencia->bind_param("ss", $username, $password);
-  if (!$asignar) { echo "Fallo al asignar parámetros: " . $mysqli->errno;}
   $ejecucion = $sentencia->execute();
   if (!$ejecucion) { echo "Fallo en la ejecución: " . $mysqli->errno;}
   $nombre = "";

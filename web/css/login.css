@@ -20,6 +20,10 @@ body {
 #FormularioLogin {
   text-align: initial;
 }
+*{
+  font-family: "Lora", serif;
+  font-weight: bold;
+}
 /*----------------------------------OBJETOS----------------------------------*/
 /*IMAGEN OJO*/
 .eye {
@@ -32,7 +36,6 @@ body {
 /*LABELS*/
 #FormularioLogin label {
   color: white;
-  font-family: "Lora", serif;
   font-weight: bold;
   font-size: 150%;
 }
@@ -61,4 +64,15 @@ input {
   border-radius: 4px;
   cursor: pointer;
   margin-top: 4%;
+}
+
+/*----------------------------------ERROR----------------------------------*/
+#error{
+  
+  color: white;
+  font-size: 130%;
+  background-color: #6570a2;
+  border-radius: 11px;
+  margin: 5px;
+  display: none;
 }

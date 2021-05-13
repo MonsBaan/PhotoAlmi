@@ -13,24 +13,23 @@
 </head>
 
 <body>
-    <?php
-    echo "<div id='titulo'><img src='source/image/Kalmihoot.png'></div>";
-    echo "<div id='CuadradoLogin'>";
-    echo    "<form id='FormularioLogin'>";
-    echo        "<label for='user'>User</label>";
-    echo        "<br />";
-    echo        "<input id='user' type='text' placeholder='Enter User' />";
-    echo        "<br />";
-    echo        "<label for='password'>Password</label>";
-    echo        "<br />";
-    echo        "<div>";
-    echo        "<input type='password' class='form-control' id='password' placeholer='Enter Paswword'>";
-    echo        "<span toggle='#password-field' class='fas fa-eye-slash eye toggle-password' id='eye' style='left: -12px;'></span>";
-    echo        "</div>";
-    echo        "<input type='submit' value='Enviar' id='Enviar' />";
-    echo    "</form>";
-    echo "</div>";
-    ?>
+    <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
+    <div id='CuadradoLogin'>
+        <div id="error">Usuario y/o Contraseña No Validos</div>
+        <form id='FormularioLogin' action='index.php'>
+            <label for='user'>User</label>
+            <br />
+            <input id='user' type='text' placeholder='Enter User' />
+            <br />
+            <label for='password'>Password</label>
+            <br />
+            <div>
+                <input type='password' class='form-control' id='password' placeholer='Enter Paswword'>
+                <span toggle='#password-field' class='fas fa-eye-slash eye toggle-password' id='eye' style='left: -12px;'></span>
+            </div>
+            <input type='submit' value='Enviar' id='Enviar' />
+        </form>
+    </div>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/login.js"></script>
 </body>
