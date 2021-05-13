@@ -1,25 +1,25 @@
-#cuerpo
-{
+#cuerpo {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 6%;
 }
 
-#tablaPreguntas
-{
+#tablaPreguntas {
     text-align: center;
-    margin:auto;
+    margin: auto;
 }
 
-#tablaPreguntas th
-{
-color: #2D143F;
+#tablaPreguntas th {
+    color: #2D143F;
 }
 
-#tablaPreguntas td
-{
+#tablaPreguntas td {
     border-color: #364278;
-border-width: 1px;
-background: #364278;
-padding: 5px;
+    border-width: 1px;
+    background: #364278;
+    padding: 5px;
 }
 
+#introFiltro {
+    background-color: #364278;
+    font-size: 108%;
+}
