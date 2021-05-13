@@ -67,24 +67,24 @@
     <span class="close">&times;</span>
     <div class="panelOculto" id="panelCentral">
       <div id="datosUsuario">
-        <div id="nombreUsuario">
-          <p>sdhjshd</p>
-        </div>
-        <div id="camposUsuario">
-          <label id="direccionUsuario" for="address">Dirección: </label>
-          <input type="text" id="address" name="address" placeholder="Calle del Amodsdasdasdasdasr" />
-          <label id="telefonoUsuario" for="phone">Teléfono: </label>
-          <input type="text" id="phone" name="phone" placeholder="6969696969" />
-          <label id="contraseniaUsuario" for="password">Contraseña:</label>
-          <input type="password" id="password" name="password" placeholder="Almi123" />
-
-        </div>
-      </div>
-
-      <div id="fotosUsuario">
-        <div id="imagenUsuario">
-          <img id='perfil' src='source/image/StaleMans.png'>
-        </div>
+        <?php
+        echo "<div id='nombreUsuario'>";
+        echo   "<p>sdhjshd</p>";
+        echo "</div>";
+        echo  "<div id='camposUsuario'>";
+        echo   "<label id='direccionUsuario' for='address'>Dirección: </label>";
+        echo   "<input type='text' id='address' name='address' placeholder='Calle del Amodsdasdasdasdasr' />";
+        echo   "<label id='telefonoUsuario' for='phone'>Teléfono: </label>";
+        echo   "<input type='text' id='phone' name='phone' placeholder='6969696969' />";
+        echo   "<label id='contraseniaUsuario' for='password'>Contraseña:</label>";
+        echo   "<input type='password' id='password' name='password' placeholder='Almi123' />";
+        echo  "</div>";
+        echo "</div>";
+        echo  "<div id='fotosUsuario'>";
+        echo   "<div id='imagenUsuario'>";
+        echo      "<img id='perfil' src='source/image/StaleMans.png'>";
+        echo   "</div>";
+        ?>
         <div id="editarDatos">
           <input type="button" id="confirmarDatosUsuario" value="Confirmar los cambios" />
         </div>
@@ -123,7 +123,7 @@
   </div>
 
   <script src="js/jquery-3.6.0.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/comun.js"></script>
   <script src="js/editarDatos.js"></script>
 </body>
