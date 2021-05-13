@@ -37,6 +37,7 @@ body {
 /*TITULO IMG*/
 #titulo {
   justify-content: center;
+  display: flex;
 }
 
 /*----------------------------------INPUTS----------------------------------*/
