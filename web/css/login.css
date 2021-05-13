@@ -15,7 +15,7 @@ body {
   text-align: center;
   border-radius: 15px 50px;
   padding-top: 2.5%;
-  padding-bottom: 2.5%;
+  padding-bottom: 3.5%;
 }
 #FormularioLogin {
   text-align: initial;
@@ -33,6 +33,8 @@ body {
 #FormularioLogin label {
   color: white;
   font-family: "Lora", serif;
+  font-weight: bold;
+  font-size: 150%;
 }
 /*TITULO IMG*/
 #titulo {
