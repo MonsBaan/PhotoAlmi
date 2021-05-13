@@ -54,12 +54,13 @@ $(document).ready(function () {
         }
     });
 
+    /*
     $.ajax({
 
         contentType: "application/json",
-        url: 'http://192.168.6.195:8080/kalmihootApi',
+        url: 'http://192.168.6.195:8080/kalmihootApi/preguntas',
 
-        type: 'post',
+        type: 'get',
         dataType: 'json',
         success: function (data) {
             //let preguntas = JSON.stringify(data);
@@ -73,9 +74,5 @@ $(document).ready(function () {
 
 
     });
-    /*$.get( "http://192.168.6.195:8080/kalmihootApi/preguntas", function( data )
-    {
-        let preguntas = JSON.stringify(data);
-            console.log(preguntas)
-    });*/
+*/
 });
