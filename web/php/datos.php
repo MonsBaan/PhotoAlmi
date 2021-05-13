@@ -12,7 +12,7 @@ function conectarBD()
 function getUser($username, $password)
 {
   $mysqli = conectarBD();
-  $sql = "SELECT nombre, apellido1, apellido2, direccion, telefono, contrasena FROM trabajadores WHERE nombre = ? AND contrasena = ?";
+  $sql = "SELECT nombre, apellido1, apellido2, direccion, telefono, contrasena, puesto FROM trabajadores WHERE nombre = ? AND contrasena = ?";
   $sentencia = $mysqli->prepare($sql);
   //if (!$sentencia) { echo "Fallo en la preparación de la sentencia " . $mysqli->errno;}
   $asignar = $sentencia->bind_param("ss", $username, $password);
@@ -25,7 +25,8 @@ function getUser($username, $password)
   $direccion = "";
   $telefono = -1;
   $contrasena = "";
-  $vincular = $sentencia->bind_result($nombre, $apellido1, $apellido2, $direccion, $telefono, $contrasena);
+  $puesto = -1;
+  $vincular = $sentencia->bind_result($nombre, $apellido1, $apellido2, $direccion, $telefono, $contrasena, $puesto);
   //if (!$vincular) { echo "Fallo al asociar parametros: " . $mysqli->errno;}
 
   if ($sentencia->fetch()) {
@@ -35,7 +36,8 @@ function getUser($username, $password)
       "apellido2" => $apellido2,
       "direccion" => $direccion,
       "telefono" => $telefono,
-      "password" => $contrasena
+      "password" => $contrasena,
+      "puesto" => $puesto
     );
   }
   $mysqli->close();
@@ -82,15 +84,15 @@ function actualizarPregunta()
 
 //----------------------------------UPDATES----------------------------------
 
-function updateUser($id)
+function updateUser($nombre)
 {
   $mysqli = conectarBD();
-  $sql = "UPDATE direccion, telefono, contrasena FROM trabajadores WHERE id = ?";
+  $sql = "UPDATE direccion, telefono, contrasena FROM trabajadores WHERE nombre = ?";
   $sentencia = $mysqli->prepare($sql);
   if (!$sentencia) {
     echo "Fallo en la preparación de la sentencia " . $mysqli->errno;
   }
-  $asignar = $sentencia->bind_param("i", $id);
+  $asignar = $sentencia->bind_param("s", $nombre);
   if (!$asignar) {
     echo "Fallo al asignar parámetros: " . $mysqli->errno;
   }
