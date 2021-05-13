@@ -30,7 +30,7 @@
         <span></span>
 
         <ul id="menu">
-            <a href="index2.php">
+            <a href="index.php">
                 <li>KalmiHoot</li>
             </a>
             <a href="buscadorpreguntas.php">

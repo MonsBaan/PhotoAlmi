@@ -19,8 +19,8 @@ $function = $_POST['function'];
 include './datos.php';
 
 switch ($function) {
-  case 'loginUser':
-    $user = loginUser($_POST['nombre'], $_POST['contrasena']);
+  case 'loginAjax':
+    $user = loginAjax($_POST['nombre'], $_POST['contrasena']);
     $userJson = json_encode($user, JSON_UNESCAPED_UNICODE);
     echo $userJson;
 

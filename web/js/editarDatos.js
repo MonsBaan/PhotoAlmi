@@ -1,17 +1,18 @@
-$(document).ready(function () {
+$(document).ready(function() {
     var urlDB = "http://localhost/PhotoAlmi/web/php/ajax.php";
     $(".panelOculto").hide();
     $(".close").hide();
 
 
-    $("#editarDatosUsuario").click(function () {
+    $("#editarDatosUsuario").click(function() {
         $(".panelModificar").hide();
         $(".panelOculto").show();
         $(".close").show();
 
     });
 
-    $("#confirmarDatosUsuario").click(function (event) {
+
+    $("#confirmarDatosUsuario").click(function(event) {
         if (!window.confirm("¿Guardar los datos modificados?")) {
             event.preventDefault();
         } else {
@@ -32,7 +33,7 @@ $(document).ready(function () {
                 data: parametros,
                 url: urlDB,
                 type: "post",
-                success: function (response) { },
+                success: function(response) {},
             });
 
 
@@ -41,7 +42,7 @@ $(document).ready(function () {
 
     });
 
-    $(".close").click(function (event) {
+    $(".close").click(function(event) {
         if (window.confirm("¿Cancelar los datos modificados?")) {
             $(".panelModificar").show();
             $(".panelOculto").hide();

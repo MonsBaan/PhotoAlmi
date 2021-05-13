@@ -52,7 +52,7 @@
       if (isset($_SESSION["id"]) == true) {
         echo "<p>Hola PEPE</p>";
       } else {
-        echo "<a href='index2.php'>";
+        echo "<a href='index.php'>";
         echo "<li>Cerrar sesión</li>";
         echo "</a>";
       }

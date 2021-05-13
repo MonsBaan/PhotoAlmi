@@ -16,15 +16,12 @@
     <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
     <div id='CuadradoLogin'>
         <div id="error">Usuario y/o Contraseña No Validos</div>
-        <form id='FormularioLogin' action='index.php'>
-            <label for='user'>User</label>
-            <br />
-            <input id='user' type='text' placeholder='Enter User' />
-            <br />
-            <label for='password'>Password</label>
-            <br />
+        <form id='FormularioLogin' action='php/loginUser.php' method="post">
+            <label for='user'>User</label><br/>
+            <input id='user' type='text' placeholder='Enter User' name= 'user'/><br/>
+            <label for='password'>Password</label><br/>
             <div>
-                <input type='password' class='form-control' id='password' placeholer='Enter Paswword'>
+                <input type='password' class='form-control' id='password' placeholer='Enter Paswword' name= 'password'>
                 <span toggle='#password-field' class='fas fa-eye-slash eye toggle-password' id='eye' style='left: -12px;'></span>
             </div>
             <input type='submit' value='Enviar' id='Enviar' />
