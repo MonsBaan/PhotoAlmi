@@ -35,21 +35,24 @@ Puestos
 Mongo: 2 Colecciones
     Pregunta:  
     {
-        Imagen: File,
-        Pregunta: String,
-        Categoria: String,
-        Respuestas: 
-        [{
+    	Categoria: String,
+	Preguntas:
+	[
+		Imagen: File,
+        	Pregunta: String,
+        	Respuestas: 
+        	[{
                      respuesta: String,
                      correcta: boolean
-        },
-        {
+        	},
+        	{
                      respuesta: String,
                      correcta: boolean
-        }],
-        Correccion: String,
-        NumAciertos: Number,
-        NumFallos: Number
+        	}],
+        	Correccion: String,
+        	NumAciertos: Number,
+        	NumFallos: Number
+	]
    }
                
    Puntuaciones: 
