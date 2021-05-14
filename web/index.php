@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<?php
+session_start();
+include("datos.php");
+
+if (isset($_SESSION["pos"]) == false) {
+  header("location: login.php");
+} else {
+?>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,10 +28,6 @@
   <link rel='stylesheet' type='text/css' href='css/panelUsuario.css'>
   <link rel='stylesheet' type='text/css' href='css/editarDatos.css'>
 
-  <?php
-  session_start();
-  include("datos.php");
-  ?>
 </head>
 
 <body>
@@ -57,11 +62,10 @@
 
       <?php
       if (isset($_SESSION["name"]) == true) {
-        echo "<li id = 'liName'>".$_SESSION["name"]."</li>";
+        echo "<li id = 'liName'>" . $_SESSION["name"] . "</li>";
         echo "<a href='php/cerrarUser.php'>";
         echo "<li>Cerrar Session</li>";
         echo "</a>";
-
       } else {
         echo "No hay sesion";
       }
@@ -119,21 +123,21 @@
         <p><?php echo $_SESSION['name'] . " " . $_SESSION['sur1'] . " " . $_SESSION['sur2']; ?></p>
       </div>
       <div id="camposUsuario">
-      <div id="dniUsuario">
+        <div id="dniUsuario">
           <p>DNI: </p>
           <p id="dniMostrar"><?php echo $_SESSION['dni'] ?></p>
         </div>
         <div id="direccionUsuario">
           <p>Dirección: </p>
-          <p id ="addressMostrar"><?php echo $_SESSION['dir']; ?></p>
+          <p id="addressMostrar"><?php echo $_SESSION['dir']; ?></p>
         </div>
         <div id="telefonoUsuario">
           <p>Teléfono:</p>
-          <p id = "phoneMostrar"><?php echo $_SESSION['tlf']; ?></p>
+          <p id="phoneMostrar"><?php echo $_SESSION['tlf']; ?></p>
         </div>
         <div id="puestoUsuario">
           <p>Puesto: </p>
-          <p id ="posMostrar"><?php echo $_SESSION['pos'] ?></p>
+          <p id="posMostrar"><?php echo $_SESSION['pos'] ?></p>
         </div>
       </div>
     </div>
@@ -153,5 +157,8 @@
   <script src="js/comun.js"></script>
 
 </body>
+<?php
+}
+?>
 
 </html>

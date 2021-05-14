@@ -124,18 +124,18 @@ function actualizarPregunta()
 
 //----------------------------------UPDATES----------------------------------
 
-function updateUser($nombre, $direccion, $telefono, $contrasena)
+function updateUser($id, $direccion, $telefono, $contrasena)
 {
 
   var_dump($direccion);
 
   $mysqli = conectarBD();
-  $sql = "UPDATE trabajadores SET direccion = ?, telefono = ?, contrasena = ? WHERE nombre = ?";
+  $sql = "UPDATE trabajadores SET direccion = ?, telefono = ?, contrasena = ? WHERE id_trabajador = ?";
   $sentencia = $mysqli->prepare($sql);
   if (!$sentencia) {
     echo "Fallo en la preparación de la sentencia " . $mysqli->errno;
   }
-  $asignar = $sentencia->bind_param("siss", $direccion, $telefono, $contrasena, $nombre);
+  $asignar = $sentencia->bind_param("sisi", $direccion, $telefono, $contrasena, $id);
   if (!$asignar) {
     echo "Fallo al asignar parámetros: " . $mysqli->errno;
   }
