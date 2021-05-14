@@ -30,7 +30,7 @@ switch ($function) {
     echo $_POST['nombre'];
     $user = updateUser($_POST['nombre'], $_POST['direccion'], $_POST['telefono'], $_POST['contrasena']);
     if ($user == 1) {
-      
+
       if ($_POST["dirreccion"] = "") {
         $_POST['direccion'] = $_SESSION["dir"];
       } else {
@@ -50,7 +50,8 @@ switch ($function) {
       }
     }
     break;
-
+  case 'PreguntasAjax':
+    break;
   default:
     echo "Funcion: " . $function . " no existente";
     break;

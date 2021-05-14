@@ -7,11 +7,10 @@ $(document).ready(function() {
     $("#FormularioLogin").submit(function(event) {
         var nombreUser = $("#user").val();
         var passUser = $("#password").val();
-
         var parametros = {
             "nombre": nombreUser,
             "contrasena": passUser,
-            "function": "loginAjax",
+            "function": "loginAjax"
         };
         event.preventDefault();
         $.ajax({
