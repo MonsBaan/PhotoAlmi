@@ -55,13 +55,6 @@ $(document).ready(function() {
         } else {
             event.preventDefault();
 
-
-
-
-
-
-
-
         }
 
     });
@@ -88,6 +81,7 @@ $(document).ready(function() {
         type: 'get',
         dataType: 'json',
         success: function(data) {
+            console.log(data);
             //let preguntas = JSON.stringify(data);
             //console.log(data);
         },
