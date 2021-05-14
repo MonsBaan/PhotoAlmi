@@ -96,8 +96,8 @@
                 <td>0</td>
                 <td>95</td>
 
-                <td>BOTON EDITAR</td>
-                <td>BOTON ELIMINAR</td>
+                <td><input type='button' value='Editar' id='EditarPreguntas' /></td>
+                <td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>
             </tr>
             <tr>
                 <td>000000002</td>
@@ -106,8 +106,8 @@
                 <td>0</td>
                 <td>95</td>
 
-                <td>BOTON EDITAR</td>
-                <td>BOTON ELIMINAR</td>
+                <td><input type='button' value='Editar' id='EditarPreguntas' /></td>
+                <td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>
             </tr>
             <tr>
                 <td>000000002</td>
@@ -116,8 +116,8 @@
                 <td>0</td>
                 <td>95</td>
 
-                <td>BOTON EDITAR</td>
-                <td>BOTON ELIMINAR</td>
+                <td><input type='button' value='Editar' id='EditarPreguntas' /></td>
+                <td><input type='button' value='Eliminar' id='EliminarPreguntas' /> </td>
             </tr>
 
             <tr>
@@ -127,8 +127,8 @@
                 <td>0</td>
                 <td>95</td>
 
-                <td>OTON EDITAR</td>
-                <td>OTON ELIMINAR</td>
+                <td><input type='button' value='Editar' id='EditarPreguntas' /></td>
+                <td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>
             </tr>
 
             <?php
