@@ -57,10 +57,11 @@
 
       <?php
       if (isset($_SESSION["name"]) == true) {
+        echo "<li id = 'liName'>".$_SESSION["name"]."</li>";
         echo "<a href='php/cerrarUser.php'>";
         echo "<li>Cerrar Session</li>";
         echo "</a>";
-        var_dump($_SESSION);
+
       } else {
         echo "No hay sesion";
       }
@@ -70,6 +71,7 @@
     </ul>
   </div>
 
+  <!-- MUESTRA LOS DATOS DEL USUARIO QUE SE PUEDEN MODIFICAR, LLAMÁNDOLO A LA BBDD -->
   <form id="formulario" action="modificarUsuario.php" method="post">
     <span class="close">&times;</span>
     <div class="panelOculto" id="panelCentral">
@@ -77,7 +79,6 @@
         <div id="nombreUsuario">
           <p><?php echo $_SESSION['name'] . " " . $_SESSION['sur1'] . " " . $_SESSION['sur2']; ?></p>
         </div>
-
         <div id="camposUsuario">
           <div id="direccionUsuario">
             <p>Dirección:</p>
@@ -86,6 +87,14 @@
           <div id="telefonoUsuario">
             <p>Teléfono:</p>
             <input type='text' id='phone' name='phone' placeholder='<?php echo $_SESSION['tlf']; ?>' />
+          </div>
+          <div id="contrasenaUsuario">
+            <p>Nueva contraseña:</p>
+            <input type='password' id='password' name='password' placeholder='Escriba su nueva contraseña' />
+          </div>
+          <div id="reContrasenaUsuario">
+            <p>Repita su contraseña:</p>
+            <input type='password' id='repassword' name='password' placeholder='Repita nueva contraseña' />
           </div>
         </div>
       </div>
@@ -102,19 +111,29 @@
     </div>
   </form>
 
+
+  <!-- MUESTRA LOS DATOS DEL USUARIO SIN PODER MODIFICAR, LLAMÁNDOLO A LA BBDD -->
   <div class="panelModificar" id="panelCentral">
     <div id="datosUsuario">
       <div id="nombreUsuario">
         <p><?php echo $_SESSION['name'] . " " . $_SESSION['sur1'] . " " . $_SESSION['sur2']; ?></p>
       </div>
       <div id="camposUsuario">
+      <div id="dniUsuario">
+          <p>DNI: </p>
+          <p id="dniMostrar"><?php echo $_SESSION['dni'] ?></p>
+        </div>
         <div id="direccionUsuario">
-          <p>Dirección:</p>
-          <p><?php echo $_SESSION['dir']; ?></p>
+          <p>Dirección: </p>
+          <p id ="addressMostrar"><?php echo $_SESSION['dir']; ?></p>
         </div>
         <div id="telefonoUsuario">
           <p>Teléfono:</p>
-          <p><?php echo $_SESSION['tlf']; ?></p>
+          <p id = "phoneMostrar"><?php echo $_SESSION['tlf']; ?></p>
+        </div>
+        <div id="puestoUsuario">
+          <p>Puesto: </p>
+          <p id ="posMostrar"><?php echo $_SESSION['pos'] ?></p>
         </div>
       </div>
     </div>
@@ -122,9 +141,9 @@
       <div id="imagenUsuario">
         <img id='perfil' src=<?php echo $_SESSION['img']; ?>>
       </div>
-        <div id="editarDatos">
-          <input type="button" id="editarDatosUsuario" value="Editar datos" />
-        </div>
+      <div id="editarDatos">
+        <input type="button" id="editarDatosUsuario" value="Editar datos" />
+      </div>
     </div>
   </div>
 

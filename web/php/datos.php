@@ -42,7 +42,7 @@ function loginAjax($username, $password)
 function loginPhp($username, $password)
 {
   $mysqli = conectarBD();
-  $sql = "SELECT id_trabajador, nombre, apellido1, apellido2, dni, direccion, telefono, contrasena, imagen, puesto FROM trabajadores WHERE nombre = ? AND contrasena = ?";
+  $sql = "SELECT id_trabajador, nombre, apellido1, apellido2, dni, direccion, telefono, contrasena, imagen, descripcion FROM trabajadores INNER JOIN puestos ON trabajadores.puesto = puestos.id_puesto WHERE nombre = ? AND contrasena = ?";
   $sentencia = $mysqli->prepare($sql);
   //if (!$sentencia) { echo "Fallo en la preparación de la sentencia " . $mysqli->errno;}
   $asignar = $sentencia->bind_param("ss", $username, $password);
@@ -79,9 +79,6 @@ function loginPhp($username, $password)
   $mysqli->close();
   return $usuario;
 }
-
-
-
 
 /* MONGODB
 
@@ -127,15 +124,18 @@ function actualizarPregunta()
 
 //----------------------------------UPDATES----------------------------------
 
-function updateUser($nombre)
+function updateUser($nombre, $direccion, $telefono, $contrasena)
 {
+
+  var_dump($direccion);
+
   $mysqli = conectarBD();
-  $sql = "UPDATE direccion, telefono, contrasena FROM trabajadores WHERE nombre = ?";
+  $sql = "UPDATE trabajadores SET direccion = ?, telefono = ?, contrasena = ? WHERE nombre = ?";
   $sentencia = $mysqli->prepare($sql);
   if (!$sentencia) {
     echo "Fallo en la preparación de la sentencia " . $mysqli->errno;
   }
-  $asignar = $sentencia->bind_param("s", $nombre);
+  $asignar = $sentencia->bind_param("siss", $direccion, $telefono, $contrasena, $nombre);
   if (!$asignar) {
     echo "Fallo al asignar parámetros: " . $mysqli->errno;
   }
@@ -143,22 +143,8 @@ function updateUser($nombre)
   if (!$ejecucion) {
     echo "Fallo en la ejecución: " . $mysqli->errno;
   }
-  $direccion = "";
-  $telefono = -1;
-  $contrasena = "";
-  $vincular = $sentencia->bind_result($direccion, $telefono, $contrasena);
-  if (!$vincular) {
-    echo "Fallo al asociar parametros: " . $mysqli->errno;
-  }
-
-  if ($sentencia->fetch()) {
-    $datosUsuario = array(
-      "direccion" => $direccion,
-      "telefono" => $telefono,
-      "password" => $contrasena
-    );
-  }
+  
   $mysqli->close();
-  return $datosUsuario;
+  return true;
 }
 //----------------------------------DELETES----------------------------------

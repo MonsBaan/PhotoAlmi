@@ -13,31 +13,55 @@ $(document).ready(function() {
 
 
     $("#confirmarDatosUsuario").click(function(event) {
-        if (!window.confirm("¿Guardar los datos modificados?")) {
-            event.preventDefault();
+        var error = false;
+        if (window.confirm("¿Guardar los datos modificados?")) {
+            var contr = $("#password").val();
+            var reContr = $("#repassword").val();
+            if (contr != reContr) {
+                $("#repassword").val("");
+                $("#repassword").css("background-color", "red");
+                error = true;
+            }
+
+            if (error) {
+                event.preventDefault();
+            } else {
+                var nombreUser = $("#liName").text();
+                var direccionUser = $("#address").val();
+                var telefonoUser = $("#phone").val();
+                var passUser = $("#password").val();
+                var parametros = {
+                    "nombre": nombreUser,
+                    "direccion": direccionUser,
+                    "telefono": telefonoUser,
+                    "contrasena": passUser,
+                    "function": "updateUser",
+                };
+                $.ajax({
+                    data: parametros,
+                    url: urlDB,
+                    type: "post",
+                    success: function(response) {
+                        $("#addressMostrar").html(direccionUser);
+                        $("#phoneMostrar").html(telefonoUser);
+                    },
+                });
+                $(".panelOculto").hide();
+                $(".panelModificar").show();
+                $(".close").hide();
+            }
+
+
         } else {
-            $(".panelOculto").hide();
-            $(".panelModificar").show();
-            $(".close").hide();
-            var direccionUser = $("#address").val();
-            var telefonoUser = $("#phone").val();
-            var passUser = $("#password").val();
-            var parametros = {
-                direccion: direccionUser,
-                telefono: telefonoUser,
-                contrasena: passUser,
-                function: "updateUser",
-            };
-
-            $.ajax({
-                data: parametros,
-                url: urlDB,
-                type: "post",
-                success: function(response) {},
-            });
+            event.preventDefault();
 
 
-            //AJAX ENVÍO DE DATOS
+
+
+
+
+
+
         }
 
     });
@@ -55,7 +79,7 @@ $(document).ready(function() {
         }
     });
 
-    /*
+
     $.ajax({
 
         contentType: "application/json",
@@ -63,17 +87,17 @@ $(document).ready(function() {
 
         type: 'get',
         dataType: 'json',
-        success: function (data) {
+        success: function(data) {
             //let preguntas = JSON.stringify(data);
             //console.log(data);
         },
 
-        error: function (jqXHR, textStatus, errorThrown) {
+        error: function(jqXHR, textStatus, errorThrown) {
             alert(jqXHR.status);
         },
 
 
 
     });
-*/
+
 });

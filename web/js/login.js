@@ -7,7 +7,6 @@ $(document).ready(function() {
     $("#FormularioLogin").submit(function(event) {
         var nombreUser = $("#user").val();
         var passUser = $("#password").val();
-        var error = false;
 
         var parametros = {
             "nombre": nombreUser,
@@ -26,7 +25,6 @@ $(document).ready(function() {
                     $('#error').slideDown('slow');
 
                 } else {
-                    error = false;
                     $('#FormularioLogin').unbind('submit').submit();
                 }
             },

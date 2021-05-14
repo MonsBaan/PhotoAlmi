@@ -1,48 +1,48 @@
-#address
-{
-  margin-left: 10%;
-  margin-right: 10%;
-
-}
-#phone
-{
-  margin-left: 10%;
-  margin-right: 10%;
-
-}
-#password
-{
-  margin-left: 10%;
-  margin-right: 10%;
-
+#address {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-#telefonoUsuario
-{
-margin-top: 3%;
+#phone {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-#contraseniaUsuario
-{
-margin-top: 3%;
+#password {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-.close
-{
-  color: #cdcdcd;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  margin-top: 1%;
-  margin-left: 87%;
-  position: absolute;
-  
+#repassword {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#telefonoUsuario {
+    margin-top: 3%;
+}
+
+#contraseniaUsuario {
+    margin-top: 3%;
+}
+
+#reContraseniaUsuario {
+    margin-top: 3%;
+}
+
+.close {
+    color: #cdcdcd;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 1%;
+    margin-left: 87%;
+    position: absolute;
 }
 
 .close:hover,
-.close:focus
-{
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
 }

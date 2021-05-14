@@ -17,24 +17,26 @@ header('Content-Type: application/JSON');
 
 $function = $_POST['function'];
 include './datos.php';
+session_start();
 
 switch ($function) {
   case 'loginAjax':
     $user = loginAjax($_POST['nombre'], $_POST['contrasena']);
     $userJson = json_encode($user, JSON_UNESCAPED_UNICODE);
     echo $userJson;
-
     break;
 
-    case 'updateUser':
-      echo "Hola";
-      $user = updateUser($_POST['direccion'], $_POST['telefono'], $_POST['contrasena']);
-      /*$userJson = json_encode($user, JSON_UNESCAPED_UNICODE);
-      echo $userJson;*/
-  
-      break;
+  case 'updateUser':
+    echo $_POST['nombre'];
+    $user = updateUser($_POST['nombre'], $_POST['direccion'], $_POST['telefono'], $_POST['contrasena']);
+    if ($user == 1) {
+      $_SESSION["dir"] = $_POST['direccion'];
+      $_SESSION["tlf"] = $_POST['telefono'];
+      $_SESSION["pass"] = $_POST['contrasena'];
+    }
+    break;
 
   default:
-    echo "Funcion: ".$function." no Existente";
+    echo "Funcion: " . $function . " no existente";
     break;
 }
