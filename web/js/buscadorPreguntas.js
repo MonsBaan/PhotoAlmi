@@ -9,6 +9,12 @@ $(document).ready(function () {
     type: "get",
     success: function (response) {
     console.log(response);
+    let arrPreguntas = response.data['preguntas'];
+    for (let i = 0; i < arrPreguntas.length; i++) {
+      console.log(arrPreguntas[i].pregunta);
+      let htmlappend = ""
+    }
+  
     },
   });
   //----------------------------------EVENTOS JS----------------------------------

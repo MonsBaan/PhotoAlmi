@@ -77,6 +77,7 @@
             </select>
         </div>
         <br></br>
+        
         <table id="tablaPreguntas">
             <tr>
                 <th>ID</th>
@@ -84,53 +85,19 @@
                 <th>CATEGORIA</th>
                 <th>FALLOS</th>
                 <th>ACIERTOS</th>
-
                 <th>EDITAR</th>
                 <th>ELIMINAR</th>
             </tr>
 
             <tr>
-                <td>000000002</td>
-                <td>¿Quién no jugaría un buen KALMIHOOT?</td>
-                <td>FOL</td>
-                <td>0</td>
-                <td>95</td>
-
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td><input type='button' value='Editar' id='EditarPreguntas' /></td>
                 <td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>
             </tr>
-            <tr>
-                <td>000000002</td>
-                <td>¿Quién no jugaría un buen KALMIHOOT?</td>
-                <td>FOL</td>
-                <td>0</td>
-                <td>95</td>
-
-                <td><input type='button' value='Editar' id='EditarPreguntas' /></td>
-                <td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>
-            </tr>
-            <tr>
-                <td>000000002</td>
-                <td>¿Quién no jugaría un buen KALMIHOOT?</td>
-                <td>FOL</td>
-                <td>0</td>
-                <td>95</td>
-
-                <td><input type='button' value='Editar' id='EditarPreguntas' /></td>
-                <td><input type='button' value='Eliminar' id='EliminarPreguntas' /> </td>
-            </tr>
-
-            <tr>
-                <td>000000002</td>
-                <td>¿Quién no jugaría un uen KALMIHOOT?</td>
-                <td>FOL</td>
-                <td>0</td>
-                <td>95</td>
-
-                <td><input type='button' value='Editar' id='EditarPreguntas' /></td>
-                <td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>
-            </tr>
-
             <?php
             include "datos.php";
 

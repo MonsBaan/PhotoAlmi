@@ -19,7 +19,6 @@ $(document).ready(function() {
             type: "post",
             success: function(response) {
                 var arrayParse = JSON.parse(response);
-
                 if (arrayParse == null) {
                     $('#error').slideDown('slow');
 
