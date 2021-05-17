@@ -9,8 +9,9 @@ $(document).ready(function() {
         type: "get",
         success: function(response) {
             console.log(response);
+            
             let htmlappend = "<tr>";
-            htmlappend += "<th>ID</th>";
+            htmlappend += "<th>NUM</th>";
             htmlappend += "<th>PREGUNTA</th>";
             htmlappend += "<th>CATEGORIA</th>";
             htmlappend += "<th>ACIERTOS</th>";
@@ -20,22 +21,27 @@ $(document).ready(function() {
             let arrTodo = response.data;
             //combo 
             let htmlcombo = "<option value='selected'>Todo...</option>";
+            let con = 1;
+            let aux;
             for (let i = 0; i < arrTodo.length; i++) {
                 //arr preguntas
                 let arrPreguntas = response.data[i]['preguntas'];
                 htmlcombo += "<option>" + response.data[i]['categoria'] + "</option>";
                 for (let j = 0; j < arrPreguntas.length; j++) {
                     htmlappend += "<tr>";
-                    htmlappend += "<td>" + j + "</td>";
+                    htmlappend += "<td>" + con + "</td>";
                     htmlappend += "<td>" + arrPreguntas[j].pregunta + "</td>";
                     htmlappend += "<td>" + response.data[i]['categoria'] + "</td>";
                     htmlappend += "<td>" + arrPreguntas[j].numAciertos + "</td>";
                     htmlappend += "<td><input type='button' href='editarpreguntas.php' value='Editar' id='EditarPreguntas' /></td>";
                     htmlappend += "<td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>";
                     htmlappend += "</tr>";
+                    aux = j +1 ;
+                    con ++;
                 }
                 //insecion al combo
                 $('#categorias').html(htmlcombo);
+                con = aux+ 1;
             }
             //insercion a la tabla
             $('#tablaPreguntas').append(htmlappend);
