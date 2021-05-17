@@ -10,14 +10,35 @@ $(document).ready(function () {
     success: function (response) {
     console.log(response);
     let arrPreguntas = response.data['preguntas'];
+    let htmlappend = "<tr>";
+    htmlappend += "<th>ID</th>";
+    htmlappend += "<th>PREGUNTA</th>";
+    htmlappend += "<th>CATEGORIA</th>";
+    htmlappend += "<th>ACIERTOS</th>";
+    htmlappend += "<th>EDITAR</th>";
+    htmlappend += "<th>ELIMINAR</th>";
+    htmlappend += "</tr>";
     for (let i = 0; i < arrPreguntas.length; i++) {
-      console.log(arrPreguntas[i].pregunta);
-      let htmlappend = ""
+      htmlappend += "<tr>";
+      htmlappend += "<td>"+i+"</td>";
+      htmlappend += "<td>"+arrPreguntas[i].pregunta+"</td>";
+      htmlappend += "<td>"+response.data['categoria']+"</td>";
+      htmlappend += "<td>"+arrPreguntas[i].numAciertos+"</td>";
+      htmlappend += "<td><input type='button' href='editarpreguntas.php' value='Editar' id='EditarPreguntas' /></td>";
+      htmlappend += "<td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>";
+      htmlappend += "</tr>";
     }
+    
+    $('#tablaPreguntas').append(htmlappend);
   
     },
   });
   //----------------------------------EVENTOS JS----------------------------------
+  $(document).on("click","#EditarPreguntas",function()
+  {
+    window.location.href = 'http://localhost/PhotoAlmi/web/editarpreguntas.php';
+
+  })
   $("#filtro").on("change textInput input", function () {
     var textoFiltro = $("#filtro").val().toLowerCase();
     var campoFiltrar = $("#categorias").val();
