@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+session_destroy();
+
+/*
 unset($_SESSION["id"]);
 unset($_SESSION["name"]);
 unset($_SESSION["sur1"]);
@@ -11,7 +14,7 @@ unset($_SESSION["tlf"]);
 unset($_SESSION["pass"]);
 unset($_SESSION["img"]);
 unset($_SESSION["pos"]);
-    
+    */
 header("location: ../login.php");
 
 ?>
