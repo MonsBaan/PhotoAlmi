@@ -73,10 +73,6 @@ if (isset($_SESSION["pos"]) == false) {
             <label id="introFiltro" for="filtro">Introducir búsqueda</label>
             <input type="text" id="filtro" name="filtro" />
             <select id="categorias">
-                <option value="FOL">FOL</option>
-                <option value="categoria2">categoria2</option>
-                <option value="categoria3">categoria3</option>
-                <option value="categoria4">categoria4</option>
             </select>
         </div>
         <br></br>

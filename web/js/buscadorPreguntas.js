@@ -18,9 +18,12 @@ $(document).ready(function() {
             htmlappend += "<th>ELIMINAR</th>";
             htmlappend += "</tr>";
             let arrTodo = response.data;
+            //combo 
+            let htmlcombo = "<option value='selected'>Todo...</option>";
             for (let i = 0; i < arrTodo.length; i++) {
+                //arr preguntas
                 let arrPreguntas = response.data[i]['preguntas'];
-
+                htmlcombo += "<option>" + response.data[i]['categoria'] + "</option>";
                 for (let j = 0; j < arrPreguntas.length; j++) {
                     htmlappend += "<tr>";
                     htmlappend += "<td>" + j + "</td>";
@@ -31,10 +34,12 @@ $(document).ready(function() {
                     htmlappend += "<td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>";
                     htmlappend += "</tr>";
                 }
+                //insecion al combo
+                $('#categorias').html(htmlcombo);
             }
-
-
+            //insercion a la tabla
             $('#tablaPreguntas').append(htmlappend);
+
 
         },
     });
