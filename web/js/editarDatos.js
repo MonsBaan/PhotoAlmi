@@ -5,13 +5,20 @@ $(document).ready(function() {
     var session;
     $.get('php/session.php', function(data) {
         session = JSON.parse(data);
+        console.log(session);
     });
+
 
 
     $("#editarDatosUsuario").click(function() {
         $(".panelModificar").hide();
         $(".panelOculto").show();
         $(".close").show();
+        $("#repassword").val("");
+        $("#password").val("");
+        $("#phone").val("");
+        $("#address").val("");
+
 
     });
 
@@ -21,10 +28,23 @@ $(document).ready(function() {
         if (window.confirm("¿Guardar los datos modificados?")) {
             var contr = $("#password").val();
             var reContr = $("#repassword").val();
+            var telef = $("#phone").val();
             if (contr != reContr) {
                 $("#repassword").val("");
                 $("#repassword").css("background-color", "red");
                 error = true;
+            } else {
+
+                $("#repassword").css("background-color", "");
+            }
+
+
+            if (isNaN(telef)) {
+                $("#phone").val("");
+                $("#phone").css("background-color", "red");
+                error = true;
+            } else {
+                $("#phone").css("background-color", "");
             }
 
             if (error) {
@@ -35,19 +55,20 @@ $(document).ready(function() {
                 var telefonoUser = $("#phone").val().trim();
                 var passUser = $("#password").val().trim();
 
+
                 if (direccionUser.length == 0) {
 
-                    direccionUser = $_SESSION['dir'];
+                    direccionUser = session.dir;
                 }
 
                 if (passUser.length == 0) {
 
-                    passUser = $_SESSION['pass'];
+                    passUser = session.pass;
                 }
 
                 if (telefonoUser.length == 0) {
 
-                    telefonoUser = $_SESSION['tlf'];
+                    telefonoUser = session.tlf;
                 }
 
                 var parametros = {
