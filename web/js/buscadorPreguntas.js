@@ -9,7 +9,7 @@ $(document).ready(function() {
         type: "get",
         success: function(response) {
             console.log(response);
-            
+
             let htmlappend = "<tr>";
             htmlappend += "<th>NUM</th>";
             htmlappend += "<th>PREGUNTA</th>";
@@ -19,10 +19,14 @@ $(document).ready(function() {
             htmlappend += "<th>ELIMINAR</th>";
             htmlappend += "</tr>";
             let arrTodo = response.data;
+            //combo 
+            let htmlcombo = "<option value='selected'>Todo...</option>";
             let con = 1;
             let aux;
             for (let i = 0; i < arrTodo.length; i++) {
+                //arr preguntas
                 let arrPreguntas = response.data[i]['preguntas'];
+                htmlcombo += "<option>" + response.data[i]['categoria'] + "</option>";
                 for (let j = 0; j < arrPreguntas.length; j++) {
                     htmlappend += "<tr>";
                     htmlappend += "<td>" + con + "</td>";
@@ -32,14 +36,17 @@ $(document).ready(function() {
                     htmlappend += "<td><input type='button' href='editarpreguntas.php' value='Editar' id='EditarPreguntas' /></td>";
                     htmlappend += "<td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>";
                     htmlappend += "</tr>";
-                    aux = j +1 ;
-                    con ++;
+                    aux = j + 1;
+                    con++;
                 }
-                con = aux+ 1;
+                con = aux + 1;
+                //insecion al combo
+                $('#categorias').html(htmlcombo);
+
             }
-
-
+            //insercion a la tabla
             $('#tablaPreguntas').append(htmlappend);
+
 
         },
     });
@@ -47,17 +54,16 @@ $(document).ready(function() {
     $(document).on("click", "#EditarPreguntas", function() {
         window.location.href = 'http://localhost/PhotoAlmi/web/editarpreguntas.php';
 
-    })
+    });
     $("#filtro").on("change textInput input", function() {
         var textoFiltro = $("#filtro").val().toLowerCase();
         var campoFiltrar = $("#categorias").val();
-
         var resto = 0;
-        if (campoFiltrar == "FOL") {
+        if (campoFiltrar == "fol") {
             resto = 0;
-        } else if (campoFiltrar == "categoria2") {
+        } else if (campoFiltrar == "terrorismo") {
             resto = 1;
-        } else if (campoFiltrar == "categoria3") {
+        } else if (campoFiltrar == "todo") {
             resto = 2;
         }
 
