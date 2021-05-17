@@ -9,7 +9,6 @@ $(document).ready(function() {
         type: "get",
         success: function(response) {
             console.log(response);
-            let arrPreguntas = response.data[0]['preguntas'];
             let htmlappend = "<tr>";
             htmlappend += "<th>ID</th>";
             htmlappend += "<th>PREGUNTA</th>";
@@ -18,16 +17,22 @@ $(document).ready(function() {
             htmlappend += "<th>EDITAR</th>";
             htmlappend += "<th>ELIMINAR</th>";
             htmlappend += "</tr>";
-            for (let i = 0; i < arrPreguntas.length; i++) {
-                htmlappend += "<tr>";
-                htmlappend += "<td>" + i + "</td>";
-                htmlappend += "<td>" + arrPreguntas[i].pregunta + "</td>";
-                htmlappend += "<td>" + response.data[0]['categoria'] + "</td>";
-                htmlappend += "<td>" + arrPreguntas[i].numAciertos + "</td>";
-                htmlappend += "<td><input type='button' href='editarpreguntas.php' value='Editar' id='EditarPreguntas' /></td>";
-                htmlappend += "<td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>";
-                htmlappend += "</tr>";
+            let arrTodo = response.data;
+            for (let i = 0; i < arrTodo.length; i++) {
+                let arrPreguntas = response.data[i]['preguntas'];
+
+                for (let j = 0; j < arrPreguntas.length; j++) {
+                    htmlappend += "<tr>";
+                    htmlappend += "<td>" + j + "</td>";
+                    htmlappend += "<td>" + arrPreguntas[j].pregunta + "</td>";
+                    htmlappend += "<td>" + response.data[i]['categoria'] + "</td>";
+                    htmlappend += "<td>" + arrPreguntas[j].numAciertos + "</td>";
+                    htmlappend += "<td><input type='button' href='editarpreguntas.php' value='Editar' id='EditarPreguntas' /></td>";
+                    htmlappend += "<td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>";
+                    htmlappend += "</tr>";
+                }
             }
+
 
             $('#tablaPreguntas').append(htmlappend);
 
