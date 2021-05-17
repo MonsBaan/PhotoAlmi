@@ -22,7 +22,7 @@ if (isset($_SESSION["pos"]) == false) {
     <link rel='stylesheet' type='text/css' href='css/buscadorPreguntas.css'>
 
 </head>
-
+<!--hola-->
 <body>
     <div id="menuHamburguesa">
 
