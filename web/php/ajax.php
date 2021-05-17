@@ -31,7 +31,8 @@ switch ($function) {
     $user = updateUser($_POST['id'], $_POST['direccion'], $_POST['telefono'], $_POST['contrasena']);
 
     break;
-
+  case 'PreguntasAjax':
+    break;
   default:
     echo "Funcion: " . $function . " no existente";
     break;
