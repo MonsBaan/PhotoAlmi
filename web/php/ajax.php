@@ -27,28 +27,9 @@ switch ($function) {
     break;
 
   case 'updateUser':
-    echo $_POST['nombre'];
-    $user = updateUser($_POST['nombre'], $_POST['direccion'], $_POST['telefono'], $_POST['contrasena']);
-    if ($user == 1) {
+    echo $_POST['direccion'];
+    $user = updateUser($_POST['id'], $_POST['direccion'], $_POST['telefono'], $_POST['contrasena']);
 
-      if ($_POST["dirreccion"] = "") {
-        $_POST['direccion'] = $_SESSION["dir"];
-      } else {
-        $_SESSION["dir"] = $_POST['direccion'];
-      }
-
-      if ($_POST["telefono"] = "") {
-        $_POST['telefono'] = $_SESSION["tlf"];
-      } else {
-        $_SESSION["tlf"] = $_POST['telefono'];
-      }
-
-      if ($_POST["contrasena"] = "") {
-        $_POST['contrasena'] = $_SESSION["pass"];
-      } else {
-        $_SESSION["pass"] = $_POST['contrasena'];
-      }
-    }
     break;
   case 'PreguntasAjax':
     break;
