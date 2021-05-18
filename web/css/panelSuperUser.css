@@ -1,15 +1,33 @@
-table{
-    width: 90%;
-    margin-left: 5%;
-    font-size: 100%
+#cuerpo {
+    text-align: center;
+    margin-top: 6%;
 }
-table, th, td {
-    border: 2px solid black;
-  }
-th, td{
+
+#tablaUsers {
+    text-align: center;
+    margin: auto;
+}
+
+#tablaUsers th {
+    color: #2D143F;
+}
+
+#tablaUsers td {
+    border-color: #364278;
+    border-width: 1px;
+    background: #364278;
     padding: 5px;
 }
-#cargarMas{
-    text-align: center;
-    margin-top: 10px;
+.imagen{
+    height: 15px;
+    
+}
+label{
+    font-size: 20px;
+    color: #2D143F;
+}
+.opcionPanel{
+    padding: 5px;
+    display: inline;
+    margin: 15px;
 }

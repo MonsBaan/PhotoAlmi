@@ -18,7 +18,7 @@ input {
 
 input[type="button"] {
     width: 100%;
-    background-color: #06aadb;
+    background-color: #592100;
     color: white;
     padding: 14px 20px;
     border: none;
@@ -37,7 +37,7 @@ body {
     height: 900px;
     margin-top: 6%;
     /* make it look decent enough */
-    background: #06AADB;
+    background: #EEAA81;
     color: #cdcdcd;
     font-family: "Avenir Next", "Avenir", sans-serif;
 }
@@ -162,7 +162,9 @@ body {
     font-size: 22px;
 }
 
-
+#menuHamburguesa #liSuperUser{
+    color: #ff6000;
+}
 
 /*
   * And let's slide it in from the left

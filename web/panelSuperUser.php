@@ -24,7 +24,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
 
       <img src='source/image/Kalmihoot.png'>
     </div>
-    <link rel='stylesheet' type='text/css' href='css/comun.css'>
+    <link rel='stylesheet' type='text/css' href='css/comunSuperUser.css'>
     <link rel='stylesheet' type='text/css' href='css/panelSuperUser.css'>
 
   </head>
@@ -80,44 +80,21 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
       </ul>
     </div>
 
-    <div id='cuerpo'> </div>
-    <table id="panelCompleto">
-      <tr>
-        <th>Nombre</th>
-        <th>Apellido 1</th>
-        <th>Apellido 2</th>
-        <th>DNI</th>
-        <th>Direccion</th>
-        <th>Telefono</th>
-        <th>Contraseña</th>
-        <th>Imagen</th>
-        <th>Puesto</th>
-      </tr>
-      <?php
-      for ($i = 0; $i < 3; $i++) {
-        echo "<tr>";
-        echo "<td>Prueba Nombre</td>";
-        echo "<td>Prueba Ap1</td>";
-        echo "<td>Prueba Ap2</td>";
-        echo "<td>Prueba DNI</td>";
-        echo "<td>Prueba Dir</td>";
-        echo "<td>Prueba Tlf</td>";
-        echo "<td>Prueba Pass</td>";
-        echo "<td>Prueba Img</td>";
-        echo "<td>Prueba Puesto</td>";
-        echo "</tr>";
-      }
+    <div id='cuerpo'>
+      <div id='recargarResultados' class='opcionPanel'>
+        <label for="recargar">Reload Users</label>
+        <img src="source/image/recargar.png" alt="Imagen Recargar" class="imagen">
+      </div>
+
+      <div id='añadirUsuario' class='opcionPanel'>
+        <label for="añadir">New User</label>
+        <img src="source/image/añadir.png" alt="Imagen Añadir" class="imagen">
+      </div>
+
+      <table id="tablaUsers">
 
 
-      ?>
-
-
-    </table>
-
-    <div id='cargarMas'>
-      <a href="#">Cargar Mas</a>
-
-    </div>
+      </table>
     </div>
 
     <script src="js/jquery-3.6.0.min.js"></script>

@@ -24,8 +24,16 @@ if (isset($_SESSION["pos"]) == false) {
 
       <img src='source/image/Kalmihoot.png'>
     </div>
-    <link rel='stylesheet' type='text/css' href='css/comun.css'>
-    <link rel='stylesheet' type='text/css' href='css/panelUsuario.css'>
+
+    <?php
+    if ($_SESSION["pos"] == "SuperUser") {
+      echo "<link rel='stylesheet' type='text/css' href='css/comunSuperUser.css'>";
+      echo "<link rel='stylesheet' type='text/css' href='css/superUser.css'>";
+    } else {
+      echo "<link rel='stylesheet' type='text/css' href='css/comun.css'>";
+      echo "<link rel='stylesheet' type='text/css' href='css/panelUsuario.css'>";
+    }
+    ?>
     <link rel='stylesheet' type='text/css' href='css/editarDatos.css'>
 
   </head>
@@ -41,37 +49,37 @@ if (isset($_SESSION["pos"]) == false) {
 
       <ul id="menu">
         <a href="index.php">
-          <li>KalmiHoot</li>
+          <li>Perfil</li>
         </a>
         <a href="buscadorpreguntas.php">
           <li>Preguntas</li>
         </a>
-        <a href="#">
-          <li>Prueba 2</li>
-        </a>
-        <a href="#">
-          <li>Prueba 3</li>
-        </a>
-        <a href="#">
-          <li>Prueba 4</li>
-        </a>
-        <a href="#">
-          <li>Prueba 5</li>
-        </a>
+        <?php
+          if ($_SESSION['pos'] == "SuperUser") {
+            echo "<a href='panelSuperUser.php' id='liSuperUser'>";
+            echo "<li>Panel Super User</li>";
+            echo "</a>";
+          }
+        ?>
+
+
+        
+          
+        
+
+        <li></li>
+        <li></li>
+        <li></li>
         <li></li>
         <li></li>
         <li></li>
         <?php
         if (isset($_SESSION["name"]) == true) {
           echo "<li id = 'liName'>" . "Hola, " . $_SESSION["name"] . "." . "</li>";
-          echo "<li></li>";
-          echo "<li></li>";
           echo "<a href='php/cerrarUser.php'>";
           echo "<li>Cerrar Session</li>";
           echo "</a>";
         } else {
-          echo "<li></li>";
-          echo "<li></li>";
           echo "No hay sesion";
         }
         ?>
