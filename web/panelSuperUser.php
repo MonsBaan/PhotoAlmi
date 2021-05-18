@@ -24,7 +24,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
 
       <img src='source/image/Kalmihoot.png'>
     </div>
-    <link rel='stylesheet' type='text/css' href='css/comun.css'>
+    <link rel='stylesheet' type='text/css' href='css/comunSuperUser.css'>
     <link rel='stylesheet' type='text/css' href='css/panelSuperUser.css'>
 
   </head>
@@ -80,44 +80,65 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
       </ul>
     </div>
 
-    <div id='cuerpo'> </div>
-    <table id="panelCompleto">
-      <tr>
-        <th>Nombre</th>
-        <th>Apellido 1</th>
-        <th>Apellido 2</th>
-        <th>DNI</th>
-        <th>Direccion</th>
-        <th>Telefono</th>
-        <th>Contraseña</th>
-        <th>Imagen</th>
-        <th>Puesto</th>
-      </tr>
-      <?php
-      for ($i = 0; $i < 3; $i++) {
-        echo "<tr>";
-        echo "<td>Prueba Nombre</td>";
-        echo "<td>Prueba Ap1</td>";
-        echo "<td>Prueba Ap2</td>";
-        echo "<td>Prueba DNI</td>";
-        echo "<td>Prueba Dir</td>";
-        echo "<td>Prueba Tlf</td>";
-        echo "<td>Prueba Pass</td>";
-        echo "<td>Prueba Img</td>";
-        echo "<td>Prueba Puesto</td>";
-        echo "</tr>";
-      }
+    <div id='cuerpo'>
+
+    <form id="formulario" action="modificarUsuario.php" method="post">
+      <span class="close">&times;</span>
+      <div class="panelOculto" id="panelCentral">
+        <div id="datosUsuario">
+          <div id="nombreUsuario">
+            <p><?php echo $_SESSION['name'] . " " . $_SESSION['sur1'] . " " . $_SESSION['sur2']; ?></p>
+          </div>
+          <div id="camposUsuario">
+            <div id="direccionUsuario">
+              <p>Dirección:</p>
+              <input type='text' id='address' name='address' placeholder='<?php echo $_SESSION['dir']; ?>' />
+            </div>
+            <div id="telefonoUsuario">
+              <p>Teléfono:</p>
+              <input type='text' id='phone' name='phone' placeholder='<?php echo $_SESSION['tlf']; ?>' />
+            </div>
+            <div id="contrasenaUsuario">
+              <p>Nueva contraseña:</p>
+              <input type='password' id='password' name='password' placeholder='Escriba su nueva contraseña' />
+            </div>
+            <div id="reContrasenaUsuario">
+              <p>Repita su contraseña:</p>
+              <input type='password' id='repassword' name='password' placeholder='Repita nueva contraseña' />
+            </div>
+          </div>
+        </div>
+
+        <div id="fotosUsuario">
+          <div id="imagenUsuario">
+            <img id='perfil' src=<?php echo $_SESSION['img']; ?>>
+          </div>
+
+          <div id="editarDatos">
+            <input type="button" id="confirmarDatosUsuario" value="Confirmar los cambios" />
+          </div>
+        </div>
+      </div>
+    </form>
+      
 
 
-      ?>
 
 
-    </table>
 
-    <div id='cargarMas'>
-      <a href="#">Cargar Mas</a>
+      <div id='recargarResultados' class='opcionPanel'>
+        <label for="recargar">Reload Users</label>
+        <img src="source/image/recargar.png" alt="Imagen Recargar" class="imagen">
+      </div>
+      <div id='añadirUsuario' class='opcionPanel'>
+        <label for="añadir">New User</label>
+        <img src="source/image/añadir.png" alt="Imagen Añadir" class="imagen">
+      </div>
 
-    </div>
+      <table id="tablaUsers">
+
+
+      </table>
     </div>
 
     <script src="js/jquery-3.6.0.min.js"></script>
