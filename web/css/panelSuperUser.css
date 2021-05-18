@@ -1,33 +1,162 @@
 #cuerpo {
-    text-align: center;
-    margin-top: 6%;
+  text-align: center;
+  margin-top: 4%;
 }
 
 #tablaUsers {
-    text-align: center;
-    margin: auto;
+  text-align: center;
+  margin: auto;
 }
 
 #tablaUsers th {
-    color: #2D143F;
+  color: #2D143F;
 }
 
 #tablaUsers td {
-    border-color: #364278;
-    border-width: 1px;
-    background: #364278;
-    padding: 5px;
+  border-color: #364278;
+  border-width: 1px;
+  background: #364278;
+  padding: 5px;
 }
-.imagen{
-    height: 15px;
-    
+#recargarResultados .imagen, #añadirUsuario .imagen{
+  height: 15px;
+  
 }
-label{
-    font-size: 20px;
-    color: #2D143F;
+#recargarResultados label, #añadirUsuario label{
+  font-size: 20px;
+  color: #2D143F;
 }
-.opcionPanel{
-    padding: 5px;
-    display: inline;
-    margin: 15px;
+
+#panelCentral
+{
+ display: flex;
+ margin: 10%;
+ height: auto;
+ top: 40%;
+ left: 25%;
+ background: #364278;
+ flex-flow: row;
+ border-radius: 1rem;
+}
+
+#panelCentral > div {
+ display: flex;
+ flex-flow: column;
+  flex: 2;
+
+}
+#panelCentral > div:last-child {
+
+ flex: 1;  
+ background-color: #2D143F;
+}
+
+#fotosUsuario > div 
+{
+text-align: center;
+margin: 2%;
+flex: 1;
+}
+
+#fotosUsuario > div:first-child
+{
+flex: 3;
+
+}
+
+#imagenUsuario img
+{
+height: 100%;
+max-width: 100%;
+}
+
+#datosUsuario > div {
+
+flex: 1;
+display: flex;
+flex-flow: column;
+text-align: center;
+font-size: 150%;
+}
+
+#datosUsuario > div:last-child{
+flex: 3;
+
+}
+
+#camposUsuario > div
+{
+display: flex;
+flex: 1;
+flex-flow: row;
+margin: 2px;
+}
+
+#camposUsuario > div p
+{
+flex: 1;
+font-size: 80%;
+text-align: left;
+padding-left: 5%;
+
+}
+#camposUsuario > div p:last-child
+{
+flex:3;
+}
+
+#address {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#phone {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#password {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#repassword {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#telefonoUsuario {
+  margin-top: 3%;
+}
+
+#contraseniaUsuario {
+  margin-top: 3%;
+}
+
+#reContraseniaUsuario {
+  margin-top: 3%;
+}
+
+.close {
+  color: #cdcdcd;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 1%;
+  margin-left: 36%;
+  position: absolute;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#formulario{
+  display: none;
+}
+.imagenPanel{
+  height: 2rem;
 }

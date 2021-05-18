@@ -22,14 +22,13 @@ $(document).ready(function() {
         html += "<th>Address</th>";
         html += "<th>Phone Number</th>";
         html += "<th>Charge</th>";
-        html += "<th>Edit</th>";
-        html += "<th>Remove</th>";
         html += "</tr>";
 
         $.ajax({
             url: urlDB,
             type: "get",
             success: function(response){
+                console.log(response)
                 let arrayDatos = response.data;
                 arrayDatos.forEach(trabajador => {
                     html += "<tr>";
@@ -39,8 +38,8 @@ $(document).ready(function() {
                     html += "<td>"+trabajador.direccion+"</td>";
                     html += "<td>"+trabajador.telefono+"</td>";
                     html += "<td>"+trabajador.descripcion+"</td>";
-                    html += "<td>insertar imagen de edicion</td>"
-                    html += "<td>insertar imagen de borrar</td>"
+                    html += "<td><img src='source/image/editar.png' alt='Imagen Recargar' class='imagenPanel'></img></td>"
+                    html += "<td><img src='source/image/papelera.png' alt='Imagen Recargar' class='imagenPanel'></img></td>"
                     html += "</tr>";
                 });
                 $("#tablaUsers").html(html);
