@@ -8,10 +8,6 @@
     margin: auto;
 }
 
-#tablaPreguntas th {
-    color: #2D143F;
-}
-
 #tablaPreguntas td {
     background: #dd5300;
     padding: 5px;
