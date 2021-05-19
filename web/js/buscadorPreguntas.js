@@ -1,3 +1,4 @@
+comprobarFiltrar = ''
 $(document).ready(function () {
 	console.log('Documento Listo');
 	var urlDB = 'http://192.168.6.195:8080/kalmihootApi/preguntas';
@@ -74,22 +75,25 @@ $(document).ready(function () {
 		{
 			$("#tablaPreguntas tr").show();
 			$(campoFiltrar).val('');
+			var comprobarFiltrar = campoFiltrar;
 		}
 		else
 		{
 			$("#tablaPreguntas td").parent("tr").hide().filter(function(){
-				//console.log($(this).children("td:nth-child(3)").text().substring(0,3))
 				return $(this).children("td:nth-child(3)").text().toUpperCase().startsWith(campoFiltrar);
 			 }).show();
+			 comprobarFiltrar = campoFiltrar;
 		}
-	
 	});
 	$("#filtro").on("keyup",function()
 	{
 		var busqueda = $(this).val().toUpperCase();
+		var campoFiltrar = $('#categorias').val().toUpperCase();
 		$("#tablaPreguntas tr").filter(function()
 		{
-			$(this).toggle($(this).text().toUpperCase().indexOf(busqueda) > -1);
+			if($(this).toggle($(this).text().toUpperCase().indexOf(busqueda) > -1) && campoFiltrar == comprobarFiltrar.toUpperCase()){
+				console.log("hola");
+			}
 		});
 	});
 	/*$("#filtro").on("change textInput input", function() {
@@ -117,30 +121,4 @@ $(document).ready(function () {
 		});
 	});*/
 
-	/*$("#filtro").on("change textInput input", function() {
-        var textoFiltro = $("#filtro").val().toLowerCase();
-        var campoFiltrar = $("#categorias").val();
-        var resto = 0;
-        
-        if (campoFiltrar == "fol") {
-            resto = 0;
-        } else if (campoFiltrar == "terrorismo") {
-            resto = 1;
-        } else if (campoFiltrar == "todo") {
-            resto = 2;
-        }
-
-        $("#tablaPreguntas td").each(function() {
-            // if(index % 8 == resto)
-            //{
-            var texto = $(this).text().toLowerCase();
-            if (!texto.includes(textoFiltro.toLowerCase())) {
-                $(this).parent("tr").hide();
-            } else {
-                $(this).parent("tr").show();
-            }
-            console.log(textoFiltro);
-            // }
-        });
-    });*/
 });
