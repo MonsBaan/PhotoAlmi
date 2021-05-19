@@ -33,6 +33,10 @@ switch ($function) {
     break;
   case 'PreguntasAjax':
     break;
+    
+  case 'CrearPreguntas':
+    break;
+
   default:
     echo "Funcion: " . $function . " no existente";
     break;
