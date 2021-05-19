@@ -1,0 +1,176 @@
+#titulo {
+    width: 20%;
+    height: 20%;
+    justify-content: center;
+    display: flex;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    width: auto;
+}
+
+input[type="button"] {
+    width: 100%;
+    background-color: #592100;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 4%;
+}
+
+#titulo img {
+    margin-left: 395%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 900px;
+    margin-top: 6%;
+    /* make it look decent enough */
+    background: #EEAA81;
+    color: #cdcdcd;
+    font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
+#menuHamburguesa {
+    display: block;
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menuHamburguesa a {
+    text-decoration: none;
+    color: #06AADB;
+    transition: color 0.3s ease;
+}
+
+#menuHamburguesa a:hover {
+    color: #FFFF;
+}
+
+#menuHamburguesa input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    background: #2B75AE;
+    cursor: pointer;
+    opacity: 0;
+    /* hide this */
+    z-index: 2;
+    /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+}
+
+
+/*
+  * Just a quick hamburger
+  */
+
+#menuHamburguesa span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #364278;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+}
+
+#menuHamburguesa span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuHamburguesa span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+
+/* 
+  * Transform all the slices of hamburger
+  * into a crossmark.
+  */
+
+#menuHamburguesa input:checked~span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #2B75AE;
+}
+
+
+/*
+  * But let's hide the middle one.
+  */
+
+#menuHamburguesa input:checked~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+
+/*
+  * Ohyeah and the last one should go the other direction
+  */
+
+#menuHamburguesa input:checked~span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+
+/*
+  * Make this absolute positioned
+  * at the top left of the screen
+  */
+
+#menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    height: 2000px;
+    background: #364278;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+#menu li {
+    padding: 10px 0;
+    font-size: 22px;
+}
+
+#menuHamburguesa #liSuperUser{
+    color: #ff6000;
+}
+
+/*
+  * And let's slide it in from the left
+  */
+
+#menuHamburguesa input:checked~ul {
+    position: fixed;
+    transform: none;
+}
