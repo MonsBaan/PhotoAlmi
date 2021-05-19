@@ -15,16 +15,16 @@
 <body>
     <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
     <div id='CuadradoLogin'>
-        <div id="error">Usuario y/o Contraseña No Validos</div>
+        <div id="error">Incorrect User or Password</div>
         <form id='FormularioLogin' action='php/loginUser.php' method="post">
-            <label for='user'>User</label><br/>
-            <input id='user' type='text' placeholder='Enter User' name= 'user'/><br/>
-            <label for='password'>Password</label><br/>
+            <label for='user'>Personal ID</label><br />
+            <input id='user' type='text' placeholder='Enter Personal ID' name='user' /><br />
+            <label for='password'>Password</label><br />
             <div>
-                <input type='password' class='form-control' id='password' placeholer='Enter Paswword' name= 'password'>
+                <input type='password' class='form-control' id='password' placeholer='Enter Paswword' name='password'>
                 <span toggle='#password-field' class='fas fa-eye-slash eye toggle-password' id='eye' style='left: -12px;'></span>
             </div>
-            <input type='submit' value='Enviar' id='Enviar' />
+            <input type='submit' value='Submit' id='Enviar' />
         </form>
     </div>
     <script src="js/jquery-3.6.0.min.js"></script>

@@ -31,96 +31,97 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
 
   <body>
     <div id="menuHamburguesa">
+
       <input type="checkbox" />
+
       <span></span>
       <span></span>
       <span></span>
 
       <ul id="menu">
         <a href="index.php">
-          <li>Perfil</li>
+          <li>Profile</li>
         </a>
         <a href="buscadorpreguntas.php">
-          <li>Preguntas</li>
+          <li>Questions</li>
         </a>
-        <a href="#">
-          <li>Prueba 2</li>
-        </a>
-        <a href="#">
-          <li>Prueba 3</li>
-        </a>
-        <a href="#">
-          <li>Prueba 4</li>
-        </a>
-        <a href="#">
-          <li>Prueba 5</li>
-        </a>
-
         <?php
-        if ($_SESSION["pos"] == "SuperUser") {
-          echo "<a href='panelSuperUser.php' id='liUser'>";
-          echo "<li>Panel Administrador</li>";
+        if ($_SESSION['pos'] == "SuperUser") {
+          echo "<a href='panelSuperUser.php' id='liSuperUser'>";
+          echo "<li>SuperUser Manager</li>";
           echo "</a>";
         }
         ?>
 
 
+
+
+
+
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
         <?php
         if (isset($_SESSION["name"]) == true) {
-          echo "<li>" . $_SESSION["name"] . "</li>";
+          echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
           echo "<a href='php/cerrarUser.php'>";
-          echo "<li>Cerrar Session</li>";
+          echo "<li>Close Session</li>";
           echo "</a>";
         } else {
-          echo "No hay sesion";
+          echo "No Session";
         }
         ?>
+        <li></li>
 
+        <li></li>
         <li></li>
       </ul>
     </div>
 
     <div id='cuerpo'>
 
-    <form id="formulario" action="modificarUsuario.php" method="post">
-      <span class="close">&times;</span>
-      <div class="panelOculto" id="panelCentral">
-        <div id="datosUsuario">
-          <div id="nombreUsuario">
-            <p><?php echo $_SESSION['name'] . " " . $_SESSION['sur1'] . " " . $_SESSION['sur2']; ?></p>
+      <form id="formulario" action="modificarUsuario.php" method="post">
+        <span class="close">&times;</span>
+        <div class="panelOculto" id="panelCentral">
+          <div id="datosUsuario">
+            <div id="nombreUsuario">
+              <p><?php echo $_SESSION['name'] . " " . $_SESSION['sur1'] . " " . $_SESSION['sur2']; ?></p>
+            </div>
+            <div id="camposUsuario">
+              <div id="direccionUsuario">
+                <p>Dirección:</p>
+                <input type='text' id='address' name='address' placeholder='<?php echo $_SESSION['dir']; ?>' />
+              </div>
+              <div id="telefonoUsuario">
+                <p>Teléfono:</p>
+                <input type='text' id='phone' name='phone' placeholder='<?php echo $_SESSION['tlf']; ?>' />
+              </div>
+              <div id="contrasenaUsuario">
+                <p>Nueva contraseña:</p>
+                <input type='password' id='password' name='password' placeholder='Escriba su nueva contraseña' />
+              </div>
+              <div id="reContrasenaUsuario">
+                <p>Repita su contraseña:</p>
+                <input type='password' id='repassword' name='password' placeholder='Repita nueva contraseña' />
+              </div>
+            </div>
           </div>
-          <div id="camposUsuario">
-            <div id="direccionUsuario">
-              <p>Dirección:</p>
-              <input type='text' id='address' name='address' placeholder='<?php echo $_SESSION['dir']; ?>' />
+
+          <div id="fotosUsuario">
+            <div id="imagenUsuario">
+              <img id='perfil' src=<?php echo $_SESSION['img']; ?>>
             </div>
-            <div id="telefonoUsuario">
-              <p>Teléfono:</p>
-              <input type='text' id='phone' name='phone' placeholder='<?php echo $_SESSION['tlf']; ?>' />
-            </div>
-            <div id="contrasenaUsuario">
-              <p>Nueva contraseña:</p>
-              <input type='password' id='password' name='password' placeholder='Escriba su nueva contraseña' />
-            </div>
-            <div id="reContrasenaUsuario">
-              <p>Repita su contraseña:</p>
-              <input type='password' id='repassword' name='password' placeholder='Repita nueva contraseña' />
+
+            <div id="editarDatos">
+              <input type="button" id="confirmarDatosUsuario" value="Confirmar los cambios" />
             </div>
           </div>
         </div>
+      </form>
 
-        <div id="fotosUsuario">
-          <div id="imagenUsuario">
-            <img id='perfil' src=<?php echo $_SESSION['img']; ?>>
-          </div>
-
-          <div id="editarDatos">
-            <input type="button" id="confirmarDatosUsuario" value="Confirmar los cambios" />
-          </div>
-        </div>
-      </div>
-    </form>
-      
 
 
 
