@@ -21,8 +21,8 @@ if (isset($_SESSION["pos"]) == false) {
 
         <?php
         if ($_SESSION["pos"] == "SuperUser") {
-            echo "<link rel='stylesheet' type='text/css' href='css/superUserCss/comunSuperUser.css'>";
-            echo "<link rel='stylesheet' type='text/css' href='css/superUserCss/editarDatosSuperUser.css'>";
+            echo "<link rel='stylesheet' type='text/css' href='css/SUcomun.css'>";
+            echo "<link rel='stylesheet' type='text/css' href='css/SUPanel.css'>";
         } else {
             echo "<link rel='stylesheet' type='text/css' href='css/comun.css'>";
             echo "<link rel='stylesheet' type='text/css' href='css/panelUsuario.css'>";
