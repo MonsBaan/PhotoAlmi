@@ -18,7 +18,7 @@
         <div id="error">Incorrect User or Password</div>
         <form id='FormularioLogin' action='php/loginUser.php' method="post">
             <label for='user'>Personal ID</label><br />
-            <input id='user' type='text' placeholder='Enter Personal ID' name='user' /><br />
+            <input id='dni' type='text' placeholder='Enter Personal ID' name='dni' /><br />
             <label for='password'>Password</label><br />
             <div>
                 <input type='password' class='form-control' id='password' placeholer='Enter Paswword' name='password'>

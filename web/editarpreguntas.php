@@ -71,11 +71,9 @@ if (isset($_SESSION["pos"]) == false) {
       <div class="panelOculto" id="panelCentral">
         <h1>EDITA LAS PREGUNTAS</h1>
 <div>
-        <form action="php/modificarPregunta.php" method="post" enctype="multipart/form-data">
+    
 
-          <input type="file" name="fileToUpload" id="fileToUpload">
-          <input type="submit" value="Upload Image" name="submit">
-        </form>
+
         </div>
         <form id="formularioEditarPregunta" action="php/modificarPregunta.php" method="post">
 
@@ -127,7 +125,9 @@ if (isset($_SESSION["pos"]) == false) {
           echo "<input type='button' id='botonPregunta' value='Añadir pregunta' />";
           echo "<input type='button' id='botonPregunta' value='Actualizar pregunta' />";
         } else {
-          echo "<input type='button' id='botonPregunta' value='Actualizar pregunta' />";
+          echo "<input type='file' name='fileToUpload' id='fileToUpload'>";
+          echo "<input type='submit' value='Upload Image' name='submit'>";
+          //echo "<input type='button' id='botonPregunta' value='Actualizar pregunta' />";
         }
         ?>
 
