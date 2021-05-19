@@ -1,4 +1,3 @@
-comprobarFiltrar = ''
 $(document).ready(function () {
 	console.log('Documento Listo');
 	var urlDB = 'http://192.168.6.195:8080/kalmihootApi/preguntas';
@@ -12,22 +11,27 @@ $(document).ready(function () {
 			console.log(response);
 
 			let htmlappend = '<tr>';
-			htmlappend += '<th>NUM</th>';
-			htmlappend += '<th>PREGUNTA</th>';
-			htmlappend += '<th>CATEGORIA</th>';
-			htmlappend += '<th>ACIERTOS</th>';
-			htmlappend += '<th>EDITAR</th>';
-			htmlappend += '<th>ELIMINAR</th>';
+			htmlappend += '<th>NUMBER</th>';
+			htmlappend += '<th>QUESTION</th>';
+			htmlappend += '<th>CATEGORY</th>';
+			htmlappend += '<th>SUCCESS</th>';
+			htmlappend += '<th>EDIT</th>';
+			htmlappend += '<th>DELETE</th>';
 			htmlappend += '</tr>';
 			let arrTodo = response.data;
 			//combo
-			let htmlcombo = "<option value='selected'>Todo...</option>";
+			let htmlcombo = "<option value='selected'>Everything...</option>";
 			let con = 1;
 			let aux;
 			for (let i = 0; i < arrTodo.length; i++) {
 				//arr preguntas
 				let arrPreguntas = response.data[i]['preguntas'];
-				htmlcombo += '<option value='+ response.data[i]['categoria']+'>' + response.data[i]['categoria'] + '</option>';
+				htmlcombo +=
+					'<option value=' +
+					response.data[i]['categoria'] +
+					'>' +
+					response.data[i]['categoria'] +
+					'</option>';
 				for (let j = 0; j < arrPreguntas.length; j++) {
 					htmlappend += '<tr>';
 					htmlappend += '<td>' + con + '</td>';
@@ -35,8 +39,8 @@ $(document).ready(function () {
 					htmlappend += '<td >' + response.data[i]['categoria'] + '</td>';
 					htmlappend += '<td>' + arrPreguntas[j].numAciertos + '</td>';
 					htmlappend +=
-						"<td><input type='button' href='editarpreguntas.php' value='Editar' id='EditarPreguntas' /></td>";
-					htmlappend += "<td><input type='button' value='Eliminar' id='EliminarPreguntas' /></td>";
+						"<td><input type='button' href='editarpreguntas.php' value='Edit' id='EditarPreguntas' /></td>";
+					htmlappend += "<td><input type='button' value='Delete' id='EliminarPreguntas' /></td>";
 					htmlappend += '</tr>';
 					aux = j + 1;
 					con++;
@@ -55,7 +59,21 @@ $(document).ready(function () {
 	});
 	$(document).on('change', '#categorias', function () {
 		var campoFiltrar = $('#categorias').val().toUpperCase();
-		console.log(campoFiltrar)
+		console.log(campoFiltrar);
+		if (campoFiltrar == 'SELECTED') {
+			$('#tablaPreguntas tr').show();
+			$(campoFiltrar).val('');
+			var comprobarFiltrar = campoFiltrar;
+		} else {
+			$('#tablaPreguntas td')
+				.parent('tr')
+				.hide()
+				.filter(function () {
+					return $(this).children('td:nth-child(3)').text().toUpperCase().startsWith(campoFiltrar);
+				})
+				.show();
+			comprobarFiltrar = campoFiltrar;
+		}
 		/*var resto = 2;
 		$('#tablaPreguntas td').each(function (index) {
 			console.log(campoFiltrar);
@@ -71,29 +89,11 @@ $(document).ready(function () {
 				}
 			}
 		});*/
-		if(campoFiltrar == "SELECTED")
-		{
-			$("#tablaPreguntas tr").show();
-			$(campoFiltrar).val('');
-			var comprobarFiltrar = campoFiltrar;
-		}
-		else
-		{
-			$("#tablaPreguntas td").parent("tr").hide().filter(function(){
-				return $(this).children("td:nth-child(3)").text().toUpperCase().startsWith(campoFiltrar);
-			 }).show();
-			 comprobarFiltrar = campoFiltrar;
-		}
 	});
-	$("#filtro").on("keyup",function()
-	{
+	$('#filtro').on('keyup', function () {
 		var busqueda = $(this).val().toUpperCase();
-		var campoFiltrar = $('#categorias').val().toUpperCase();
-		$("#tablaPreguntas tr").filter(function()
-		{
-			if($(this).toggle($(this).text().toUpperCase().indexOf(busqueda) > -1) && campoFiltrar == comprobarFiltrar.toUpperCase()){
-				console.log("hola");
-			}
+		$('#tablaPreguntas tr').filter(function () {
+			$(this).toggle($(this).text().toUpperCase().indexOf(busqueda) > -1);
 		});
 	});
 	/*$("#filtro").on("change textInput input", function() {
@@ -120,5 +120,4 @@ $(document).ready(function () {
 			}
 		});
 	});*/
-
 });
