@@ -24,8 +24,8 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
 
       <img src='source/image/Kalmihoot.png'>
     </div>
-    <link rel='stylesheet' type='text/css' href='css/comunSuperUser.css'>
-    <link rel='stylesheet' type='text/css' href='css/panelSuperUser.css'>
+    <link rel='stylesheet' type='text/css' href='css/SUcomun.css'>
+    <link rel='stylesheet' type='text/css' href='css/SUpanel.css'>
 
   </head>
 

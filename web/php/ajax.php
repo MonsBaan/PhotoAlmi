@@ -21,7 +21,7 @@ session_start();
 
 switch ($function) {
   case 'loginAjax':
-    $user = loginAjax($_POST['nombre'], $_POST['contrasena']);
+    $user = loginAjax($_POST['dni'], $_POST['contrasena']);
     $userJson = json_encode($user, JSON_UNESCAPED_UNICODE);
     echo $userJson;
     break;
@@ -33,6 +33,10 @@ switch ($function) {
     break;
   case 'PreguntasAjax':
     break;
+    
+  case 'CrearPreguntas':
+    break;
+
   default:
     echo "Funcion: " . $function . " no existente";
     break;

@@ -27,8 +27,8 @@ if (isset($_SESSION["pos"]) == false) {
 
     <?php
     if ($_SESSION["pos"] == "SuperUser") {
-      echo "<link rel='stylesheet' type='text/css' href='css/comunSuperUser.css'>";
-      echo "<link rel='stylesheet' type='text/css' href='css/superUser.css'>";
+      echo "<link rel='stylesheet' type='text/css' href='css/SUcomun.css'>";
+      echo "<link rel='stylesheet' type='text/css' href='css/SUpanelUsuario.css'>";
     } else {
       echo "<link rel='stylesheet' type='text/css' href='css/comun.css'>";
       echo "<link rel='stylesheet' type='text/css' href='css/panelUsuario.css'>";
@@ -115,11 +115,11 @@ if (isset($_SESSION["pos"]) == false) {
               <input type='text' id='phone' name='phone' placeholder='<?php echo $_SESSION['tlf']; ?>' />
             </div>
             <div id="contrasenaUsuario">
-              <p>Nueva contraseña:</p>
+              <p>New Password:</p>
               <input type='password' id='password' name='password' placeholder='Type your new password' />
             </div>
             <div id="reContrasenaUsuario">
-              <p>Repita su contraseña:</p>
+              <p>Repeat the Password:</p>
               <input type='password' id='repassword' name='password' placeholder='Type the password again' />
             </div>
           </div>
