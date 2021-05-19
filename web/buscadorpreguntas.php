@@ -18,6 +18,7 @@ if (isset($_SESSION["pos"]) == false) {
         <title>KalmiHoot</title>
         <link rel="icon" href="source/image/StaleMans.png" type="image/icon type">
         <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
+        <link rel='stylesheet' type='text/css' href='css/SUpanel.css'>
 
         <?php
         if ($_SESSION["pos"] == "SuperUser") {
