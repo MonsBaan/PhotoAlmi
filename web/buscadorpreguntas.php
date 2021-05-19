@@ -22,14 +22,14 @@ if (isset($_SESSION["pos"]) == false) {
         <?php
         if ($_SESSION["pos"] == "SuperUser") {
             echo "<link rel='stylesheet' type='text/css' href='css/SUcomun.css'>";
-            echo "<link rel='stylesheet' type='text/css' href='css/SUPanel.css'>";
+            echo "<link rel='stylesheet' type='text/css' href='css/SUbuscadorPreguntas.css'>";
         } else {
             echo "<link rel='stylesheet' type='text/css' href='css/comun.css'>";
-            echo "<link rel='stylesheet' type='text/css' href='css/panelUsuario.css'>";
+            echo "<link rel='stylesheet' type='text/css' href='css/buscadorPreguntas.css'>";
         }
         ?>
 
-        <link rel='stylesheet' type='text/css' href='css/buscadorPreguntas.css'>
+        
 
     </head>
     <!--hola-->
