@@ -49,7 +49,7 @@ $(document).ready(function () {
 				//insecion al combo
 				$('#categorias').html(htmlcombo);
 			}
-			//insercion a la tabla
+			//insercion a la tabla.
 			$('#tablaPreguntas').append(htmlappend);
 		},
 	});
