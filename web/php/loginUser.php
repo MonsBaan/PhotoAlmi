@@ -2,7 +2,7 @@
 session_start();
 include "./datos.php";
 
-$user = loginPhp($_POST['user'], $_POST['password']);
+$user = loginPhp($_POST['dni'], $_POST['password']);
 
 if (sizeOf($user)==0) {
     header("location: ../login.php");

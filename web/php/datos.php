@@ -9,15 +9,15 @@ function conectarBD()
   return $mysqli;
 }
 //----------------------------------SELECTS----------------------------------
-function loginAjax($username, $password)
+function loginAjax($dni, $password)
 {
   $mysqli = conectarBD();
-  $sql = "SELECT nombre FROM trabajadores WHERE nombre = ? AND contrasena = ?";
+  $sql = "SELECT nombre FROM trabajadores WHERE dni = ? AND contrasena = ?";
   $sentencia = $mysqli->prepare($sql);
   if (!$sentencia) {
     echo "loginAjax fallo en la preparación de la sentencia " . $mysqli->errno;
   }
-  $vincular = $sentencia->bind_param("ss", $username, $password);
+  $vincular = $sentencia->bind_param("ss", $dni, $password);
   if (!$vincular) {
     echo "loginAjax fallo asociando parametros " . $mysqli->errno;
   }
@@ -39,13 +39,13 @@ function loginAjax($username, $password)
   return $usuario;
 }
 
-function loginPhp($username, $password)
+function loginPhp($dni, $password)
 {
   $mysqli = conectarBD();
-  $sql = "SELECT id_trabajador, nombre, apellido1, apellido2, dni, direccion, telefono, contrasena, imagen, descripcion FROM trabajadores INNER JOIN puestos ON trabajadores.puesto = puestos.id_puesto WHERE nombre = ? AND contrasena = ?";
+  $sql = "SELECT id_trabajador, nombre, apellido1, apellido2, dni, direccion, telefono, contrasena, imagen, descripcion FROM trabajadores INNER JOIN puestos ON trabajadores.puesto = puestos.id_puesto WHERE dni = ? AND contrasena = ?";
   $sentencia = $mysqli->prepare($sql);
   //if (!$sentencia) { echo "Fallo en la preparación de la sentencia " . $mysqli->errno;}
-  $asignar = $sentencia->bind_param("ss", $username, $password);
+  $asignar = $sentencia->bind_param("ss", $dni, $password);
   //if (!$asignar) { echo "Fallo al asignar parámetros: " . $mysqli->errno;}
   $ejecucion = $sentencia->execute();
   //if (!$ejecucion) { echo "Fallo en la ejecución: " . $mysqli->errno;}

@@ -1,14 +1,14 @@
 $(document).ready(function() {
     console.log("Documento Listo");
-    var urlDB = "http://192.168.6.192/PhotoAlmi/web/php/ajax.php";
+    var urlDB = "http://192.168.6.151/PhotoAlmi/web/php/ajax.php";
 
     //----------------------------------AJAX----------------------------------
     //FUNCION DE LOGIN
     $("#FormularioLogin").submit(function(event) {
-        var nombreUser = $("#user").val();
+        var dniUser = $("#dni").val();
         var passUser = $("#password").val();
         var parametros = {
-            "nombre": nombreUser,
+            "dni": dniUser,
             "contrasena": passUser,
             "function": "loginAjax"
         };

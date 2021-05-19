@@ -5,7 +5,6 @@ $(document).ready(function() {
     var session;
     $.get('php/session.php', function(data) {
         session = JSON.parse(data);
-        console.log(session);
     });
 
 

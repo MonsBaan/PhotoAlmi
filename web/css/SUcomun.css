@@ -162,9 +162,10 @@ body {
     font-size: 22px;
 }
 
-#menuHamburguesa #liSuperUser{
+#menuHamburguesa #liSuperUser {
     color: #ff6000;
 }
+
 
 /*
   * And let's slide it in from the left
@@ -173,4 +174,8 @@ body {
 #menuHamburguesa input:checked~ul {
     position: fixed;
     transform: none;
+}
+
+p {
+    color: #361a31;
 }
