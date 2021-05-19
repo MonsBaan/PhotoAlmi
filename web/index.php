@@ -49,23 +49,30 @@ if (isset($_SESSION["pos"]) == false) {
 
       <ul id="menu">
         <a href="index.php">
-          <li>Perfil</li>
+          <li>Profile</li>
         </a>
         <a href="buscadorpreguntas.php">
-          <li>Preguntas</li>
+          <li>All Questions</li>
+        </a>
+        <a href="#">
+          <li>Add Question</li>
         </a>
         <?php
-          if ($_SESSION['pos'] == "SuperUser") {
-            echo "<a href='panelSuperUser.php' id='liSuperUser'>";
-            echo "<li>Panel Super User</li>";
-            echo "</a>";
-          }
+        if ($_SESSION['pos'] == "SuperUser") {
+          echo "<a href='#' id='liSuperUser'>";
+          echo "<li>Create Category</li>";
+          echo "</a>";
+
+          echo "<a href='panelSuperUser.php' id='liSuperUser'>";
+          echo "<li>SuperUser Manager</li>";
+          echo "</a>";
+        }
         ?>
 
 
-        
-          
-        
+
+
+
 
         <li></li>
         <li></li>
@@ -75,12 +82,12 @@ if (isset($_SESSION["pos"]) == false) {
         <li></li>
         <?php
         if (isset($_SESSION["name"]) == true) {
-          echo "<li id = 'liName'>" . "Hola, " . $_SESSION["name"] . "." . "</li>";
+          echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
           echo "<a href='php/cerrarUser.php'>";
-          echo "<li>Cerrar Session</li>";
+          echo "<li>Close Session</li>";
           echo "</a>";
         } else {
-          echo "No hay sesion";
+          echo "No Session";
         }
         ?>
         <li></li>
@@ -100,20 +107,20 @@ if (isset($_SESSION["pos"]) == false) {
           </div>
           <div id="camposUsuario">
             <div id="direccionUsuario">
-              <p>Dirección:</p>
+              <p>Address:</p>
               <input type='text' id='address' name='address' placeholder='<?php echo $_SESSION['dir']; ?>' />
             </div>
             <div id="telefonoUsuario">
-              <p>Teléfono:</p>
+              <p>Phone Number:</p>
               <input type='text' id='phone' name='phone' placeholder='<?php echo $_SESSION['tlf']; ?>' />
             </div>
             <div id="contrasenaUsuario">
               <p>Nueva contraseña:</p>
-              <input type='password' id='password' name='password' placeholder='Escriba su nueva contraseña' />
+              <input type='password' id='password' name='password' placeholder='Type your new password' />
             </div>
             <div id="reContrasenaUsuario">
               <p>Repita su contraseña:</p>
-              <input type='password' id='repassword' name='password' placeholder='Repita nueva contraseña' />
+              <input type='password' id='repassword' name='password' placeholder='Type the password again' />
             </div>
           </div>
         </div>
@@ -124,7 +131,7 @@ if (isset($_SESSION["pos"]) == false) {
           </div>
 
           <div id="editarDatos">
-            <input type="button" id="confirmarDatosUsuario" value="Confirmar los cambios" />
+            <input type="button" id="confirmarDatosUsuario" value="Confirm Changes" />
           </div>
         </div>
       </div>
@@ -139,19 +146,19 @@ if (isset($_SESSION["pos"]) == false) {
         </div>
         <div id="camposUsuario">
           <div id="dniUsuario">
-            <p>DNI: </p>
+            <p>Personal Id: </p>
             <p id="dniMostrar"><?php echo $_SESSION['dni'] ?></p>
           </div>
           <div id="direccionUsuario">
-            <p>Dirección: </p>
+            <p>Address: </p>
             <p id="addressMostrar"><?php echo $_SESSION['dir']; ?></p>
           </div>
           <div id="telefonoUsuario">
-            <p>Teléfono:</p>
+            <p>Phone Number:</p>
             <p id="phoneMostrar"><?php echo $_SESSION['tlf']; ?></p>
           </div>
           <div id="puestoUsuario">
-            <p>Puesto: </p>
+            <p>Charge: </p>
             <p id="posMostrar"><?php echo $_SESSION['pos'] ?></p>
           </div>
         </div>
@@ -161,7 +168,7 @@ if (isset($_SESSION["pos"]) == false) {
           <img id='perfil' src=<?php echo $_SESSION['img']; ?>>
         </div>
         <div id="editarDatos">
-          <input type="button" id="editarDatosUsuario" value="Editar datos" />
+          <input type="button" id="editarDatosUsuario" value="Change Data" />
         </div>
       </div>
     </div>
