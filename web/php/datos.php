@@ -2,7 +2,7 @@
 //----------------------------------CONEXION BBDD----------------------------------
 function conectarBD()
 {
-  $mysqli = new mysqli("192.168.6.160", "phpRoot", "Almi123", "KalmihootWeb");
+  $mysqli = new mysqli("192.168.6.195", "staleman", "Almi_123", "KalmihootWeb");
   if ($mysqli->connect_errno) {
     echo "Fallo en la conexion: " . $mysqli->connect_errno;
   }

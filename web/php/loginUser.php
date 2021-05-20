@@ -1,13 +1,11 @@
 <?php
 session_start();
-include "./datos.php";
 
-$user = loginPhp($_POST['dni'], $_POST['password']);
+$json = file_get_contents('http://192.168.6.195:8080/kalmihootApi/trabajadores/12345678A/Almi123');
+$obj = json_decode($json);
 
-if (sizeOf($user)==0) {
-    header("location: ../login.php");
-}else {
-    $_SESSION["id"] = $user['id'];
+var_dump($json);
+    /*$_SESSION["id"] = $user['id'];
     $_SESSION["name"] = $user['nombre'];
     $_SESSION["sur1"] = $user['apellido1'];
     $_SESSION["sur2"] = $user['apellido2'];
@@ -18,7 +16,7 @@ if (sizeOf($user)==0) {
     $_SESSION["img"] = $user['imagen'];
     $_SESSION["pos"] = $user['puesto'];
 
-    header("location: ../index.php");
+    header("location: ../index.php");*/
 
-}
+
 ?>

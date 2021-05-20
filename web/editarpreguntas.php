@@ -2,12 +2,12 @@
 <html lang="es">
 
 <?php
-session_start();
+//session_start();
 include("php/datos.php");
 
-if (isset($_SESSION["pos"]) == false) {
-  header("location: login.php");
-} else {
+//if (isset($_SESSION["pos"]) == false) {
+  //header("location: login.php");
+//} else {
 ?>
 
   <head>
@@ -71,7 +71,7 @@ if (isset($_SESSION["pos"]) == false) {
       <div class="panelOculto" id="panelCentral">
         <h1>EDITA LAS PREGUNTAS</h1>
 <div>
-    
+
 
 
         </div>
@@ -143,7 +143,7 @@ if (isset($_SESSION["pos"]) == false) {
 
   </body>
 <?php
-}
+//}
 ?>
 
 </html>

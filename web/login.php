@@ -16,7 +16,7 @@
     <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
     <div id='CuadradoLogin'>
         <div id="error">Incorrect User or Password</div>
-        <form id='FormularioLogin' action='php/loginUser.php' method="post">
+        <form id='FormularioLogin' action='index.php' method="post">
             <label for='user'>Personal ID</label><br />
             <input id='dni' type='text' placeholder='Enter Personal ID' name='dni' /><br />
             <label for='password'>Password</label><br />
