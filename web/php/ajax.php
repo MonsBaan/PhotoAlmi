@@ -20,21 +20,17 @@ include './datos.php';
 session_start();
 
 switch ($function) {
-  case 'loginAjax':
-    $user = loginAjax($_POST['dni'], $_POST['contrasena']);
-    $userJson = json_encode($user, JSON_UNESCAPED_UNICODE);
-    echo $userJson;
-    break;
-
-  case 'updateUser':
-    echo $_POST['direccion'];
-    $user = updateUser($_POST['id'], $_POST['direccion'], $_POST['telefono'], $_POST['contrasena']);
-
-    break;
-  case 'PreguntasAjax':
-    break;
-    
-  case 'CrearPreguntas':
+  case 'login':
+    $_SESSION["id"] = $_POST['id'];
+    $_SESSION["name"] = $_POST['nombre'];
+    $_SESSION["sur1"] = $_POST['apellido1'];
+    $_SESSION["sur2"] = $_POST['apellido2'];
+    $_SESSION["dni"] = $_POST['dni'];
+    $_SESSION["dir"] = $_POST['direccion'];
+    $_SESSION["tlf"] = $_POST['telefono'];
+    $_SESSION["pass"] = $_POST['contrasena'];
+    $_SESSION["img"] = $_POST['imagen'];
+    $_SESSION["pos"] = $_POST['puesto'];
     break;
 
   default:
