@@ -1,34 +1,51 @@
 $(document).ready(function() {
     console.log("Documento Listo");
-    var urlDB = "http://192.168.6.151/PhotoAlmi/web/php/ajax.php";
+    var urlWebService = "http://192.168.6.195:8080/kalmihootApi/"
+    var urlHtml = "http://localhost/PhotoAlmi/web/php/ajax.php"
 
     //----------------------------------AJAX----------------------------------
     //FUNCION DE LOGIN
+
     $("#FormularioLogin").submit(function(event) {
+        event.preventDefault()
         var dniUser = $("#dni").val();
         var passUser = $("#password").val();
-        var parametros = {
-            "dni": dniUser,
-            "contrasena": passUser,
-            "function": "loginAjax"
-        };
-        event.preventDefault();
+
         $.ajax({
-            data: parametros,
-            url: urlDB,
-            type: "post",
+            url: urlWebService + "trabajador/" + dniUser + "/" + passUser,
+            type: "get",
             success: function(response) {
-                var arrayParse = JSON.parse(response);
-                if (arrayParse == null) {
-                    $('#error').slideDown('slow');
+                $('#error').hide('slow');
+                usuario = response.data
+                var parametros = {
+                    "id": usuario.id_trabajador,
+                    "nombre": usuario.nombre,
+                    "apellido1": usuario.apellido1,
+                    "apellido2": usuario.apellido2,
+                    "dni": usuario.dni,
+                    "direccion": usuario.direccion,
+                    "telefono": usuario.telefono,
+                    "contrasena": usuario.contrasena,
+                    "imagen": usuario.imagen,
+                    "puesto": usuario.descripcion,
+                    "function": "login"
+                };
+                $.ajax({
+                    data: parametros,
+                    url: urlHtml,
+                    type: "post",
+                    success: function(response) {
+                        $('#FormularioLogin').unbind('submit').submit();
 
-                } else {
-                    $('#FormularioLogin').unbind('submit').submit();
-                }
+                    },
+                });
             },
+            error: function() {
+                $('#error').slideDown('slow');
+            }
         });
-    });
 
+    });
     //----------------------------------EVENTOS JS----------------------------------
     //FUNCION DEL OJO
     $("#eye").click(function() {

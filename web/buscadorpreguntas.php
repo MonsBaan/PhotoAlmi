@@ -33,7 +33,6 @@ if (isset($_SESSION["pos"]) == false) {
         
 
     </head>
-    <!--hola-->
 
     <body>
         <div id="menuHamburguesa">
