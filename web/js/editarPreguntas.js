@@ -16,7 +16,9 @@ $(document).ready(function() {
         if ($("#check4").is(':checked')) {
             $("#check4").attr('value', 'true');
         }
+
     });
+
 
 
     $(document).on('change', "input[type='file']", function() {
@@ -51,7 +53,7 @@ $(document).ready(function() {
         let categoria = $("#comboCategoria").val();
 
         //CONTROLAR SI SE SELECCIONA UN CHECKBOX
-        var checkbox = $("#checkbox").val();
+        var checkbox = $("input[type='checkbox']").val();
 
         var respuesta1 = $("#ans1").val();
         var respuesta2 = $("#ans2").val();
@@ -59,7 +61,6 @@ $(document).ready(function() {
         var respuesta4 = $("#ans4").val();
 
         var explicacion = $("#expl").val();
-
 
 
 
