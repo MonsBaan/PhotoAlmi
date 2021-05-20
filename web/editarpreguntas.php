@@ -71,7 +71,7 @@ if (isset($_SESSION["pos"]) == false) {
       <div class="panelOculto" id="panelCentral">
         <h1>EDITA LAS PREGUNTAS</h1>
 <div>
-    
+
 
 
         </div>
