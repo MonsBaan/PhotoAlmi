@@ -1,20 +1,26 @@
 $(document).ready(function() {
     var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
     var nombreDocumento = "0";
+    var controlCheck = "0";
 
     $("input[type='checkbox']").on('change', function() {
         $(this).attr('value', 'false');
+        controlCheck = "0";
         if ($("#check1").is(':checked')) {
             $("#check1").attr('value', 'true');
+            controlCheck = "1";
         }
         if ($("#check2").is(':checked')) {
             $("#check2").attr('value', 'true');
+            controlCheck = "1";
         }
         if ($("#check3").is(':checked')) {
             $("#check3").attr('value', 'true');
+            controlCheck = "1";
         }
         if ($("#check4").is(':checked')) {
             $("#check4").attr('value', 'true');
+            controlCheck = "1";
         }
 
     });
@@ -69,7 +75,7 @@ $(document).ready(function() {
         } else {
 
             //COMPROBAR SI TODOS LOS CAMPOS ESTÁN COMPLETOS
-            if (nombreDocumento == "0" | pregunta | respuesta1 | respuesta2 | respuesta3 | respuesta4 | explicacion == "") {
+            if (nombreDocumento == "0" | pregunta | respuesta1 | respuesta2 | respuesta3 | respuesta4 | explicacion == "" | controlCheck == "0") {
                 window.confirm("Rellena todos los datos, por favor")
                 event.preventDefault();
             } else {
