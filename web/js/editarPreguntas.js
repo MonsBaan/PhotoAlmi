@@ -13,7 +13,6 @@ $(document).ready(function() {
     $("#botonPregunta").click(function(event) {
 
         var imagen = $("#campoIMG").val();
-
         var pregunta = $("#question").val();
 
 

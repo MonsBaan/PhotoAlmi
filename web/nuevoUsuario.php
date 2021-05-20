@@ -2,12 +2,12 @@
 <html lang="es">
 
 <?php
-session_start();
+//session_start();
 include("php/datos.php");
 
-if (isset($_SESSION["pos"]) == false) {
+/*if (isset($_SESSION["pos"]) == false) {
   header("location: login.php");
-} else {
+} else {*/
 ?>
 
   <head>
@@ -62,41 +62,34 @@ if (isset($_SESSION["pos"]) == false) {
           echo "</a>";
         }
         ?>
-
         <li></li>
       </ul>
     </div>
-
-
     <div class="panelOculto" id="panelCentral">
-      <h1>CREATE USER</h1>
+      <h1>CREATE WORKERS</h1>
       <div>
       </div>
       <form id="formularioCrearUsuario" action="php/" method="post">
         <label>Name: </label>
-        <input type="text" name="usuario" placeholder="Insert your name" /> <br>
+        <input type="text" name="usuario" id='usuario' placeholder="Insert name" /> <br>
         <label>Surname 1: </label>
-        <input type="text" name="Apellido1" placeholder="Insert your first surname" /> <br>
+        <input type="text" name="Apellido1" id='Apellido1' placeholder="Insert first surname" /> <br>
         <label>Surname 2: </label>
-        <input type="text" name="Apellido2" placeholder="Insert your second surname" /> <br>
-        <label>DNI: </label>
-        <input type="text" name="DNI" placeholder="Insert your DNI" /> <br>
-        <label>Image: </label>
-        <input type="image" name="imagen" placeholder="Insert your image" /> <br>
-        <label>Puesto: </label>
-        <input type="text" name="puesto" placeholder="Insert your puesto" /> <br>
-
+        <input type="text" name="Apellido2" id='Apellido2' placeholder="Insert second surname" /> <br>
+        <label>ID: </label>
+        <input type="text" name="id" id='userid' placeholder="Insert ID" /> <br>
+        <label>Post: </label>
+        <input type="text" name="puesto" id='puesto' placeholder="Insert post" /> <br>
+        <input type="button" name='Add' value='Add' />
       </form>
-
-
 
       <script src="js/jquery-3.6.0.min.js"></script>
       <script src="js/comun.js"></script>
-      <script src="js/editarPreguntas.js"></script>
+      <script src="js/nuevoUsuario.js"></script>
 
   </body>
 <?php
-}
+//}
 ?>
 
 </html>
