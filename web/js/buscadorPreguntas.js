@@ -8,7 +8,6 @@ $(document).ready(function () {
 		url: urlDB,
 		type: 'get',
 		success: function (response) {
-			console.log(response);
 			let htmlappend = '<tr>';
 			htmlappend += '<th>NUMBER</th>';
 			htmlappend += '<th>QUESTION</th>';
@@ -72,21 +71,7 @@ $(document).ready(function () {
 				.show();
 			comprobarFiltrar = campoFiltrar;
 		}
-		/*var resto = 2;
-        $('#tablaPreguntas td').each(function (index) {
-        	console.log(campoFiltrar);
-        	if (index % 6 == resto) {
-        		var texto = $(this).text();
-        		if (texto != campoFiltrar) {
-        			$(this).parent('tr').hide();
-        			if ('selected' == campoFiltrar) {
-        				$(this).parent('tr').show();
-        			}
-        		} else {
-        			$(this).parent('tr').show();
-        		}
-        	}
-        });*/
+		
 	});
 	$('#filtro').on('keyup', function () {
 		var busqueda = $(this).val().toUpperCase();
@@ -94,28 +79,5 @@ $(document).ready(function () {
 			$(this).toggle($(this).text().toUpperCase().indexOf(busqueda) > -1);
 		});
 	});
-	/*$("#filtro").on("change textInput input", function() {
-		var campoFiltrar = $('#categorias').val();
-		var textoFiltro = $('#filtro').val().toLowerCase();
-		var resto = 2;
-		$('#tablaPreguntas td').each(function (index) {
-			if (index % 6 == resto) {
-				var texto = $(this).text();
-				if (texto != campoFiltrar) {
-					$(this).parent('tr').hide();
-					if ('selected' == campoFiltrar) {
-						$(this).parent('tr').show();
-						console.log("estoy en todo cristian");
-					}
-				} else {
-					$(this).parent('tr').show();
-                    var restos = 1;
-					console.log("hola aqui si");
-					$(this).filter(function(index) {
-						$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-					  });
-				}
-			}
-		});
-	});*/
+	
 });

@@ -3,6 +3,7 @@
 <?php
 session_start();
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,10 +23,8 @@ session_start();
             <label for='user'>Personal ID</label><br />
             <input id='dni' type='text' placeholder='Enter Personal ID' name='dni' /><br />
             <label for='password'>Password</label><br />
-            <div>
-                <input type='password' class='form-control' id='password' placeholer='Enter Paswword' name='password'>
-                <span toggle='#password-field' class='fas fa-eye-slash eye toggle-password' id='eye' style='left: -12px;'></span>
-            </div>
+            <input type='password' class='form-control' id='password' placeholer='Enter Paswword' name='password'>
+            <span toggle='#password-field' class='fas fa-eye-slash eye toggle-password' id='eye' style='left: -12px;'></span>
             <input type='submit' value='Submit' id='Enviar' />
         </form>
     </div>
