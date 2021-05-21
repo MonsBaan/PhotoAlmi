@@ -11,18 +11,7 @@ body {
     background-color: #06aadb;
   }
 
-/*----------------------------------OBJETOS----------------------------------*/
-/*IMAGEN OJO*/
-.eye {
-    float: right;
-    margin-left: 488px;
-    margin-top: -7%;
-    position: relative;
-    z-index: 2;
-    color: black;
-}
-
-*{
+  *{
     font-family: "Lora", serif;
     font-weight: bold;
   }
@@ -40,6 +29,8 @@ body {
     background-color: #364278;
     text-align: center;
 }
+/*----------------------------------OBJETOS----------------------------------*/
+
 
 #panelCentral label {
     margin-top: 7%;
@@ -52,6 +43,7 @@ body {
 #panelPuesto select{
     flex:5;
     
+    width: 100%;
 }
 #panelPuesto label{
     flex:1;

@@ -29,4 +29,4 @@ http://192.168.6.195:8080/kalmihootApi/altas
 http://192.168.6.195:8080/kalmihootApi/trabajador/:dni/:contrasena
 
 //get trabajadore por id
-http://192.168.6.195:8080/kalmihootApi/trabajadores/:is
+http://192.168.6.195:8080/kalmihootApi/trabajadores/:id
