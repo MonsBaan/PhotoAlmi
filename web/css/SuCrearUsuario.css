@@ -21,8 +21,9 @@ body {
     flex-flow: column;
     border-radius: 1rem;
     padding: 2%;
-    background-color: #364278;
+    background-color: #c85e2a;
     text-align: center;
+    color: #333131;
 }
 /*----------------------------------OBJETOS----------------------------------*/
 
