@@ -26,6 +26,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
     </div>
     <link rel='stylesheet' type='text/css' href='css/SUcomun.css'>
     <link rel='stylesheet' type='text/css' href='css/SUpanel.css'>
+    <link rel='stylesheet' type='text/css' href='css/SUpanelUsuario.css'>
 
   </head>
 
@@ -126,7 +127,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
                 <p>Charge:</p>
                 <select name="puesto" id="puesto" class='input'>
 
-                
+
                 </select>
               </div>
             </div>

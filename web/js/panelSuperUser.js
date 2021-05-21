@@ -13,7 +13,15 @@ $(document).ready(function() {
     $(document).on('click', '#eliminar', function() {
         if (confirm("Estas seguro de eliminar este usuario?")) {
             id = $(this).parent().children('#idUser').text();
-            console.log(id);
+            $.ajax({
+                url: urlDB + "trabajadores/" + id,
+                type: 'DELETE',
+                success: function(resultado) {
+                    console.log(resultado)
+                    actualizarUsuarios();
+
+                }
+            });
         }
     });
     $(document).on('click', '#editar', function() {
@@ -86,8 +94,8 @@ $(document).ready(function() {
                     html += "<td>" + trabajador.direccion + "</td>";
                     html += "<td>" + trabajador.telefono + "</td>";
                     html += "<td>" + trabajador.descripcion + "</td>";
-                    html += "<td id='editar' ><img src='source/image/editar.png' alt='Imagen Recargar' class='imagenPanel'></img></td>"
-                    html += "<td id='eliminar'><img src='source/image/papelera.png' alt='Imagen Recargar' class='imagenPanel'></img></td>"
+                    html += "<td id='editar' ><img src='source/image/editarN.png' alt='Imagen Recargar' class='imagenPanel'></img></td>"
+                    html += "<td id='eliminar'><img src='source/image/papeleraN.png' alt='Imagen Recargar' class='imagenPanel'></img></td>"
                     html += "</tr>";
                 });
                 $("#tablaUsers").html(html);
