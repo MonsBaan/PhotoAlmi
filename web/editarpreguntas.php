@@ -72,10 +72,10 @@ include("php/datos.php");
         <h1>EDITA LAS PREGUNTAS</h1>
 <div>
 
-<form action="modificarPregunta.php" method="post" enctype="multipart/form-data">
+<form class = "formSubir" action="php/modificarPregunta.php" method="post" enctype="multipart/form-data">
   <input type="file" name="fileToUpload" id="fileToUpload">
-  <input id = "botonSubirImagen" type="submit" value="Subir Imagen" name="submit">
-</form>
+ <!--<input id = "botonSubirImagen" type="submit" value="Subir Imagen" name="submit">
+--></form>
 
 <br> 
 
