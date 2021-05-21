@@ -17,7 +17,6 @@ include("php/datos.php");
   <title>KalmiHoot</title>
   <link rel="icon" href="source/image/StaleMans.png" type="image/icon type">
   <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
   <link rel='stylesheet' type='text/css' href='css/comun.css'>
   <link rel='stylesheet' type='text/css' href='css/SuCrearUsuario.css'>
 </head>
@@ -70,13 +69,11 @@ include("php/datos.php");
       <input type="text" name="id" id='userid' placeholder="Insert ID" /> <br>
       <input type="text" name="direccion" id='direccion' placeholder="Insert direction" /> <br>
       <input type="text" name="telefono" id='telefono' placeholder="Insert telephone" /> <br>
-      <input type='password' class='form-control' id='password' placeholer='Enter Paswword' name='password'>
-      <span toggle='#password-field' class='fas fa-eye-slash eye toggle-password' id='eye' style='left: -12px;'></span> <br>
       <div id="panelPuesto">
         <label>Charge: </label>
         <select name="puesto" id="puesto"></select>
       </div>
-      <input type="button" name='Add' value='Add' />
+      <input type="button" name='Add' value='Add' id='Add'/>
     </form>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/comun.js"></script>
