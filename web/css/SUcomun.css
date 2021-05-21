@@ -1,3 +1,7 @@
+*{
+    font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
 #titulo {
     width: 20%;
     height: 20%;
@@ -38,7 +42,6 @@ body {
     margin-top: 6%;
     background: #EEA463;
     color: #cdcdcd;
-    font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
 #menu {

@@ -44,15 +44,28 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
           <li>Profile</li>
         </a>
         <a href="buscadorpreguntas.php">
-          <li>Questions</li>
+          <li>All Questions</li>
+        </a>
+        <a href="#">
+          <li>Add Question</li>
         </a>
         <?php
         if ($_SESSION['pos'] == "SuperUser") {
+          echo "<a href='#' id='liSuperUser'>";
+          echo "<li>Create Category</li>";
+          echo "</a>";
+
           echo "<a href='panelSuperUser.php' id='liSuperUser'>";
           echo "<li>SuperUser Manager</li>";
           echo "</a>";
         }
         ?>
+
+
+
+
+
+
         <li></li>
         <li></li>
         <li></li>
@@ -146,7 +159,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
         <div id='añadirUsuario' class='opcionPanel'>
           <label for="añadir">New User</label>
           <a href="nuevoUsuario.php"><img src="source/image/añadir.png" alt="Imagen Añadir" class="imagen"></a>
-          
+
         </div>
       </div>
 
