@@ -48,11 +48,11 @@ if ($uploadOk == 0) {
     echo "Sorry, there was an error uploading your file.";
   }
  //var_dump($target_file);
-  //var_dump($move_uploaded_file);
+ // var_dump($move_uploaded_file);
 
 }
 
 
-var_dump("");
+//var_dump("");
 
 ?>

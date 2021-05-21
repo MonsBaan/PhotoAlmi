@@ -19,7 +19,6 @@ if (isset($_SESSION["pos"]) == false) {
         <link rel="icon" href="source/image/StaleMans.png" type="image/icon type">
         <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
         <link rel='stylesheet' type='text/css' href='css/SUpanel.css'>
-
         <?php
         if ($_SESSION["pos"] == "SuperUser") {
             echo "<link rel='stylesheet' type='text/css' href='css/SUcomun.css'>";
@@ -29,20 +28,14 @@ if (isset($_SESSION["pos"]) == false) {
             echo "<link rel='stylesheet' type='text/css' href='css/buscadorPreguntas.css'>";
         }
         ?>
-
-        
-
     </head>
 
     <body>
         <div id="menuHamburguesa">
-
             <input type="checkbox" />
-
             <span></span>
             <span></span>
             <span></span>
-
             <ul id="menu">
                 <a href="index.php">
                     <li>Profile</li>
@@ -64,12 +57,12 @@ if (isset($_SESSION["pos"]) == false) {
                     echo "</a>";
                 }
                 ?>
-
-
-
-
-
-
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -87,32 +80,20 @@ if (isset($_SESSION["pos"]) == false) {
                 }
                 ?>
                 <li></li>
-
                 <li></li>
                 <li></li>
             </ul>
         </div>
-
-
-
         <div id="cuerpo">
-
             <div id="elementosFiltro">
                 <label id="introFiltro" for="filtro">Enter Search: </label>
                 <input type="text" id="filtro" name="filtro" />
-                <select id="categorias">
-                </select>
+                <select id="categorias"></select>
             </div>
             <br></br>
-
             <table id="tablaPreguntas">
-
             </table>
         </div>
-
-
-
-
         <script src="js/jquery-3.6.0.min.js"></script>
         <script src="js/comun.js"></script>
         <script src="js/buscadorPreguntas.js"></script>

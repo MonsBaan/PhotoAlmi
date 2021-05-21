@@ -1,4 +1,47 @@
-#formularioCrearUsuario
-{
+#formularioCrearUsuario {
     display: contents;
+}
+body {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-top: 5%;
+    margin-left: 23%;
+    margin-right: 23%;
+  }
+
+
+#panelCentral {
+    text-align: center;
+    display: flex;
+    margin: 15%;
+    height: auto;
+    top: 40%;
+    left: 25%;
+    flex-flow: column;
+    border-radius: 1rem;
+    padding: 2%;
+    background-color: #364278;
+    text-align: center;
+}
+/*----------------------------------OBJETOS----------------------------------*/
+
+
+#panelCentral label {
+    margin-top: 7%;
+}
+
+#panelPuesto {
+    display: flex;
+    margin-top: 4%;
+}
+#panelPuesto select{
+    flex:5;
+    
+    width: 100%;
+}
+#panelPuesto label{
+    flex:1;
+    margin-top: 1%;
+    
 }

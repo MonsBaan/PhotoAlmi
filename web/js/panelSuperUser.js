@@ -4,9 +4,7 @@ $(document).ready(function() {
 
     actualizarUsuarios();
 
-    $("#añadirUsuario").click(function() {
-        console.log("Click Añadir Usuario");
-    });
+
     $("#recargarResultados").click(function() {
         actualizarUsuarios();
     });
@@ -66,7 +64,6 @@ $(document).ready(function() {
             $("#formulario").hide();
         }
     });
-
     function actualizarUsuarios() {
         let html = "";
 
@@ -102,6 +99,6 @@ $(document).ready(function() {
 
             }
         });
-
     }
+    
 });
