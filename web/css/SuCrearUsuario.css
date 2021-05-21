@@ -1,4 +1,60 @@
-#formularioCrearUsuario
-{
+#formularioCrearUsuario {
     display: contents;
+}
+body {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-top: 5%;
+    margin-left: 23%;
+    margin-right: 23%;
+    background-color: #06aadb;
+  }
+
+/*----------------------------------OBJETOS----------------------------------*/
+/*IMAGEN OJO*/
+.eye {
+    float: right;
+    margin-left: 488px;
+    margin-top: -7%;
+    position: relative;
+    z-index: 2;
+    color: black;
+}
+
+*{
+    font-family: "Lora", serif;
+    font-weight: bold;
+  }
+
+#panelCentral {
+    text-align: center;
+    display: flex;
+    margin: 15%;
+    height: auto;
+    top: 40%;
+    left: 25%;
+    flex-flow: column;
+    border-radius: 1rem;
+    padding: 2%;
+    background-color: #364278;
+    text-align: center;
+}
+
+#panelCentral label {
+    margin-top: 7%;
+}
+
+#panelPuesto {
+    display: flex;
+    margin-top: 4%;
+}
+#panelPuesto select{
+    flex:5;
+    
+}
+#panelPuesto label{
+    flex:1;
+    margin-top: 1%;
+    
 }
