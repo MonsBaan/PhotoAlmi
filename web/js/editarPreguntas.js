@@ -27,13 +27,20 @@ $(document).ready(function() {
 
 
 
-    $(document).on('change', "input[type='file']", function() {
+    $(document).on('change', "input[type='file']", function(event) {
         if ($(this).val()) {
             var filename = $(this).val().split("\\");
             nombreDocumento = filename = filename[filename.length - 1];
             $('.fileName').text(filename);
         }
+    });
 
+    $(document).on('', function(event) {
+        if ($(this).val()) {
+            var filename = $(this).val().split("\\");
+            nombreDocumento = filename = filename[filename.length - 1];
+            $('.fileName').text(filename);
+        }
     });
 
     $.ajax({
@@ -78,6 +85,10 @@ $(document).ready(function() {
                 window.confirm("Rellena todos los datos, por favor")
                 event.preventDefault();
             } else {
+
+
+                $('.fileName').off('submit').submit();
+
                 let parametros = {
                     "categoria": categoria,
                     "preguntas": [{
