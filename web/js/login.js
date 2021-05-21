@@ -28,6 +28,7 @@ $(document).ready(function() {
                     "contrasena": usuario.contrasena,
                     "imagen": usuario.imagen,
                     "puesto": usuario.descripcion,
+                    "idPuesto": usuario.puesto,
                     "function": "login"
                 };
                 $.ajax({

@@ -32,7 +32,15 @@ switch ($function) {
     $_SESSION["tlf"] = $_POST['telefono'];
     $_SESSION["pass"] = $_POST['contrasena'];
     $_SESSION["img"] = $_POST['imagen'];
+    $_SESSION["idPos"] = $_POST['idPuesto'];
     $_SESSION["pos"] = $_POST['puesto'];
+    break;
+
+  case 'update':
+    $_SESSION["dir"] = $_POST['direccion'];
+    $_SESSION["tlf"] = $_POST['telefono'];
+    $_SESSION["pass"] = $_POST['contrasena'];
+    echo "hola";
     break;
 
   default:

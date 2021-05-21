@@ -6,12 +6,13 @@
 #tablaPreguntas {
     text-align: center;
     margin: auto;
+    color: #333131;
 }
 
 #tablaPreguntas td {
-    background: #dd5300;
+    background: #c85e2a;
     padding: 5px;
-    color: #361a31;
+    color: #333131;
     border-radius: 5px;
 }
 
@@ -25,9 +26,9 @@
 }
 
 #elementosFiltro {
-    background-color: #dd5300;
+    background-color: #c85e2a;
     width: 50%;
     border-radius: 20px;
-    color: #361a31;
+    color: #333131;
     margin-left: 24%
 }

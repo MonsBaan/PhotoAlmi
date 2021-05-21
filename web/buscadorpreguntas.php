@@ -32,10 +32,13 @@ if (isset($_SESSION["pos"]) == false) {
 
     <body>
         <div id="menuHamburguesa">
+
             <input type="checkbox" />
+
             <span></span>
             <span></span>
             <span></span>
+
             <ul id="menu">
                 <a href="index.php">
                     <li>Profile</li>
@@ -57,12 +60,12 @@ if (isset($_SESSION["pos"]) == false) {
                     echo "</a>";
                 }
                 ?>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+
+
+
+
+
+
                 <li></li>
                 <li></li>
                 <li></li>
@@ -80,6 +83,7 @@ if (isset($_SESSION["pos"]) == false) {
                 }
                 ?>
                 <li></li>
+
                 <li></li>
                 <li></li>
             </ul>

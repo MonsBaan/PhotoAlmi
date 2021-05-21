@@ -5,11 +5,11 @@
 
 input,
 select {
-    width: 100%;
+    width: 95%;
     padding: 12px 20px;
     margin: 8px 0;
     border: 1px solid #ccc;
-    border-radius: 20px;
+    border-radius: 10px;
     box-sizing: border-box;
     flex: 1
 }
@@ -24,10 +24,10 @@ select {
 }
 
 #tablaUsers td {
-    border-color: #364278;
-    border-width: 1px;
-    background: #364278;
+    background: #c85e2a;
     padding: 5px;
+    color: #333131;
+    border-radius: 5px;
 }
 
 #recargarResultados .imagen,
