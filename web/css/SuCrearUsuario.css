@@ -46,3 +46,23 @@ body {
     margin-top: 1%;
     
 }
+#error{
+  
+  color: white;
+  font-size: 130%;
+  background-color: #973606;
+  border-radius: 11px;
+  margin: 5px;
+  display: none;
+  padding: 1%
+}
+#errorTop{
+  
+    color: white;
+    font-size: 130%;
+    background-color: #973606;
+    border-radius: 11px;
+    margin: 5px;
+    display: none;
+    padding: 1%
+  }
