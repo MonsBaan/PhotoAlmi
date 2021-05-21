@@ -35,10 +35,9 @@ $(document).ready(function() {
                     url: urlHtml,
                     type: "POST",
                     success: function(response) {
-
                         $('#FormularioLogin').unbind('submit').submit();
 
-                    }
+                    },
 
                 });
             },
