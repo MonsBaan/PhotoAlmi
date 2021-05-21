@@ -4,9 +4,10 @@
     height: auto;
     top: 40%;
     left: 25%;
-    background: #dd5300;
+    background: #c85e2a;
     flex-flow: row;
     border-radius: 1rem;
+    color: #333131;
 }
 
 #panelCentral>div {
@@ -17,7 +18,7 @@
 
 #panelCentral>div:last-child {
     flex: 1;
-    background-color: #993900;
+    background-color: #C6490B;
 }
 
 #fotosUsuario>div {

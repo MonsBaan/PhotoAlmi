@@ -87,25 +87,47 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
         <span class="close">&times;</span>
         <div class="panelOculto" id="panelCentral">
           <div id="datosUsuario">
-            <div id="nombreUsuario">
-              <p><?php echo $_SESSION['name'] . " " . $_SESSION['sur1'] . " " . $_SESSION['sur2']; ?></p>
-            </div>
+
+
             <div id="camposUsuario">
+              <div id="nombreUsuario">
+                <p>Name:</p>
+                <input type='text' id='name' name='name' placeholder='' class='input' />
+              </div>
+              <div id="apellido1Usuario">
+                <p>Surname 1:</p>
+                <input type='text' id='surname1' name='surname1' placeholder='' class='input'/>
+              </div>
+              <div id="apellido2Usuario">
+                <p>Surname 2:</p>
+                <input type='text' id='surname2' name='surname2' placeholder='' class='input'/>
+              </div>
+              <div id="dniUsuario">
+                <p>Personal ID:</p>
+                <input type='text' id='userId' name='userId' placeholder='' class='input'/>
+              </div>
               <div id="direccionUsuario">
-                <p>Dirección:</p>
-                <input type='text' id='address' name='address' placeholder='<?php echo $_SESSION['dir']; ?>' />
+                <p>Address:</p>
+                <input type='text' id='address' name='address' placeholder='' class='input'/>
               </div>
               <div id="telefonoUsuario">
-                <p>Teléfono:</p>
-                <input type='text' id='phone' name='phone' placeholder='<?php echo $_SESSION['tlf']; ?>' />
+                <p>Phone Number:</p>
+                <input type='text' id='phone' name='phone' placeholder='' class='input'/>
               </div>
               <div id="contrasenaUsuario">
-                <p>Nueva contraseña:</p>
-                <input type='password' id='password' name='password' placeholder='Escriba su nueva contraseña' />
+                <p>New Password:</p>
+                <input type='password' id='password' name='password' placeholder='Type your new password' class='input'/>
               </div>
               <div id="reContrasenaUsuario">
-                <p>Repita su contraseña:</p>
-                <input type='password' id='repassword' name='password' placeholder='Repita nueva contraseña' />
+                <p>Repeat the Password:</p>
+                <input type='password' id='repassword' name='password' placeholder='Type the password again' class='input'/>
+              </div>
+              <div id="puestoUsuario">
+                <p>Charge:</p>
+                <select name="puesto" id="puesto" class='input'>
+
+                
+                </select>
               </div>
             </div>
           </div>
@@ -116,7 +138,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
             </div>
 
             <div id="editarDatos">
-              <input type="button" id="confirmarDatosUsuario" value="Confirmar los cambios" />
+              <input type="button" id="confirmarDatosUsuario" value="Confirm Changes" />
             </div>
           </div>
         </div>
@@ -126,15 +148,17 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
 
 
 
+      <div id='accionesGeneral'>
+        <div id='recargarResultados' class='opcionPanel'>
+          <label for="recargar">Reload Users</label>
+          <img src="source/image/recargar.png" alt="Imagen Recargar" class="imagen">
+        </div>
+        <div id='añadirUsuario' class='opcionPanel'>
+          <label for="añadir">New User</label>
+          <img src="source/image/añadir.png" alt="Imagen Añadir" class="imagen">
+        </div>
+      </div>
 
-      <div id='recargarResultados' class='opcionPanel'>
-        <label for="recargar">Reload Users</label>
-        <img src="source/image/recargar.png" alt="Imagen Recargar" class="imagen">
-      </div>
-      <div id='añadirUsuario' class='opcionPanel'>
-        <label for="añadir">New User</label>
-        <img src="source/image/añadir.png" alt="Imagen Añadir" class="imagen">
-      </div>
 
       <table id="tablaUsers">
 

@@ -1,162 +1,134 @@
 #cuerpo {
-  text-align: center;
-  margin-top: 4%;
+    text-align: center;
+    margin-top: 4%;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    flex: 1
 }
 
 #tablaUsers {
-  text-align: center;
-  margin: auto;
+    text-align: center;
+    margin: auto;
 }
 
 #tablaUsers th {
-  color: #2D143F;
+    color: #2D143F;
 }
 
 #tablaUsers td {
-  border-color: #364278;
-  border-width: 1px;
-  background: #364278;
-  padding: 5px;
-}
-#recargarResultados .imagen, #añadirUsuario .imagen{
-  height: 15px;
-  
-}
-#recargarResultados label, #añadirUsuario label{
-  font-size: 20px;
-  color: #2D143F;
+    border-color: #364278;
+    border-width: 1px;
+    background: #364278;
+    padding: 5px;
 }
 
-#panelCentral
-{
- display: flex;
- margin: 10%;
- height: auto;
- top: 40%;
- left: 25%;
- background: #364278;
- flex-flow: row;
- border-radius: 1rem;
+#recargarResultados .imagen,
+#añadirUsuario .imagen {
+    height: 15px;
 }
 
-#panelCentral > div {
- display: flex;
- flex-flow: column;
-  flex: 2;
-
-}
-#panelCentral > div:last-child {
-
- flex: 1;  
- background-color: #2D143F;
+#recargarResultados label,
+#añadirUsuario label {
+    font-size: 20px;
+    color: #2D143F;
 }
 
-#fotosUsuario > div 
-{
-text-align: center;
-margin: 2%;
-flex: 1;
+#panelCentral {
+    display: flex;
+    margin: 10%;
+    height: auto;
+    top: 40%;
+    left: 25%;
+    background: #364278;
+    flex-flow: row;
+    border-radius: 1rem;
 }
 
-#fotosUsuario > div:first-child
-{
-flex: 3;
-
+#panelCentral>div {
+    display: flex;
+    flex-flow: column;
+    flex: 2;
 }
 
-#imagenUsuario img
-{
-height: 100%;
-max-width: 100%;
+#panelCentral>div:last-child {
+    flex: 1;
+    background-color: #2D143F;
 }
 
-#datosUsuario > div {
-
-flex: 1;
-display: flex;
-flex-flow: column;
-text-align: center;
-font-size: 150%;
+#fotosUsuario>div {
+    text-align: center;
+    margin: 2%;
+    flex: 1;
 }
 
-#datosUsuario > div:last-child{
-flex: 3;
-
+#fotosUsuario>div:first-child {
+    flex: 3;
 }
 
-#camposUsuario > div
-{
-display: flex;
-flex: 1;
-flex-flow: row;
-margin: 2px;
+#imagenUsuario img {
+    height: 100%;
+    max-width: 100%;
 }
 
-#camposUsuario > div p
-{
-flex: 1;
-font-size: 80%;
-text-align: left;
-padding-left: 5%;
-
-}
-#camposUsuario > div p:last-child
-{
-flex:3;
+#datosUsuario>div {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    font-size: 150%;
 }
 
-#address {
-  margin-left: 10%;
-  margin-right: 10%;
+#datosUsuario>div:last-child {
+    flex: 3;
 }
 
-#phone {
-  margin-left: 10%;
-  margin-right: 10%;
+#camposUsuario>div {
+    display: flex;
+    flex: 1;
+    flex-flow: row;
+    margin: 2px;
 }
 
-#password {
-  margin-left: 10%;
-  margin-right: 10%;
+#camposUsuario>div p {
+    flex: 1;
+    font-size: 80%;
+    text-align: left;
+    padding-left: 5%;
 }
 
-#repassword {
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
-#telefonoUsuario {
-  margin-top: 3%;
-}
-
-#contraseniaUsuario {
-  margin-top: 3%;
-}
-
-#reContraseniaUsuario {
-  margin-top: 3%;
+#camposUsuario>div p:last-child {
+    flex: 3;
 }
 
 .close {
-  color: #cdcdcd;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  margin-top: 1%;
-  margin-left: 36%;
-  position: absolute;
+    color: #cdcdcd;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 1%;
+    margin-left: 36%;
+    position: absolute;
 }
 
 .close:hover,
 .close:focus {
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-#formulario{
-  display: none;
+#formulario {
+    display: none;
 }
-.imagenPanel{
-  height: 2rem;
+
+.imagenPanel {
+    height: 2rem;
 }
