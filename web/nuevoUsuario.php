@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <?php
-//session_start();
+session_start();
 include("php/datos.php");
-/*if (isset($_SESSION["pos"]) == false) {
+if (isset($_SESSION["pos"]) == false) {
   header("location: login.php");
-} else {*/
+} else {
 ?>
 
 <head>
@@ -17,7 +17,7 @@ include("php/datos.php");
   <title>KalmiHoot</title>
   <link rel="icon" href="source/image/StaleMans.png" type="image/icon type">
   <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
-  <link rel='stylesheet' type='text/css' href='css/comun.css'>
+  <link rel='stylesheet' type='text/css' href='css/SUcomun.css'>
   <link rel='stylesheet' type='text/css' href='css/SuCrearUsuario.css'>
 </head>
 
@@ -80,7 +80,7 @@ include("php/datos.php");
     <script src="js/nuevoUsuario.js"></script>
 </body>
 <?php
-//}
+}
 ?>
 
 </html>

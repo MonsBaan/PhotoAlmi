@@ -26,6 +26,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
     </div>
     <link rel='stylesheet' type='text/css' href='css/SUcomun.css'>
     <link rel='stylesheet' type='text/css' href='css/SUpanel.css'>
+    <link rel='stylesheet' type='text/css' href='css/SUpanelUsuario.css'>
 
   </head>
 
@@ -52,12 +53,6 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
           echo "</a>";
         }
         ?>
-
-
-
-
-
-
         <li></li>
         <li></li>
         <li></li>
@@ -96,37 +91,37 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
               </div>
               <div id="apellido1Usuario">
                 <p>Surname 1:</p>
-                <input type='text' id='surname1' name='surname1' placeholder='' class='input'/>
+                <input type='text' id='surname1' name='surname1' placeholder='' class='input' />
               </div>
               <div id="apellido2Usuario">
                 <p>Surname 2:</p>
-                <input type='text' id='surname2' name='surname2' placeholder='' class='input'/>
+                <input type='text' id='surname2' name='surname2' placeholder='' class='input' />
               </div>
               <div id="dniUsuario">
                 <p>Personal ID:</p>
-                <input type='text' id='userId' name='userId' placeholder='' class='input'/>
+                <input type='text' id='userId' name='userId' placeholder='' class='input' />
               </div>
               <div id="direccionUsuario">
                 <p>Address:</p>
-                <input type='text' id='address' name='address' placeholder='' class='input'/>
+                <input type='text' id='address' name='address' placeholder='' class='input' />
               </div>
               <div id="telefonoUsuario">
                 <p>Phone Number:</p>
-                <input type='text' id='phone' name='phone' placeholder='' class='input'/>
+                <input type='text' id='phone' name='phone' placeholder='' class='input' />
               </div>
               <div id="contrasenaUsuario">
                 <p>New Password:</p>
-                <input type='password' id='password' name='password' placeholder='Type your new password' class='input'/>
+                <input type='password' id='password' name='password' placeholder='Type your new password' class='input' />
               </div>
               <div id="reContrasenaUsuario">
                 <p>Repeat the Password:</p>
-                <input type='password' id='repassword' name='password' placeholder='Type the password again' class='input'/>
+                <input type='password' id='repassword' name='password' placeholder='Type the password again' class='input' />
               </div>
               <div id="puestoUsuario">
                 <p>Charge:</p>
                 <select name="puesto" id="puesto" class='input'>
 
-                
+
                 </select>
               </div>
             </div>
@@ -143,11 +138,6 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
           </div>
         </div>
       </form>
-
-
-
-
-
       <div id='accionesGeneral'>
         <div id='recargarResultados' class='opcionPanel'>
           <label for="recargar">Reload Users</label>
@@ -155,7 +145,8 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
         </div>
         <div id='añadirUsuario' class='opcionPanel'>
           <label for="añadir">New User</label>
-          <img src="source/image/añadir.png" alt="Imagen Añadir" class="imagen">
+          <a href="nuevoUsuario.php"><img src="source/image/añadir.png" alt="Imagen Añadir" class="imagen"></a>
+          
         </div>
       </div>
 

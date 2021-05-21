@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log("Documento Listo");
     var urlWebService = "http://192.168.6.195:8080/kalmihootApi/"
-    var urlHtml = "http://192.168.6.157/PhotoAlmi/web/php/ajax.php"
+    var urlHtml = "http://192.168.6.151/PhotoAlmi/web/php/ajax.php"
 
     //----------------------------------AJAX----------------------------------
     //FUNCION DE LOGIN
@@ -28,6 +28,7 @@ $(document).ready(function() {
                     "contrasena": usuario.contrasena,
                     "imagen": usuario.imagen,
                     "puesto": usuario.descripcion,
+                    "idPuesto": usuario.puesto,
                     "function": "login"
                 };
                 $.ajax({
