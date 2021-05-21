@@ -1,0 +1,32 @@
+--------preguntas y jugadores---------
+
+//get todas las preguntas
+http://192.168.6.195:8080/kalmihootApi/preguntas
+
+//get top 10 jugadores
+http://192.168.6.195:8080/kalmihootApi/top10
+
+//post preguntas
+http://192.168.6.195:8080/kalmihootApi/nuevas
+
+//delete put get una
+http://192.168.6.195:8080/kalmihootApi/contenido/:id
+
+//get categorias
+http://192.168.6.195:8080/kalmihootApi/categorias
+
+//get por categoria
+http://192.168.6.195:8080/kalmihootApi/categorias/:categoria
+
+---------trabajadores---------
+//get todos los trabajadores
+http://192.168.6.195:8080/kalmihootApi/trabajadores
+
+//post nuevo trabajador
+http://192.168.6.195:8080/kalmihootApi/altas
+
+//get trabajador por dni y contraseña
+http://192.168.6.195:8080/kalmihootApi/trabajador/:dni/:contrasena
+
+//get trabajadore por id
+http://192.168.6.195:8080/kalmihootApi/trabajadores/:is
