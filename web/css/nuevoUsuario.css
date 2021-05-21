@@ -1,0 +1,9 @@
+/*----------------------------------OBJETOS----------------------------------*/
+/*IMAGEN OJO*/
+.eye {
+    float: right;
+    margin-left: -25px;
+    margin-top: 6%;
+    position: relative;
+    z-index: 2;
+  }

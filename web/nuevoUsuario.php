@@ -19,6 +19,7 @@ include("php/datos.php");
     <title>KalmiHoot</title>
     <link rel="icon" href="source/image/StaleMans.png" type="image/icon type">
     <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link rel='stylesheet' type='text/css' href='css/comun.css'>
     <link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>
     <link rel='stylesheet' type='text/css' href='css/SuCrearUsuario.css'>
@@ -70,16 +71,23 @@ include("php/datos.php");
       <div>
       </div>
       <form id="formularioCrearUsuario" action="php/" method="post">
-        <label>Name: </label>
+        
         <input type="text" name="usuario" id='usuario' placeholder="Insert name" /> <br>
-        <label>Surname 1: </label>
+     
         <input type="text" name="Apellido1" id='Apellido1' placeholder="Insert first surname" /> <br>
-        <label>Surname 2: </label>
+        
         <input type="text" name="Apellido2" id='Apellido2' placeholder="Insert second surname" /> <br>
-        <label>ID: </label>
+        
         <input type="text" name="id" id='userid' placeholder="Insert ID" /> <br>
-        <label>Post: </label>
-        <input type="text" name="puesto" id='puesto' placeholder="Insert post" /> <br>
+        
+        <input type="text" name="direccion" id='direccion' placeholder="Insert direction" /> <br>
+       
+        <input type="text" name="telefono" id='telefono' placeholder="Insert telephone" /> <br>
+      
+        <input type='password' class='form-control' id='password' placeholer='Enter Paswword' name='password'>
+                <span toggle='#password-field' class='fas fa-eye-slash eye toggle-password' id='eye' style='left: -12px;'></span>
+        <label>Charge: </label>
+        <select name="puesto" id="puesto"></select>
         <input type="button" name='Add' value='Add' />
       </form>
 
