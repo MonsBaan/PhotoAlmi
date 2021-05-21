@@ -1,0 +1,32 @@
+En fol:
+-4 respuestas siempre
+-Preguntas cortas
+-La imagen se ve al principio y luego desaparece.
+
+CREATE FUNCTION crearContrasena() RETURNS VARCHAR(10) DETERMINISTIC
+BEGIN
+  DECLARE contrasena varchar(10) default "";
+  DECLARE i int DEFAULT 0;
+  DECLARE num int default 0;
+  while i < 10 DO
+  	set num = FLOOR(RAND()*(10));
+    if num < 2 then
+    	select concat(contrasena, FLOOR(RAND()*10)) into contrasena;
+    elseif num > 1 and num < 4 then
+    	select concat(contrasena, char(round(rand()*25)+97)) into contrasena;
+    elseif num > 4 and num <9 THEN
+        select concat(contrasena, char(round(rand()*25)+65)) into contrasena;
+    ELSE
+    	select concat(contrasena, char(round(rand()*3)+35)) into contrasena;
+    end if;
+    set i = i+ 1;
+  END WHILE;
+  RETURN contrasena;
+END$$
+
+DELIMITER //
+CREATE PROCEDURE crearNuevoTrabajador(in Ndni varchar(9), in Nnombre varchar(60), in Napellido1 varchar(50), in Napellido2 varchar(50), in Ndireccion varchar(50), in Ntelefono int, in Nimagen varchar(300), in Npuesto int)
+BEGIN
+	INSERT INTO trabajadores (dni, nombre, apellido1, apellido2, direccion, telefono, imagen, puesto, contrasena) values (Ndni, Nnombre, Napellido1, Napellido2, Ndireccion, Ntelefono, Nimagen, Npuesto, crearContrasena());
+END //
+DELIMITER ;

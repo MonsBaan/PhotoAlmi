@@ -72,13 +72,20 @@ include("php/datos.php");
         <h1>EDITA LAS PREGUNTAS</h1>
 <div>
 
+<form action="upload.php" method="post" enctype="multipart/form-data">
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Subir Imagen" name="submit">
+</form>
 
+<br> 
 
         </div>
         <form id="formularioEditarPregunta" action="php/modificarPregunta.php" method="post">
 
         <label id="campoPregunta" for="question">Pregunta: </label>
         <input type="text" id="question" name="question" placeholder="¿Quién no se echaría un KALMIHOOT?" />
+       <br>
+     
         <label id="campoCategoria" for="category">Categoría: </label>
         <select id="campoCategoria">
           <option value="FOL">FOL</option>
@@ -86,7 +93,8 @@ include("php/datos.php");
           <option value="categoria3">categoria3</option>
           <option value="categoria4">categoria4</option>
         </select>
-
+        <br>
+  
         <div id="respuesta">
           <!--<label id="checkbox1" for="check1">Respuesta correcta: </label>-->
           <input type="checkbox" id="check1" name="check1" />

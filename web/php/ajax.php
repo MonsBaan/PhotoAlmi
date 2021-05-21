@@ -19,6 +19,8 @@ $function = $_POST['function'];
 include './datos.php';
 session_start();
 
+
+
 switch ($function) {
   case 'login':
     $_SESSION["id"] = $_POST['id'];
@@ -31,6 +33,7 @@ switch ($function) {
     $_SESSION["pass"] = $_POST['contrasena'];
     $_SESSION["img"] = $_POST['imagen'];
     $_SESSION["pos"] = $_POST['puesto'];
+    echo $_SESSION["pos"];
     break;
 
   default:
