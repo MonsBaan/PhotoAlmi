@@ -8,13 +8,8 @@ body {
     margin-top: 5%;
     margin-left: 23%;
     margin-right: 23%;
-    background-color: #06aadb;
   }
 
-  *{
-    font-family: "Lora", serif;
-    font-weight: bold;
-  }
 
 #panelCentral {
     text-align: center;
