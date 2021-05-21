@@ -1,31 +1,34 @@
 $(document).ready(function() {
     var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
     var nombreDocumento = "0";
-    var controlCheck = "0";
+    var controlCheck = "1";
 
     $("input[type='checkbox']").on('change', function() {
         $(this).attr('value', 'false');
-        controlCheck = "0";
+       // controlCheck = "0";
         if ($("#check1").is(':checked')) {
-            $("#check1").attr('value', 'true');
-            controlCheck = "1";
+           $("#check1").attr('value', 'true');
+           // $('#check1').is(':checked');
+
         }
         if ($("#check2").is(':checked')) {
+            //$(this).val('2');
             $("#check2").attr('value', 'true');
-            controlCheck = "1";
+         
         }
         if ($("#check3").is(':checked')) {
             $("#check3").attr('value', 'true');
-            controlCheck = "1";
+            //$(this).val('5');
         }
         if ($("#check4").is(':checked')) {
             $("#check4").attr('value', 'true');
-            controlCheck = "1";
+            //$(this).val('3');
+
+
         }
 
     });
-
-
+    console.log($("#check1").value)
 
     $(document).on('change', "input[type='file']", function(event) {
         if ($(this).val()) {
@@ -35,12 +38,9 @@ $(document).ready(function() {
         }
     });
 
-    $(document).on('', function(event) {
-        if ($(this).val()) {
-            var filename = $(this).val().split("\\");
-            nombreDocumento = filename = filename[filename.length - 1];
-            $('.fileName').text(filename);
-        }
+    $(document).submit('#botonSubirImagen', function(event) {
+        console.log($("#campoIMG").val());
+
     });
 
     $.ajax({
@@ -74,7 +74,7 @@ $(document).ready(function() {
 
         var explicacion = $("#expl").val();
 
-
+        
 
         if (!window.confirm("¿Enviar pregunta?")) {
             event.preventDefault();
@@ -87,7 +87,7 @@ $(document).ready(function() {
             } else {
 
 
-                $('.fileName').off('submit').submit();
+
 
                 let parametros = {
                     "categoria": categoria,
@@ -96,19 +96,19 @@ $(document).ready(function() {
                         "pregunta": pregunta,
                         "respuestas": [{
                                 "respuesta": respuesta1,
-                                "correcta": $("check1").val()
+                                "correcta": $('#check1').is(':checked')
                             },
                             {
                                 "respuesta": respuesta2,
-                                "correcta": $("check2").val()
+                                "correcta": $('#check2').is(':checked')
                             },
                             {
                                 "respuesta": respuesta3,
-                                "correcta": $("check3").val()
+                                "correcta": $('#check3').is(':checked')
                             },
                             {
                                 "respuesta": respuesta4,
-                                "correcta": $("check4").val()
+                                "correcta": $('#check4').is(':checked')
                             }
                         ],
                         "correccion": explicacion,
@@ -116,7 +116,8 @@ $(document).ready(function() {
                     }]
                 };
 
-
+console.log(parametros);
+$('.fileName').off('submit').submit();
                 //----------------------------------AJAX----------------------------------
                 //OBTENER TODAS LAS PREGUNTAS DE MONGODB  
                 $.ajax({
@@ -125,8 +126,6 @@ $(document).ready(function() {
                     type: "post",
                     success: function(response) {
                         console.log(response);
-
-
                     },
                 });
 

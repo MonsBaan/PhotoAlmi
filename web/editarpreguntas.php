@@ -72,9 +72,9 @@ include("php/datos.php");
         <h1>EDITA LAS PREGUNTAS</h1>
 <div>
 
-<form action="upload.php" method="post" enctype="multipart/form-data">
+<form action="modificarPregunta.php" method="post" enctype="multipart/form-data">
   <input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="submit" value="Subir Imagen" name="submit">
+  <input id = "botonSubirImagen" type="submit" value="Subir Imagen" name="submit">
 </form>
 
 <br> 
@@ -87,11 +87,8 @@ include("php/datos.php");
        <br>
      
         <label id="campoCategoria" for="category">Categoría: </label>
-        <select id="campoCategoria">
-          <option value="FOL">FOL</option>
-          <option value="categoria2">categoria2</option>
-          <option value="categoria3">categoria3</option>
-          <option value="categoria4">categoria4</option>
+        <select id="comboCategoria">
+
         </select>
         <br>
   
@@ -131,11 +128,10 @@ include("php/datos.php");
         <?php
         if (isset($_SESSION["id"]) == false) {
           echo "<input type='button' id='botonPregunta' value='Añadir pregunta' />";
-          echo "<input type='button' id='botonPregunta' value='Actualizar pregunta' />";
+          echo "<input type='button' id='botonActualizar' value='Actualizar pregunta' />";
         } else {
-          echo "<input type='file' name='fileToUpload' id='fileToUpload'>";
-          echo "<input type='submit' value='Upload Image' name='submit'>";
-          //echo "<input type='button' id='botonPregunta' value='Actualizar pregunta' />";
+
+          echo "<input type='button' id='botonActualizar' value='Actualizar pregunta' />";
         }
         ?>
 
