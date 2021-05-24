@@ -31,7 +31,6 @@ $(document).ready(function() {
                 url: urlDB + "nuevas",
                 type: "post",
                 success: function(response) {
-                    // console.log(response);
                     $("#formularioCrearUsuario").submit();
                 },
 

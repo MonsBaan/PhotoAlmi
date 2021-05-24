@@ -1,9 +1,11 @@
-$(document).ready(function () {
+$(document).ready(function() {
+    console.log("Documento Listo");
+
     var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
     var nombreDocumento = "0";
     var controlCheck = "1";
 
-    $("input[type='checkbox']").on('change', function () {
+    $("input[type='checkbox']").on('change', function() {
         $(this).attr('value', 'false');
         // controlCheck = "0";
         if ($("#check1").is(':checked')) {
@@ -29,7 +31,7 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('change', "input[type='file']", function (event) {
+    $(document).on('change', "input[type='file']", function(event) {
         if ($(this).val()) {
             var filename = $(this).val().split("\\");
             nombreDocumento = filename = filename[filename.length - 1];
@@ -37,7 +39,7 @@ $(document).ready(function () {
         }
     });
 
-    $(document).submit('.formSubir', function () {
+    $(document).submit('.formSubir', function() {
 
 
 
@@ -46,7 +48,7 @@ $(document).ready(function () {
     $.ajax({
         url: urlDB + "preguntas",
         type: "get",
-        success: function (response) {
+        success: function(response) {
             let arrayCategorias = response.data;
             for (let i = 0; i < arrayCategorias.length; i++) {
                 let htmlappend;
@@ -57,7 +59,7 @@ $(document).ready(function () {
         },
     });
 
-    $("#botonPregunta").click(function (event) {
+    $("#botonPregunta").click(function(event) {
 
 
         var pregunta = $("#question").val();
@@ -89,47 +91,44 @@ $(document).ready(function () {
 
 
 
-                let parametros = { 
+                let parametros = {
                     "categoria": categoria,
                     "preguntas": [{
                         "imagen": 'http://192.168.6.192/PhotoAlmi/web/source/image/' + nombreDocumento,
                         "pregunta": pregunta,
                         "respuestas": [{
-                            "respuesta": respuesta1,
-                            "correcta": $('#check1').is(':checked')
-                        },
-                        {
-                            "respuesta": respuesta2,
-                            "correcta": $('#check2').is(':checked')
-                        },
-                        {
-                            "respuesta": respuesta3,
-                            "correcta": $('#check3').is(':checked')
-                        },
-                        {
-                            "respuesta": respuesta4,
-                            "correcta": $('#check4').is(':checked')
-                        }
+                                "respuesta": respuesta1,
+                                "correcta": $('#check1').is(':checked')
+                            },
+                            {
+                                "respuesta": respuesta2,
+                                "correcta": $('#check2').is(':checked')
+                            },
+                            {
+                                "respuesta": respuesta3,
+                                "correcta": $('#check3').is(':checked')
+                            },
+                            {
+                                "respuesta": respuesta4,
+                                "correcta": $('#check4').is(':checked')
+                            }
                         ],
                         "correccion": explicacion,
                         "numAciertos": 0
                     }]
                 };
 
-                //console.log(parametros);
                 //----------------------------------AJAX----------------------------------
                 //OBTENER TODAS LAS PREGUNTAS DE MONGODB  
                 $.ajax({
                     data: parametros,
                     url: urlDB + "nuevas",
                     type: "post",
-                    success: function (response) {
-                       // console.log(response);
+                    success: function(response) {
                         $(".formSubir").submit();
                     },
 
                 });
-                console.log(parametros);
 
 
             };
