@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	console.log('Documento Listo');
 	var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
-	var urlHtml = 'http://192.168.6.157/PhotoAlmi/web/';
+	var urlHtml = 'http://192.168.6.192/PhotoAlmi/web/';
 
 	//----------------------------------AJAX----------------------------------
 	//OBTENER TODAS LAS PREGUNTAS DE MONGODB
@@ -36,7 +36,7 @@ $(document).ready(function () {
 					htmlappend += '<td >' + response.data[i]['categoria'] + '</td>';
 					htmlappend += '<td>' + arrPreguntas[j].numAciertos + '</td>';
 					htmlappend +=
-						"<td><img id='EditarPreguntas' src='source/image/editarN.png' alt='Imagen Recargar' href='editarpreguntas.php' class='imagenPanel'></img></td>";
+						"<td><img id='EditarPreguntas' src='source/image/editarN.png' alt='Imagen Recargar' onclick='javascript:passid('"+arrPreguntas[j]._id+"');' href='editarpreguntas.php' class='imagenPanel'></img></td>";
 					htmlappend +=
 						"<td><img id='EliminarPreguntas' src='source/image/papeleraN.png' alt='Imagen Recargar' class='imagenPanel'></td>";
 					htmlappend += '</tr>';

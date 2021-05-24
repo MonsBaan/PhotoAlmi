@@ -4,8 +4,6 @@ $(document).ready(function () {
     var nombreDocumento = "0";
     var controlCheck = "1";
 
-    var idPregunta;
-
     $("input[type='checkbox']").on('change', function () {
         $(this).attr('value', 'false');
         // controlCheck = "0";
@@ -67,7 +65,7 @@ $(document).ready(function () {
 
         var formData = new FormData();
         var files = $('#fileToUpload')[0].files[0];
-        formData.append('file', files);
+        formData.append('file',files);
 
         $.ajax({
             url: 'php/modificarPregunta.php',
@@ -75,14 +73,14 @@ $(document).ready(function () {
             data: formData,
             contentType: false,
             processData: false,
-            success: function (response) {
+            success: function(response) {
                 if (response != 0) {
-                    alert("Sucess: " + response);
+                    alert("Sucess: "+response);
                 } else {
                     alert('Formato de imagen incorrecto.');
                 }
             },
-            error: function (response) {
+            error: function(response){
                 console.log(response);
             }
         });
@@ -119,29 +117,29 @@ $(document).ready(function () {
             } else {
 
 
-                let parametros = {
+                let parametros = { 
 
-                    "imagen": 'http://192.168.6.192/PhotoAlmi/web/source/image/' + nombreDocumento,
-                    "pregunta": pregunta,
-                    "respuestas": [{
-                        "respuesta": respuesta1,
-                        "correcta": $('#check1').is(':checked')
-                    },
-                    {
-                        "respuesta": respuesta2,
-                        "correcta": $('#check2').is(':checked')
-                    },
-                    {
-                        "respuesta": respuesta3,
-                        "correcta": $('#check3').is(':checked')
-                    },
-                    {
-                        "respuesta": respuesta4,
-                        "correcta": $('#check4').is(':checked')
-                    }
-                    ],
-                    "correccion": explicacion,
-                    "numAciertos": 0
+                        "imagen": 'http://192.168.6.192/PhotoAlmi/web/source/image/' + nombreDocumento,
+                        "pregunta": pregunta,
+                        "respuestas": [{
+                            "respuesta": respuesta1,
+                            "correcta": $('#check1').is(':checked')
+                        },
+                        {
+                            "respuesta": respuesta2,
+                            "correcta": $('#check2').is(':checked')
+                        },
+                        {
+                            "respuesta": respuesta3,
+                            "correcta": $('#check3').is(':checked')
+                        },
+                        {
+                            "respuesta": respuesta4,
+                            "correcta": $('#check4').is(':checked')
+                        }
+                        ],
+                        "correccion": explicacion,
+                        "numAciertos": 0
                 };
 
                 //console.log(parametros);
@@ -152,7 +150,7 @@ $(document).ready(function () {
                     url: urlDB + "actualizar/" + categoria,
                     type: "put",
                     success: function (response) {
-                        // console.log(response);
+                       // console.log(response);
                         $(".formSubir").submit();
                     },
 
@@ -165,48 +163,5 @@ $(document).ready(function () {
 
         }
     });
-    
-    console.log(idPregunta)
-  
-    $.ajax({
-        url: urlDB + "contenido/" + idPregunta,
-        type: "get",
-        success: function (response) {
-            let arrayCategorias = response.data;
-                let htmlappend;
-                htmlappend = "<label id='campoPregunta' for='question'>Pregunta: </label>";
-                htmlappend += "<input type='text' id='question' name='question' placeholder='" + arrayCategorias[0].pregunta + "' />";
-                htmlappend += "<br>";
-                htmlappend += "<label id='campoCategoria' for='category'>Categoría: </label>";
-                htmlappend += "<select id='comboCategoria'>";
-                htmlappend += "</select>";
-                htmlappend += "<br>";
-                htmlappend += "<div id='respuesta'>";
-                htmlappend += "<input type='checkbox' id='check1' name='check1' />";
-                htmlappend += "<label id='campoRespuesta1' for='ans1'>Respuesta 1: </label>";
-                htmlappend += "<input type='text' id='ans1' name='ans1' placeholder='"+arrayCategorias[0].respuesta[0]+"' />";
-                htmlappend += "</div>";
-                htmlappend += "<div id='respuesta'>";
-                htmlappend += "<input type='checkbox' id='check2' name='check2' />";
-                htmlappend += "<label id='campoRespuesta2' for='ans2'>Respuesta 2: </label>";
-                htmlappend += "<input type='text' id='ans2' name='ans2' placeholder='"+arrayCategorias[0].respuesta[1]+"' />";
-                htmlappend += "</div>";
-                htmlappend += "<div id='respuesta'>";
-                htmlappend += "<input type='checkbox' id='check3' name='check3' />";
-                htmlappend += "<label id='campoRespuesta3' for='ans3'>Respuesta 3: </label>";
-                htmlappend += "<input type='text' id='ans3' name='ans3' placeholder='"+arrayCategorias[0].respuesta[2]+"' />";
-                htmlappend += "</div>";
-                htmlappend += "<div id='respuesta'>";
-                htmlappend += "<input type='checkbox' id='check4' name='check4' />";
-                htmlappend += "<label id='campoRespuesta4' for='ans4'>Respuesta 4: </label>";
-                htmlappend += "<input type='text' id='ans4' name='ans4' placeholder='"+arrayCategorias[0].respuesta[3]+"' />";
-                htmlappend += "</div>";
-                htmlappend += "<label id='campoExplicacion' for='expl'>Explicación: </label>";
-                htmlappend += "<input type='text' id='expl' name='expl' placeholder='"+arrayCategorias[0].explicacion+"' />";
 
-                $('#formularioEditarPregunta').append(htmlappend);
-         
-
-        },
-    });
 });
