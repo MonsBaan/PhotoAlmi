@@ -82,3 +82,13 @@ $(document).ready(function () {
 	});
 	
 });
+
+    });
+    $('#filtro').on('keyup', function() {
+        var busqueda = $(this).val().toUpperCase();
+        $('#tablaPreguntas tr').filter(function() {
+            $(this).toggle($(this).text().toUpperCase().indexOf(busqueda) > -1);
+        });
+    });
+
+});

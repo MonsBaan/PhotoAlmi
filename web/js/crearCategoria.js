@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log('Documento funcional!');
     var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
-    var urlHtml = 'http://192.168.6.151/PhotoAlmi/web/panelSuperUser.php';
+    
     //----------------------------------AJAX---------------------------------------
 
     $(document).on('click', '#Add', function(event) {
@@ -31,7 +31,6 @@ $(document).ready(function() {
                 url: urlDB + "nuevas",
                 type: "post",
                 success: function(response) {
-                    // console.log(response);
                     $("#formularioCrearUsuario").submit();
                 },
 

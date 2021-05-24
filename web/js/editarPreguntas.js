@@ -32,7 +32,7 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('change', "input[type='file']", function (event) {
+    $(document).on('change', "input[type='file']", function(event) {
         if ($(this).val()) {
             var filename = $(this).val().split("\\");
             nombreDocumento = filename = filename[filename.length - 1];
@@ -40,7 +40,7 @@ $(document).ready(function () {
         }
     });
 
-    $(document).submit('.formSubir', function () {
+    $(document).submit('.formSubir', function() {
 
 
 
@@ -49,7 +49,7 @@ $(document).ready(function () {
     $.ajax({
         url: urlDB + "preguntas",
         type: "get",
-        success: function (response) {
+        success: function(response) {
             let arrayCategorias = response.data;
             for (let i = 0; i < arrayCategorias.length; i++) {
                 let htmlappend;
@@ -144,7 +144,6 @@ $(document).ready(function () {
                     "numAciertos": 0
                 };
 
-                //console.log(parametros);
                 //----------------------------------AJAX----------------------------------
                 //OBTENER TODAS LAS PREGUNTAS DE MONGODB  
                 $.ajax({
@@ -157,7 +156,6 @@ $(document).ready(function () {
                     },
 
                 });
-                console.log(parametros);
 
 
             };
