@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log('Documento Listo');
     var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
-    var urlHtml = 'http://192.168.6.157/PhotoAlmi/web/';
+    var urlHtml = 'http://192.168.6.151/PhotoAlmi/web/';
 
     //----------------------------------AJAX----------------------------------
     //OBTENER TODAS LAS PREGUNTAS DE MONGODB
