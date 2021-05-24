@@ -43,7 +43,7 @@ $(document).ready(function () {
 				url: urlDB + 'altas',
 				type: 'post',
 				success: function (response) {
-                    window.location.href = 'http://192.168.6.157/PhotoAlmi/web/panelSuperUser.php';
+                    window.location.href = 'http://192.168.6.192/PhotoAlmi/web/panelSuperUser.php';
 				},
 				error: function (err) {
                     $('#errorTop').slideDown('slow');

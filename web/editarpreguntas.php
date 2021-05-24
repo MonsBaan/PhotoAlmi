@@ -56,15 +56,6 @@ include("php/datos.php");
       }
       ?>
 
-
-
-<form class = "formSubir" action="php/modificarPregunta.php" method="post" enctype="multipart/form-data">
-  <input type="file" name="fileToUpload" id="fileToUpload">
- <!--<input id = "botonSubirImagen" type="submit" value="Subir Imagen" name="submit">
---></form>
-
-
-
       <li></li>
       <li></li>
       <li></li>
@@ -93,15 +84,14 @@ include("php/datos.php");
     <h1>EDITA LAS PREGUNTAS</h1>
     <div>
 
-      <form action="modificarPregunta.php" method="post" enctype="multipart/form-data">
+      <form class = "formSubir" action="editarpreguntas.php" method="post" enctype="multipart/form-data">
         <input type="file" name="fileToUpload" id="fileToUpload">
-        <input id="botonSubirImagen" type="submit" value="Subir Imagen" name="submit">
       </form>
 
       <br>
 
     </div>
-    <form id="formularioEditarPregunta" action="php/modificarPregunta.php" method="post">
+    <form id="formularioEditarPregunta" action="editarpreguntas.php" method="put">
 
       <label id="campoPregunta" for="question">Pregunta: </label>
       <input type="text" id="question" name="question" placeholder="¿Quién no se echaría un KALMIHOOT?" />
@@ -159,6 +149,7 @@ include("php/datos.php");
 
   </div>
   </form>
+
 
 
 

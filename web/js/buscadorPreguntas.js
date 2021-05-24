@@ -30,7 +30,7 @@ $(document).ready(function () {
 					'</option>';
 				for (let j = 0; j < arrPreguntas.length; j++) {
 					htmlappend += '<tr>';
-					htmlappend += '<td>' + con + '</td>';
+					htmlappend += '<td value = "'+arrPreguntas[j]._id +'" >' + con + '</td>';
 					htmlappend += '<td>' + arrPreguntas[j].pregunta + '</td>';
 					htmlappend += '<td >' + response.data[i]['categoria'] + '</td>';
 					htmlappend += '<td>' + arrPreguntas[j].numAciertos + '</td>';

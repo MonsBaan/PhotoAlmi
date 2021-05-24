@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    console.log("Documento Cargado");
     var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
     var nombreDocumento = "0";
     var controlCheck = "1";
@@ -58,6 +59,35 @@ $(document).ready(function () {
     });
 
     $("#botonPregunta").click(function (event) {
+        event.preventDefault();
+        var urlImagen = 'http://192.168.6.192/PhotoAlmi/web/source/image/' + nombreDocumento;
+        console.log("Click");
+
+        var formData = new FormData();
+        var files = $('#fileToUpload')[0].files[0];
+        formData.append('file',files);
+
+        $.ajax({
+            url: 'php/modificarPregunta.php',
+            type: 'post',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                if (response != 0) {
+                    alert("Sucess: "+response);
+                } else {
+                    alert('Formato de imagen incorrecto.');
+                }
+            },
+            error: function(response){
+                console.log(response);
+            }
+        });
+
+    });
+
+    $("#botonPregunta").click(function (event) {
 
 
         var pregunta = $("#question").val();
@@ -87,11 +117,8 @@ $(document).ready(function () {
             } else {
 
 
-
-
                 let parametros = { 
-                    "categoria": categoria,
-                    "preguntas": [{
+
                         "imagen": 'http://192.168.6.192/PhotoAlmi/web/source/image/' + nombreDocumento,
                         "pregunta": pregunta,
                         "respuestas": [{
@@ -113,7 +140,6 @@ $(document).ready(function () {
                         ],
                         "correccion": explicacion,
                         "numAciertos": 0
-                    }]
                 };
 
                 //console.log(parametros);
@@ -121,8 +147,8 @@ $(document).ready(function () {
                 //OBTENER TODAS LAS PREGUNTAS DE MONGODB  
                 $.ajax({
                     data: parametros,
-                    url: urlDB + "nuevas",
-                    type: "post",
+                    url: urlDB + "actualizar/" + categoria,
+                    type: "put",
                     success: function (response) {
                        // console.log(response);
                         $(".formSubir").submit();
@@ -137,4 +163,21 @@ $(document).ready(function () {
 
         }
     });
+
+
+
+
+    /*$.ajax({
+        url: urlDB + "contenido" + idPregunta,
+        type: "get",
+        success: function (response) {
+            let arrayCategorias = response.data;
+            for (let i = 0; i < arrayCategorias.length; i++) {
+                let htmlappend;
+                htmlappend = "<option>" + arrayCategorias[i]['categoria'] + "</option>";
+                $('#comboCategoria').append(htmlappend);
+            }
+
+        },
+    });*/
 });

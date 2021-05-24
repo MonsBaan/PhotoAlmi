@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var urlWebService = "http://192.168.6.195:8080/kalmihootApi/"
-    var urlHtml = "http://192.168.6.157/PhotoAlmi/web/php/ajax.php"
+    var urlHtml = "http://192.168.6.192/PhotoAlmi/web/php/ajax.php"
 
     $(".panelOculto").hide();
     $(".close").hide();
