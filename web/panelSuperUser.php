@@ -83,7 +83,6 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
         }
         ?>
         <li></li>
-
         <li></li>
         <li></li>
       </ul>
@@ -95,8 +94,6 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
         <span class="close">&times;</span>
         <div class="panelOculto" id="panelCentral">
           <div id="datosUsuario">
-
-
             <div id="camposUsuario">
               <div id="nombreUsuario">
                 <p>Name:</p>
@@ -133,18 +130,14 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
               <div id="puestoUsuario">
                 <p>Charge:</p>
                 <select name="puesto" id="puesto" class='input'>
-
-
                 </select>
               </div>
             </div>
           </div>
-
           <div id="fotosUsuario">
             <div id="imagenUsuario">
               <img id='perfil' src=<?php echo $_SESSION['img']; ?>>
             </div>
-
             <div id="editarDatos">
               <input type="button" id="confirmarDatosUsuario" value="Confirm Changes" />
             </div>
@@ -154,7 +147,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
       <div id='accionesGeneral'>
         <div id='recargarResultados' class='opcionPanel'>
           <label for="recargar">Reload Users</label>
-          <img src="source/image/recargar.png" alt="Imagen Recargar" class="imagen">
+          <img id='theimage'src="source/image/recargar.png" alt="Imagen Recargar" class="imagen">
         </div>
         <div id='añadirUsuario' class='opcionPanel'>
           <label for="añadir">New User</label>
