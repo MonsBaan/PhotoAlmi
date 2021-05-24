@@ -1,6 +1,7 @@
 #formularioCrearUsuario {
     display: contents;
 }
+
 body {
     display: flex;
     flex-flow: column;
@@ -8,8 +9,7 @@ body {
     margin-top: 5%;
     margin-left: 23%;
     margin-right: 23%;
-  }
-
+}
 
 #panelCentral {
     text-align: center;
@@ -25,8 +25,9 @@ body {
     text-align: center;
     color: #333131;
 }
-/*----------------------------------OBJETOS----------------------------------*/
 
+
+/*----------------------------------OBJETOS----------------------------------*/
 
 #panelCentral label {
     margin-top: 7%;
@@ -36,28 +37,19 @@ body {
     display: flex;
     margin-top: 4%;
 }
-#panelPuesto select{
-    flex:5;
-    
+
+#panelPuesto select {
+    flex: 5;
     width: 100%;
 }
-#panelPuesto label{
-    flex:1;
+
+#panelPuesto label {
+    flex: 1;
     margin-top: 1%;
-    
 }
-#error{
-  
-  color: white;
-  font-size: 130%;
-  background-color: #973606;
-  border-radius: 11px;
-  margin: 5px;
-  display: none;
-  padding: 1%
-}
-#errorTop{
-  
+
+#error,
+#error2 {
     color: white;
     font-size: 130%;
     background-color: #973606;
@@ -65,4 +57,14 @@ body {
     margin: 5px;
     display: none;
     padding: 1%
-  }
+}
+
+#errorTop {
+    color: white;
+    font-size: 130%;
+    background-color: #973606;
+    border-radius: 11px;
+    margin: 5px;
+    display: none;
+    padding: 1%
+}

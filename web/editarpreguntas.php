@@ -46,7 +46,7 @@ include("php/datos.php");
       </a>
       <?php
       if ($_SESSION['pos'] == "SuperUser") {
-        echo "<a href='#' id='liSuperUser'>";
+        echo "<a href='crearCategoria.php' id='liSuperUser'>";
         echo "<li>Create Category</li>";
         echo "</a>";
 
@@ -77,6 +77,67 @@ include("php/datos.php");
       <li></li>
       <li></li>
     </ul>
+  </div>
+
+  <input type="checkbox" />
+
+  <span></span>
+  <span></span>
+  <span></span>
+
+  <ul id="menu">
+    <a href="index.php">
+      <li>Profile</li>
+    </a>
+    <a href="buscadorpreguntas.php">
+      <li>All Questions</li>
+    </a>
+    <a href="#">
+      <li>Add Question</li>
+    </a>
+    <?php
+    if ($_SESSION['pos'] == "SuperUser") {
+      echo "<a href='#' id='liSuperUser'>";
+      echo "<li>Create Category</li>";
+      echo "</a>";
+
+      echo "<a href='panelSuperUser.php' id='liSuperUser'>";
+      echo "<li>SuperUser Manager</li>";
+      echo "</a>";
+    }
+    ?>
+
+
+
+    <form class="formSubir" action="php/modificarPregunta.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="fileToUpload" id="fileToUpload">
+      <!--<input id = "botonSubirImagen" type="submit" value="Subir Imagen" name="submit">
+-->
+    </form>
+
+
+
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <?php
+    if (isset($_SESSION["name"]) == true) {
+      echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
+      echo "<a href='php/cerrarUser.php'>";
+      echo "<li>Close Session</li>";
+      echo "</a>";
+    } else {
+      echo "No Session";
+    }
+    ?>
+    <li></li>
+
+    <li></li>
+    <li></li>
+  </ul>
   </div>
 
 

@@ -42,7 +42,7 @@ if (isset($_SESSION["pos"]) == false) {
         </a>
         <?php
         if ($_SESSION['pos'] == "SuperUser") {
-          echo "<a href='#' id='liSuperUser'>";
+          echo "<a href='crearCategoria.php' id='liSuperUser'>";
           echo "<li>Create Category</li>";
           echo "</a>";
 
@@ -51,12 +51,6 @@ if (isset($_SESSION["pos"]) == false) {
           echo "</a>";
         }
         ?>
-
-
-
-
-
-
         <li></li>
         <li></li>
         <li></li>
@@ -84,13 +78,13 @@ if (isset($_SESSION["pos"]) == false) {
       <div>
       </div>
       <form id="formularioCrearUsuario" action="php/" method="post">
-        <div id='errorTop'>The defined data is not valid</div>
-        <input type="text" name="usuario" id='usuario' placeholder="Insert name" /> <br>
+        <input type="text" name="usuario" id='usuario' placeholder="Insert name *" /> <br>
         <input type="text" name="Apellido1" id='Apellido1' placeholder="Insert first surname" /> <br>
         <input type="text" name="Apellido2" id='Apellido2' placeholder="Insert second surname" /> <br>
-        <input type="text" name="id" id='userid' placeholder="Insert ID" /> <br>
+        <input type="text" name="id" id='userid' placeholder="Insert ID *" /> <br>
         <input type="text" name="direccion" id='direccion' placeholder="Insert direction" /> <br>
-        <input type="text" name="telefono" id='telefono' placeholder="Insert telephone" /> <br>
+        <input type="text" name="telefono" id='telefono' placeholder="Insert telephone *" /> <br>
+        <div id='error2'>The required values are blank or invalid</div>
         <div id='error'>The defined charge is not valid</div>
         <div id="panelPuesto">
           <label>Charge: </label>

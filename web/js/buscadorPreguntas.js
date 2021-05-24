@@ -1,11 +1,12 @@
 $(document).ready(function () {
 	console.log('Documento Listo');
-	var urlDB = 'http://192.168.6.195:8080/kalmihootApi/preguntas';
+	var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
+	var urlHtml = 'http://192.168.6.157/PhotoAlmi/web/';
 
 	//----------------------------------AJAX----------------------------------
 	//OBTENER TODAS LAS PREGUNTAS DE MONGODB
 	$.ajax({
-		url: urlDB,
+		url: urlDB+ "preguntas",
 		type: 'get',
 		success: function (response) {
 			let htmlappend = '<tr>';
@@ -52,7 +53,7 @@ $(document).ready(function () {
 	});
 	//----------------------------------EVENTOS JS----------------------------------
 	$(document).on('click', '#EditarPreguntas', function () {
-		window.location.href = 'http://localhost/PhotoAlmi/web/editarpreguntas.php';
+		window.location.href = urlHtml +'editarpreguntas.php';
 	});
 	$(document).on('change', '#categorias', function () {
 		var campoFiltrar = $('#categorias').val().toUpperCase();

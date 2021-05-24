@@ -3,10 +3,17 @@ $(document).ready(function() {
     var urlDB = "http://192.168.6.195:8080/kalmihootApi/";
 
     actualizarUsuarios();
-
-
     $("#recargarResultados").click(function() {
         actualizarUsuarios();
+        
+    });
+    //IMAGEN EFECTO ROTACION
+    $(document).on("click","#theimage", function(){       
+        $(this).addClass("imageRot").one('webkitAnimationEnd mozAnimationEnd oAnimationEnd msAnimationEnd animationend', function () {
+            $(this).removeClass("imageRot"); //remove anim class
+            var url = $(this).data('linkurl'); //get url from data-attribute
+            $( ":mobile-pagecontainer" ).pagecontainer( "change", url); //navigate to page      
+        });
     });
     $(document).on('click', '#eliminar', function() {
         if (confirm("Estas seguro de eliminar este usuario?")) {
