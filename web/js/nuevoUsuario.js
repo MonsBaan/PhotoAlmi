@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log('Documento funcional!');
     var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
-    var urlHtml = 'http://192.168.6.151/PhotoAlmi/web/panelSuperUser.php';
+    var urlHtml = 'http://192.168.6.157/PhotoAlmi/web/panelSuperUser.php';
     //----------------------------------AJAX---------------------------------------
     let htmlcombo = "<option value='0' selected='selected' disabled>Select an Option</option>";
 

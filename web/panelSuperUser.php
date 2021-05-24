@@ -51,7 +51,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
         </a>
         <?php
         if ($_SESSION['pos'] == "SuperUser") {
-          echo "<a href='#' id='liSuperUser'>";
+          echo "<a href='crearCategoria.php' id='liSuperUser'>";
           echo "<li>Create Category</li>";
           echo "</a>";
 
@@ -60,12 +60,6 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
           echo "</a>";
         }
         ?>
-
-
-
-
-
-
         <li></li>
         <li></li>
         <li></li>
@@ -83,11 +77,11 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
         }
         ?>
         <li></li>
+
         <li></li>
         <li></li>
       </ul>
     </div>
-
     <div id='cuerpo'>
 
       <form id="formulario" action="modificarUsuario.php" method="post">
@@ -147,7 +141,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
       <div id='accionesGeneral'>
         <div id='recargarResultados' class='opcionPanel'>
           <label for="recargar">Reload Users</label>
-          <img id='theimage'src="source/image/recargar.png" alt="Imagen Recargar" class="imagen">
+          <img id='theimage' src="source/image/recargar.png" alt="Imagen Recargar" class="imagen">
         </div>
         <div id='añadirUsuario' class='opcionPanel'>
           <label for="añadir">New User</label>

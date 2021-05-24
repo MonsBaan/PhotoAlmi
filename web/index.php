@@ -59,7 +59,7 @@ if (isset($_SESSION["pos"]) == false) {
         </a>
         <?php
         if ($_SESSION['pos'] == "SuperUser") {
-          echo "<a href='#' id='liSuperUser'>";
+          echo "<a href='crearCategoria.php' id='liSuperUser'>";
           echo "<li>Create Category</li>";
           echo "</a>";
 
@@ -68,12 +68,6 @@ if (isset($_SESSION["pos"]) == false) {
           echo "</a>";
         }
         ?>
-
-
-
-
-
-
         <li></li>
         <li></li>
         <li></li>
