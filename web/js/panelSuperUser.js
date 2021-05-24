@@ -5,14 +5,14 @@ $(document).ready(function() {
     actualizarUsuarios();
     $("#recargarResultados").click(function() {
         actualizarUsuarios();
-        
+
     });
     //IMAGEN EFECTO ROTACION
-    $(document).on("click","#theimage", function(){       
-        $(this).addClass("imageRot").one('webkitAnimationEnd mozAnimationEnd oAnimationEnd msAnimationEnd animationend', function () {
+    $(document).on("click", "#theimage", function() {
+        $(this).addClass("imageRot").one('webkitAnimationEnd mozAnimationEnd oAnimationEnd msAnimationEnd animationend', function() {
             $(this).removeClass("imageRot"); //remove anim class
             var url = $(this).data('linkurl'); //get url from data-attribute
-            $( ":mobile-pagecontainer" ).pagecontainer( "change", url); //navigate to page      
+            $(":mobile-pagecontainer").pagecontainer("change", url); //navigate to page      
         });
     });
     $(document).on('click', '#eliminar', function() {
@@ -22,7 +22,6 @@ $(document).ready(function() {
                 url: urlDB + "trabajadores/" + id,
                 type: 'DELETE',
                 success: function(resultado) {
-                    console.log(resultado)
                     actualizarUsuarios();
 
                 }
@@ -33,7 +32,6 @@ $(document).ready(function() {
         $('#puesto').html("");
 
         id = $(this).parent().children('#idUser').text();
-        console.log(id);
 
         $.get(urlDB + "trabajadores/" + id, function(response) {
             usuario = response.data;
@@ -48,14 +46,92 @@ $(document).ready(function() {
             $("#formulario").show();
 
             $.get(urlDB + "puestos", function(response) {
-                console.log(response.data)
                 datos = response.data
-                tamDatos = datos.length
-                html = ""
-
+                let htmlcombo = "<option value='0' selected='selected' disabled>Select an Option</option>";
+                $('#puesto').html(htmlcombo);
                 datos.forEach(puesto => {
                     html = "<option value='" + puesto.id_puesto + "'>" + puesto.descripcion + "</option>";
                     $('#puesto').append(html);
+                });
+                $("#confirmarDatosUsuario").click(function(response) {
+                    let error = false;
+                    let nombre = $('#name').val().trim();
+                    let apellido1 = $('#surname1').val().trim();
+                    let apellido2 = $('#surname2').val().trim();
+                    let dni = $('#userId').val().trim();
+                    let direccion = $('#address').val().trim();
+                    let telefono = $('#phone').val().trim();
+                    let pass = $('#password').val().trim();
+                    let repass = $('#repassword').val().trim();
+                    let puesto = $('#puesto').val();
+
+
+                    if (nombre == "") {
+                        nombre = $('#name').attr("placeholder")
+                    }
+                    if (apellido1 == "") {
+                        apellido1 = $('#surname1').attr("placeholder")
+                    }
+                    if (apellido2 == "") {
+                        apellido2 = $('#surname2').attr("placeholder")
+                    }
+                    if (dni == "") {
+                        dni = $('#userId').attr("placeholder")
+                    }
+                    if (direccion == "") {
+                        direccion = $('#address').attr("placeholder")
+                    }
+                    if (telefono == "") {
+                        telefono = $('#phone').attr("placeholder")
+                    }
+                    if (pass == "") {
+                        pass = usuario.contrasena
+                        repass = pass
+                    }
+                    if (puesto == null) {
+                        $('#puesto').css("background-color", "#c82a2a");
+                        error = true;
+                    } else {
+                        $('#puesto').css("background-color", "white")
+                    }
+
+                    if (pass != repass) {
+                        $('#repassword').css("background-color", "#c82a2a");
+                        error = true;
+                    } else {
+                        $('#repassword').css("background-color", "white")
+
+                    }
+                    if (error == true) {
+                        return;
+                    } else {
+                        let parametros = {
+                            "nombre": nombre,
+                            "apellido1": apellido1,
+                            "apellido2": apellido2,
+                            "dni": dni,
+                            "direccion": direccion,
+                            "telefono": telefono,
+                            "contrasena": pass,
+                            "puesto": puesto,
+                            "imagen": usuario.imagen,
+                            "id_trabajador": id
+                        }
+
+                        $.ajax({
+                            data: parametros,
+                            type: "put",
+                            url: urlDB + "trabajadores/" + id,
+                            success: function(response) {
+                                $("#tablaUsers").show();
+                                $("#accionesGeneral").show();
+                                $("#formulario").hide();
+                            }
+                        });
+                        actualizarUsuarios();
+
+                    }
+
 
                 });
             });
@@ -71,6 +147,7 @@ $(document).ready(function() {
             $("#formulario").hide();
         }
     });
+
     function actualizarUsuarios() {
         let html = "";
 
@@ -107,5 +184,5 @@ $(document).ready(function() {
             }
         });
     }
-    
+
 });
