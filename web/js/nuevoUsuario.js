@@ -72,7 +72,6 @@ $(document).ready(function() {
                 telefono: telefono,
                 puesto: puesto,
             };
-            console.log(parametros);
             $.ajax({
                 data: parametros,
                 url: urlDB + 'altas',

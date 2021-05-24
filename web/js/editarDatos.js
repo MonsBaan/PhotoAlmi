@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    console.log("Documento Listo")
     var urlWebService = "http://192.168.6.195:8080/kalmihootApi/"
     var urlHtml = "http://192.168.6.157/PhotoAlmi/web/php/ajax.php"
 
@@ -98,7 +99,6 @@ $(document).ready(function() {
                             url: urlHtml,
                             type: "post",
                             success: function(response) {
-                                console.log(response)
 
 
 
