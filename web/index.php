@@ -54,7 +54,7 @@ if (isset($_SESSION["pos"]) == false) {
         <a href="buscadorpreguntas.php">
           <li>All Questions</li>
         </a>
-        <a href="#">
+        <a href="editarpreguntas.php">
           <li>Add Question</li>
         </a>
         <?php
