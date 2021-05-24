@@ -31,8 +31,6 @@ $(document).ready(function() {
         var telefono = $('#telefono').val().trim();
         var puesto = $('#puesto').val();
 
-        console.log(puesto);
-
         if (nombre == "") {
             error = true;
             $('#usuario').css("background-color", "#c82a2a")
