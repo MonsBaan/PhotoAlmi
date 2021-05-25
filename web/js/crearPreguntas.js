@@ -60,36 +60,6 @@ $(document).ready(function () {
 
     $("#botonPregunta").click(function (event) {
         event.preventDefault();
-        var urlImagen = 'http://192.168.6.192/PhotoAlmi/web/source/image/' + nombreDocumento;
-        console.log("Click");
-
-        var formData = new FormData();
-        var files = $('#fileToUpload')[0].files[0];
-        formData.append('file',files);
-
-        $.ajax({
-            url: 'php/modificarPregunta.php',
-            type: 'post',
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(response) {
-                if (response != 0) {
-                    alert("Sucess: "+response);
-                } else {
-                    alert('Formato de imagen incorrecto.');
-                }
-            },
-            error: function(response){
-                console.log(response);
-            }
-        });
-
-    });
-
-    $("#botonPregunta").click(function (event) {
-
-
         var pregunta = $("#question").val();
 
         let categoria = $("#comboCategoria").val();
@@ -117,29 +87,29 @@ $(document).ready(function () {
             } else {
 
 
-                let parametros = { 
+                let parametros = {
 
-                        "imagen": 'http://192.168.6.192/PhotoAlmi/web/source/image/' + nombreDocumento,
-                        "pregunta": pregunta,
-                        "respuestas": [{
-                            "respuesta": respuesta1,
-                            "correcta": $('#check1').is(':checked')
-                        },
-                        {
-                            "respuesta": respuesta2,
-                            "correcta": $('#check2').is(':checked')
-                        },
-                        {
-                            "respuesta": respuesta3,
-                            "correcta": $('#check3').is(':checked')
-                        },
-                        {
-                            "respuesta": respuesta4,
-                            "correcta": $('#check4').is(':checked')
-                        }
-                        ],
-                        "correccion": explicacion,
-                        "numAciertos": 0
+                    "imagen": 'http://192.168.6.192/PhotoAlmi/web/source/image/' + nombreDocumento,
+                    "pregunta": pregunta,
+                    "respuestas": [{
+                        "respuesta": respuesta1,
+                        "correcta": $('#check1').is(':checked')
+                    },
+                    {
+                        "respuesta": respuesta2,
+                        "correcta": $('#check2').is(':checked')
+                    },
+                    {
+                        "respuesta": respuesta3,
+                        "correcta": $('#check3').is(':checked')
+                    },
+                    {
+                        "respuesta": respuesta4,
+                        "correcta": $('#check4').is(':checked')
+                    }
+                    ],
+                    "correccion": explicacion,
+                    "numAciertos": 0
                 };
 
                 //console.log(parametros);
@@ -150,12 +120,34 @@ $(document).ready(function () {
                     url: urlDB + "actualizar/" + categoria,
                     type: "put",
                     success: function (response) {
-                       // console.log(response);
-                        $(".formSubir").submit();
+                        console.log(response);
+
+                        var formData = new FormData();
+                        var files = $('#fileToUpload')[0].files[0];
+                        formData.append('file', files);
+
+                        $.ajax({
+                            url: 'php/subirImagen.php',
+                            type: 'post',
+                            data: formData,
+                            contentType: false,
+                            processData: false,
+                            success: function (response) {
+                                if (response != 0) {
+                                    console.log("Sucess: " + response);
+                                    //$(".formSubir").submit();
+
+                                } else {
+                                    alert('Formato de imagen incorrecto.');
+                                }
+                            },
+                            error: function (response) {
+                                console.log(response);
+                            }
+                        });
                     },
 
                 });
-                console.log(parametros);
 
 
             };

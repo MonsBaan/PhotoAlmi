@@ -43,6 +43,11 @@ switch ($function) {
     echo "hola";
     break;
 
+    case 'guardarID':
+      $_SESSION["id_pregunta"] = $_POST['id_'];
+      echo "hola";
+      break;
+
   default:
     echo "Funcion: " . $function . " no existente";
     break;

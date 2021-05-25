@@ -2,8 +2,12 @@
 <html lang="es">
 
 <?php
+
+
+
+
 //session_start();
-include("php/datos.php");
+
 
 //if (isset($_SESSION["pos"]) == false) {
 //header("location: login.php");
@@ -135,18 +139,19 @@ include("php/datos.php");
     <h1>EDITA LAS PREGUNTAS</h1>
     <div>
 
-      <form class = "formSubir" action="editarpreguntas.php" method="post" enctype="multipart/form-data">
+      <form class="formSubir" action="editarpreguntas.php" method="post" enctype="multipart/form-data">
         <input type="file" name="fileToUpload" id="fileToUpload">
       </form>
 
       <br>
 
     </div>
+
+    <input type="text" id="campoPregunta2" for="question" value="<?php echo $_GET['id']; ?>">Pregunta: </input>
     <form id="formularioEditarPregunta" action="editarpreguntas.php" method="put">
 
-      <label id="campoPregunta" for="question">Pregunta: </label>
-      <input type="text" id="question" name="question" placeholder="¿Quién no se echaría un KALMIHOOT?" />
-      <br>
+
+      <input type="text" id="question" name="question"/><br>
 
       <label id="campoCategoria" for="category">Categoría: </label>
       <select id="comboCategoria">
@@ -154,43 +159,34 @@ include("php/datos.php");
       </select>
       <br>
 
-      <div id="respuesta">
-        <!--<label id="checkbox1" for="check1">Respuesta correcta: </label>-->
-        <input type="checkbox" id="check1" name="check1" />
+      <div id="respuesta1" class="respuesta">
+        <input type="checkbox" id="check1" name="check1"/>
         <label id="campoRespuesta1" for="ans1">Respuesta 1: </label>
-        <input type="text" id="ans1" name="ans1" placeholder="YO + CHECKBOX" />
+        <input type="text" id="ans1" name="ans1" />
       </div>
 
 
-      <div id="respuesta">
-        <!--<label id="checkbox2" for="check2">Respuesta correcta: </label>-->
+      <div id="respuesta2" class="respuesta">
         <input type="checkbox" id="check2" name="check2" />
         <label id="campoRespuesta2" for="ans2">Respuesta 2: </label>
-        <input type="text" id="ans2" name="ans2" placeholder="YO" />
+        <input type="text" id="ans2" name="ans2" />
       </div>
 
-      <div id="respuesta">
-        <!--<label id="checkbox3" for="check3">Respuesta correcta: </label>-->
+      <div id="respuesta3" class="respuesta">
         <input type="checkbox" id="check3" name="check3" />
         <label id="campoRespuesta3" for="ans3">Respuesta 3: </label>
-        <input type="text" id="ans3" name="ans3" placeholder="YO" />
+        <input type="text" id="ans3" name="ans3" />
       </div>
 
-      <div id="respuesta">
-        <!--<label id="checkbox4" for="check4">Respuesta correcta: </label>-->
+      <div id="respuesta4" class="respuesta">
         <input type="checkbox" id="check4" name="check4" />
         <label id="campoRespuesta4" for="ans4">Respuesta 4: </label>
-        <input type="text" id="ans4" name="ans4" placeholder="YO" />
+        <input type="text" id="ans4" name="ans4" />
       </div>
       <label id="campoExplicacion" for="expl">Explicación: </label>
-      <input type="text" id="expl" name="expl" placeholder="¿Quién sino?" />
+      <input type="text" id="expl" name="expl" />
+      <input type='button' id='botonPregunta' value='Editar pregunta' />
 
-
-
-      <?php
-        echo "<input type='button' id='botonPregunta' value='Añadir pregunta' />";
-        echo $_GET['id'];
-      ?>
 
 
   </div>

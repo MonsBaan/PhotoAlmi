@@ -11,28 +11,24 @@ $(document).ready(function() {
         // controlCheck = "0";
         if ($("#check1").is(':checked')) {
             $("#check1").attr('value', 'true');
-            // $('#check1').is(':checked');
 
         }
         if ($("#check2").is(':checked')) {
-            //$(this).val('2');
             $("#check2").attr('value', 'true');
 
         }
         if ($("#check3").is(':checked')) {
             $("#check3").attr('value', 'true');
-            //$(this).val('5');
         }
         if ($("#check4").is(':checked')) {
             $("#check4").attr('value', 'true');
-            //$(this).val('3');
 
 
         }
 
     });
 
-    $(document).on('change', "input[type='file']", function(event) {
+    $(document).on('change', "input[type='file']", function (event) {
         if ($(this).val()) {
             var filename = $(this).val().split("\\");
             nombreDocumento = filename = filename[filename.length - 1];
@@ -40,7 +36,7 @@ $(document).ready(function() {
         }
     });
 
-    $(document).submit('.formSubir', function() {
+    $(document).submit('.formSubir', function () {
 
 
 
@@ -49,7 +45,7 @@ $(document).ready(function() {
     $.ajax({
         url: urlDB + "preguntas",
         type: "get",
-        success: function(response) {
+        success: function (response) {
             let arrayCategorias = response.data;
             for (let i = 0; i < arrayCategorias.length; i++) {
                 let htmlappend;
@@ -89,15 +85,12 @@ $(document).ready(function() {
 
     });
 
-    $("#botonPregunta").click(function(event) {
-
-
+    $("#botonPregunta").click(function (event) {
         var pregunta = $("#question").val();
 
         let categoria = $("#comboCategoria").val();
 
         //CONTROLAR SI SE SELECCIONA UN CHECKBOX
-        // var checkbox = $("input[type='checkbox']").val();
 
         var respuesta1 = $("#ans1").val();
         var respuesta2 = $("#ans2").val();
@@ -106,14 +99,14 @@ $(document).ready(function() {
 
         var explicacion = $("#expl").val();
 
-
+        console.log(pregunta +" "+respuesta1 +" "+respuesta2 +" "+respuesta3 +" "+respuesta4 +" "+explicacion +" "+controlCheck)
 
         if (!window.confirm("¿Enviar pregunta?")) {
             event.preventDefault();
+            return;
         } else {
-
             //COMPROBAR SI TODOS LOS CAMPOS ESTÁN COMPLETOS
-            if (nombreDocumento == "0" | pregunta | respuesta1 | respuesta2 | respuesta3 | respuesta4 | explicacion == "" | controlCheck == "0") {
+            if (nombreDocumento == "0" || pregunta || respuesta1 || respuesta2 || respuesta3 || respuesta4 || explicacion == "" || controlCheck == "0") {
                 window.confirm("Rellena todos los datos, por favor")
                 event.preventDefault();
             } else {
@@ -164,46 +157,49 @@ $(document).ready(function() {
         }
     });
 
-    console.log(idPregunta)
+
+    let idPreguntaVienePhp = $("#campoPregunta2").val();
 
     $.ajax({
-        url: urlDB + "contenido/" + idPregunta,
+        url: urlDB + "preguntas",
         type: "get",
-        success: function(response) {
-            let arrayCategorias = response.data;
-            let htmlappend;
-            htmlappend = "<label id='campoPregunta' for='question'>Pregunta: </label>";
-            htmlappend += "<input type='text' id='question' name='question' placeholder='" + arrayCategorias[0].pregunta + "' />";
-            htmlappend += "<br>";
-            htmlappend += "<label id='campoCategoria' for='category'>Categoría: </label>";
-            htmlappend += "<select id='comboCategoria'>";
-            htmlappend += "</select>";
-            htmlappend += "<br>";
-            htmlappend += "<div id='respuesta'>";
-            htmlappend += "<input type='checkbox' id='check1' name='check1' />";
-            htmlappend += "<label id='campoRespuesta1' for='ans1'>Respuesta 1: </label>";
-            htmlappend += "<input type='text' id='ans1' name='ans1' placeholder='" + arrayCategorias[0].respuesta[0] + "' />";
-            htmlappend += "</div>";
-            htmlappend += "<div id='respuesta'>";
-            htmlappend += "<input type='checkbox' id='check2' name='check2' />";
-            htmlappend += "<label id='campoRespuesta2' for='ans2'>Respuesta 2: </label>";
-            htmlappend += "<input type='text' id='ans2' name='ans2' placeholder='" + arrayCategorias[0].respuesta[1] + "' />";
-            htmlappend += "</div>";
-            htmlappend += "<div id='respuesta'>";
-            htmlappend += "<input type='checkbox' id='check3' name='check3' />";
-            htmlappend += "<label id='campoRespuesta3' for='ans3'>Respuesta 3: </label>";
-            htmlappend += "<input type='text' id='ans3' name='ans3' placeholder='" + arrayCategorias[0].respuesta[2] + "' />";
-            htmlappend += "</div>";
-            htmlappend += "<div id='respuesta'>";
-            htmlappend += "<input type='checkbox' id='check4' name='check4' />";
-            htmlappend += "<label id='campoRespuesta4' for='ans4'>Respuesta 4: </label>";
-            htmlappend += "<input type='text' id='ans4' name='ans4' placeholder='" + arrayCategorias[0].respuesta[3] + "' />";
-            htmlappend += "</div>";
-            htmlappend += "<label id='campoExplicacion' for='expl'>Explicación: </label>";
-            htmlappend += "<input type='text' id='expl' name='expl' placeholder='" + arrayCategorias[0].explicacion + "' />";
+        success: function (response) {
+            datos = response.data;
+            
+            datos.forEach(categoria => {
+                let arrayPreguntasCat = categoria.preguntas;
+                arrayPreguntasCat.forEach(pregunta => {
+                    if (pregunta._id == idPreguntaVienePhp) {
+                        console.log(pregunta);
+                    }
+                    
+                });
+                
+            });
 
-            $('#formularioEditarPregunta').append(htmlappend);
+            /*let arrayPregunta = response.data;
+            console.log(arrayPregunta.preguntas)
+            let pregunta = arrayPregunta.preguntas[0]
+            let respuestas = arrayPregunta.preguntas[0].respuestas
 
+            $("#question").val(pregunta.pregunta);
+            $("#ans1").val(respuestas[0].respuesta);
+            if (respuestas[0].correcta) {
+                $("#check1").attr('checked','checked');
+            }
+            $("#ans2").val(respuestas[1].respuesta);
+            if (respuestas[1].correcta) {
+                $("#check2").attr('checked','checked');
+            }
+            $("#ans3").val(respuestas[2].respuesta);
+            if (respuestas[2].correcta) {
+                $("#check3").attr('checked','checked');
+            }
+            $("#ans4").val(respuestas[3].respuesta);
+            if (respuestas[3].correcta) {
+                $("#check4").attr('checked','checked');
+            }
+            $("#expl").val(pregunta.correccion);*/
 
         },
     });
