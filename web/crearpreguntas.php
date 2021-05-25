@@ -21,7 +21,7 @@ include("php/datos.php");
   <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
   <link rel='stylesheet' type='text/css' href='css/comun.css'>
 
-  <link rel='stylesheet' type='text/css' href='css/crearPreguntas.css'>
+  <link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>
 
 </head>
 
