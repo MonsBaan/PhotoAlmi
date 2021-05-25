@@ -40,13 +40,7 @@ switch ($function) {
     $_SESSION["dir"] = $_POST['direccion'];
     $_SESSION["tlf"] = $_POST['telefono'];
     $_SESSION["pass"] = $_POST['contrasena'];
-    echo "hola";
     break;
-
-    case 'guardarID':
-      $_SESSION["id_pregunta"] = $_POST['id_'];
-      echo "hola";
-      break;
 
   default:
     echo "Funcion: " . $function . " no existente";

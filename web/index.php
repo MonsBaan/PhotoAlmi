@@ -35,7 +35,7 @@ if (isset($_SESSION["pos"]) == false) {
     }
     ?>
     <link rel='stylesheet' type='text/css' href='css/editarDatos.css'>
-
+    <link rel='stylesheet' type='text/css' href='css/modal.css'>
   </head>
 
   <body>
@@ -91,9 +91,19 @@ if (isset($_SESSION["pos"]) == false) {
       </ul>
     </div>
 
+    <!-- mensaje de error-->
+<div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close2">&times;</span>
+                <p>kk</p>
+                <button id="aceptar" class="send">Aceptar</button>
+                <button id="cancelar" class="send">Cancelar</button>
+            </div>
+        </div>
+
     <!-- MUESTRA LOS DATOS DEL USUARIO QUE SE PUEDEN MODIFICAR, LLAMÁNDOLO A LA BBDD -->
     <form id="formulario" action="modificarUsuario.php" method="post">
-      <span class="close">&times;</span>
+      <span class="close2">&times;</span>
       <div class="panelOculto" id="panelCentral">
         <div id="datosUsuario">
           <div id="nombreUsuario">
@@ -166,6 +176,7 @@ if (isset($_SESSION["pos"]) == false) {
         </div>
       </div>
     </div>
+
 
 
     <script src="js/jquery-3.6.0.min.js"></script>
