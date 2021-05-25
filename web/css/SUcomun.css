@@ -1,5 +1,5 @@
 /* Para 960px */
-@media only screen and (max-width: 1428px) and (min-width: 693px) {
+@media only screen and (min-width: 693px) {
 
     * {
         font-family: "Avenir Next", "Avenir", sans-serif;
@@ -148,7 +148,7 @@
         color: #c85e2a;
     }
 }
+
 @media only screen and (max-width: 693px) and (min-width: 0px) {
     
 }
-        
