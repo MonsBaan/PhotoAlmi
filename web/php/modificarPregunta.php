@@ -1,12 +1,30 @@
 <?php
+echo $_FILES["file"]["name"];
+if (($_FILES["file"]["type"] == "image/pjpeg")
+    || ($_FILES["file"]["type"] == "image/jpeg")
+    || ($_FILES["file"]["type"] == "image/png")
+    || ($_FILES["file"]["type"] == "image/gif")) {
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], "../source/image/".$_FILES['file']['name'])) {
+        //more code here...
+        echo "../source/image/".$_FILES['file']['name'];
+    } else {
+        echo " No se ha movido la imagen";
+    }
 
+  
+}
+
+
+
+
+/*
 $target_dir = "/var/www/html/PhotoAlmi/web/source/image/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // Check if image file is a actual image or fake image
-if(isset($_POST["buttonsubmit"])) {
+var_dump($_FILES["fileToUpload"]["name"]);
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
   if($check !== false) {
      
@@ -16,7 +34,7 @@ if(isset($_POST["buttonsubmit"])) {
     echo "File is not an image.";
     $uploadOk = 0;
   }
-}
+
 
 // Check if file already exists
 if (file_exists($target_file)) {
@@ -54,5 +72,5 @@ if ($uploadOk == 0) {
 
 
 //var_dump("");
-
+*/
 ?>

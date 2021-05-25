@@ -21,7 +21,7 @@ include("php/datos.php");
   <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
   <link rel='stylesheet' type='text/css' href='css/comun.css'>
 
-  <link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>
+  <link rel='stylesheet' type='text/css' href='css/crearPreguntas.css'>
 
 </head>
 
@@ -132,17 +132,17 @@ include("php/datos.php");
 
 
   <div class="panelOculto" id="panelCentral">
-    <h1>EDITA LAS PREGUNTAS</h1>
+    <h1>CREA PREGUNTAS</h1>
     <div>
 
-      <form class = "formSubir" action="editarpreguntas.php" method="post" enctype="multipart/form-data">
+      <form class = "formSubir" action="crearpreguntas.php" method="post" enctype="multipart/form-data">
         <input type="file" name="fileToUpload" id="fileToUpload">
       </form>
 
       <br>
 
     </div>
-    <form id="formularioEditarPregunta" action="editarpreguntas.php" method="put">
+    <form id="formularioCrearPregunta" action="crearpreguntas.php" method="put">
 
       <label id="campoPregunta" for="question">Pregunta: </label>
       <input type="text" id="question" name="question" placeholder="¿Quién no se echaría un KALMIHOOT?" />
@@ -189,7 +189,7 @@ include("php/datos.php");
 
       <?php
         echo "<input type='button' id='botonPregunta' value='Añadir pregunta' />";
-        echo $_GET['id'];
+ 
       ?>
 
 
@@ -201,7 +201,7 @@ include("php/datos.php");
 
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/comun.js"></script>
-  <script src="js/editarPreguntas.js"></script>
+  <script src="js/crearPreguntas.js"></script>
 
 </body>
 <?php
