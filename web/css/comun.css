@@ -1,10 +1,8 @@
 #titulo {
     width: 20%;
-    height: 20%;
     justify-content: center;
     display: flex;
 }
-
 input {
     width: 100%;
     padding: 12px 20px;
@@ -15,7 +13,6 @@ input {
     box-sizing: border-box;
     width: auto;
 }
-
 input[type="button"] {
     width: 100%;
     background-color: #06aadb;
@@ -26,22 +23,15 @@ input[type="button"] {
     cursor: pointer;
     margin-top: 4%;
 }
-
-#titulo img {
-    margin-left: 395%;
-}
-
 body {
     margin: 0;
     padding: 0;
     height: 900px;
     margin-top: 6%;
-    /* make it look decent enough */
     background: #06AADB;
     color: #cdcdcd;
     font-family: "Avenir Next", "Avenir", sans-serif;
 }
-
 #menuHamburguesa {
     display: block;
     position: fixed;
@@ -51,17 +41,14 @@ body {
     -webkit-user-select: none;
     user-select: none;
 }
-
 #menuHamburguesa a {
     text-decoration: none;
     color: #06AADB;
     transition: color 0.3s ease;
 }
-
 #menuHamburguesa a:hover {
     color: #FFFF;
 }
-
 #menuHamburguesa input {
     display: block;
     width: 40px;
@@ -72,17 +59,9 @@ body {
     background: #2B75AE;
     cursor: pointer;
     opacity: 0;
-    /* hide this */
     z-index: 2;
-    /* and place it over the hamburger */
     -webkit-touch-callout: none;
 }
-
-
-/*
-  * Just a quick hamburger
-  */
-
 #menuHamburguesa span {
     display: block;
     width: 33px;
@@ -95,55 +74,26 @@ body {
     transform-origin: 4px 0px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
 }
-
 #menuHamburguesa span:first-child {
     transform-origin: 0% 0%;
 }
-
 #menuHamburguesa span:nth-last-child(2) {
     transform-origin: 0% 100%;
 }
-
-
-/* 
-  * Transform all the slices of hamburger
-  * into a crossmark.
-  */
-
 #menuHamburguesa input:checked~span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: #2B75AE;
 }
-
-
-/*
-  * But let's hide the middle one.
-  */
-
 #menuHamburguesa input:checked~span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
-
-
-/*
-  * Ohyeah and the last one should go the other direction
-  */
-
 #menuHamburguesa input:checked~span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
 }
-
-
-/*
-  * Make this absolute positioned
-  * at the top left of the screen
-  */
-
 #menu {
     position: absolute;
-    width: auto;
     margin: -100px 0 0 -50px;
     padding: 50px;
     padding-top: 125px;
@@ -151,26 +101,73 @@ body {
     background: #364278;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
     transform-origin: 0% 0%;
-    transform: translate(-100%, 0);
+    transform: translate(-150%, 0);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     display:grid;
 }
-
 #menu li {
     padding: 10px 0;
     font-size: 22px;
 }
-
-
-
-/*
-  * And let's slide it in from the left
-  */
-
 #menuHamburguesa input:checked~ul {
     position: fixed;
     transform: none;
+}
+@media only screen and (min-width: 680px) {
+    #menu{
+        width: auto;      
+     }
+}
+@media only screen and (min-width: 879px) {
+    #titulo {
+        height: 20%;
+    }
+    #titulo img {
+        margin-left: 395%;
+    }
+}
+@media only screen and (max-width: 879px) and (min-width: 680px) {
+    #titulo img {
+        margin-left: 395%;
+        width: 500px;
+        height: 170px;
+    }
+    #titulo {
+        height: 15%;
+    }
+}
+@media only screen and (max-width: 680px) and (min-width: 575px) {
+    #menu{
+        width: 100%; 
+     }
+     #titulo img {
+        margin-left: 395%;
+        width: 450px;
+        height: 120px;
+    }
+    #titulo {
+        height: 10%;
+    }
+    *{
+        font-size: 93%;
+    }
+}
+@media only screen and (max-width: 575px) and (min-width: 0px) {
+    #menu{
+        width: 100%; 
+     }
+     #titulo img {
+        
+        margin-left: 480%;
+        width: 350px;
+        height: 100px;
+    }
+    #titulo {
+        height: 10%;
+    }
+    *{
+        font-size: 93%;
+    }
 }
 
