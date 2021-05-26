@@ -32,9 +32,10 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
   </head>
 
   <body>
+
     <div id="menuHamburguesa">
 
-    <input type="checkbox" />
+      <input type="checkbox" />
 
       <span></span>
       <span></span>
@@ -65,12 +66,6 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
           echo "</a>";
         }
         ?>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
         <?php
         if (isset($_SESSION["name"]) == true) {
           echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
@@ -88,16 +83,16 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
       </ul>
     </div>
 
-        <!-- mensaje de error-->
-<div id="myModal" class="modal">
-            <div class="modal-content">
+    <!-- mensaje de error-->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
 
-                <p>¿Seguro que quieres eliminar a este usuario?</p>
-                <button id="aceptar" class="send">Aceptar</button>
-                <button id="cancelar" class="send">Cancelar</button>
-            </div>
-        </div>
-        
+        <p>¿Seguro que quieres eliminar a este usuario?</p>
+        <button id="aceptar" class="send">Aceptar</button>
+        <button id="cancelar" class="send">Cancelar</button>
+      </div>
+    </div>
+
     <div id='cuerpo'>
 
       <form id="formulario" action="modificarUsuario.php" method="post">

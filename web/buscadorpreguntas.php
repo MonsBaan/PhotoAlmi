@@ -65,12 +65,6 @@ if (isset($_SESSION["pos"]) == false) {
           echo "</a>";
         }
         ?>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
         <?php
         if (isset($_SESSION["name"]) == true) {
           echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
@@ -87,7 +81,6 @@ if (isset($_SESSION["pos"]) == false) {
         <li></li>
       </ul>
     </div>
-
     <!-- mensaje de error-->
     <div id="myModal" class="modal">
       <div class="modal-content">

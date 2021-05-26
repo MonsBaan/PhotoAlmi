@@ -22,10 +22,11 @@ if (isset($_SESSION["pos"]) == false) {
   </head>
 
   <body>
+
     <div id="menuHamburguesa">
 
-    <input type="checkbox" />
-    
+      <input type="checkbox" />
+
       <span></span>
       <span></span>
       <span></span>
@@ -55,12 +56,6 @@ if (isset($_SESSION["pos"]) == false) {
           echo "</a>";
         }
         ?>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
         <?php
         if (isset($_SESSION["name"]) == true) {
           echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
