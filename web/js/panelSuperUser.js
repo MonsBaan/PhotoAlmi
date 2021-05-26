@@ -17,8 +17,11 @@ $(document).ready(function() {
             });
     });
     $(document).on('click', '#eliminar', function() {
-        if (confirm('Estas seguro de eliminar este usuario?')) {
-            id = $(this).parent().children('#idUser').text();
+        id = $(this).parent().children('#idUser').text();
+        $('#myModal').css('display', 'block');
+
+        $('#aceptar').click(function() {
+
             $.ajax({
                 url: urlDB + 'trabajadores/' + id,
                 type: 'DELETE',
@@ -26,8 +29,16 @@ $(document).ready(function() {
                     actualizarUsuarios();
                 },
             });
-        }
+            $('#myModal').css('display', 'none');
+        });
+
+        $('#cancelar').click(function() {
+            $('#myModal').css('display', 'none');
+        });
+
+
     });
+
     $(document).on('click', '#editar', function() {
         $('#puesto').html('');
 
@@ -134,7 +145,13 @@ $(document).ready(function() {
         });
     });
     $(document).on('click', '.close', function() {
-        if (confirm('Cancelar los datos modificados? ')) {
+
+
+        $('#myModal').css('display', 'block');
+        $('.modal-content > p').text('¿Enviar pregunta?');
+
+
+        $('#aceptar').click(function() {
             $('#tablaUsers').show();
             $('#accionesGeneral').show();
             $('#formulario').hide();
@@ -147,8 +164,15 @@ $(document).ready(function() {
             $('#password').val('');
             $('#repassword').val('');
             $('#puesto').val('');
-        }
+
+            $('#myModal').css('display', 'none');
+        });
     });
+
+    $('#cancelar').click(function() {
+        $('#myModal').css('display', 'none');
+    });
+
 
     function actualizarUsuarios() {
         let html = '';

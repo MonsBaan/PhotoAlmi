@@ -27,6 +27,9 @@ $(document).ready(function() {
                     window.location.href = "buscadorpreguntas.php";
                 }
             })
+
+            $('#myModal').css('display', 'none');
+
         });
 
         $('#cancelar').click(function() {
