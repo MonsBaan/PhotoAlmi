@@ -26,6 +26,7 @@
   <link rel='stylesheet' type='text/css' href='css/comun.css'>
 
   <link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>
+  <link rel='stylesheet' type='text/css' href='css/modal.css'>
 
 </head>
 
@@ -134,6 +135,15 @@
   </ul>
   </div>
 
+  <!-- mensaje de error-->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+
+      <p>kk</p>
+      <button id="aceptar" class="send">Aceptar</button>
+      <button id="cancelar" class="send">Cancelar</button>
+    </div>
+  </div>
 
   <div class="panelOculto" id="panelCentral">
     <h1>EDITA LAS PREGUNTAS</h1>
@@ -151,7 +161,7 @@
     <form id="formularioEditarPregunta" action="editarpreguntas.php" method="put">
 
 
-      <input type="text" id="question" name="question"/><br>
+      <input type="text" id="question" name="question" /><br>
 
       <label id="campoCategoria" for="category">Categoría: </label>
       <select id="comboCategoria">
@@ -160,7 +170,7 @@
       <br>
 
       <div id="respuesta1" class="respuesta">
-        <input type="checkbox" id="check1" name="check1"/>
+        <input type="checkbox" id="check1" name="check1" />
         <label id="campoRespuesta1" for="ans1">Respuesta 1: </label>
         <input type="text" id="ans1" name="ans1" />
       </div>

@@ -28,7 +28,7 @@ $(document).ready(function() {
 
     });
 
-    $(document).on('change', "input[type='file']", function (event) {
+    $(document).on('change', "input[type='file']", function(event) {
         if ($(this).val()) {
             var filename = $(this).val().split("\\");
             nombreDocumento = filename = filename[filename.length - 1];
@@ -36,7 +36,7 @@ $(document).ready(function() {
         }
     });
 
-    $(document).submit('.formSubir', function () {
+    $(document).submit('.formSubir', function() {
 
 
 
@@ -45,7 +45,7 @@ $(document).ready(function() {
     $.ajax({
         url: urlDB + "preguntas",
         type: "get",
-        success: function (response) {
+        success: function(response) {
             let arrayCategorias = response.data;
             for (let i = 0; i < arrayCategorias.length; i++) {
                 let htmlappend;
@@ -85,7 +85,7 @@ $(document).ready(function() {
 
     });
 
-    $("#botonPregunta").click(function (event) {
+    $("#botonPregunta").click(function(event) {
         var pregunta = $("#question").val();
 
         let categoria = $("#comboCategoria").val();
@@ -99,15 +99,23 @@ $(document).ready(function() {
 
         var explicacion = $("#expl").val();
 
-        console.log(pregunta +" "+respuesta1 +" "+respuesta2 +" "+respuesta3 +" "+respuesta4 +" "+explicacion +" "+controlCheck)
+        console.log(pregunta + " " + respuesta1 + " " + respuesta2 + " " + respuesta3 + " " + respuesta4 + " " + explicacion + " " + controlCheck)
+        event.preventDefault();
+        $('#myModal').css('display', 'block');
+        $('.modal-content > p').text('¿Enviar pregunta?');
 
-        if (!window.confirm("¿Enviar pregunta?")) {
+        $('#cancelar').click(function() {
+
             event.preventDefault();
             return;
-        } else {
+        });
+        $('#aceptar').click(function() {
+
             //COMPROBAR SI TODOS LOS CAMPOS ESTÁN COMPLETOS
+
             if (nombreDocumento == "0" || pregunta || respuesta1 || respuesta2 || respuesta3 || respuesta4 || explicacion == "" || controlCheck == "0") {
-                window.confirm("Rellena todos los datos, por favor")
+                $('#myModal').css('display', 'block');
+                $('.modal-content > p').text('Rellena todos los datos, por favor');
                 event.preventDefault();
             } else {
 
@@ -154,7 +162,7 @@ $(document).ready(function() {
             };
 
 
-        }
+        });
     });
 
 
@@ -163,18 +171,18 @@ $(document).ready(function() {
     $.ajax({
         url: urlDB + "preguntas",
         type: "get",
-        success: function (response) {
+        success: function(response) {
             datos = response.data;
-            
+
             datos.forEach(categoria => {
                 let arrayPreguntasCat = categoria.preguntas;
                 arrayPreguntasCat.forEach(pregunta => {
                     if (pregunta._id == idPreguntaVienePhp) {
                         console.log(pregunta);
                     }
-                    
+
                 });
-                
+
             });
 
             /*let arrayPregunta = response.data;

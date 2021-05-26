@@ -3,7 +3,7 @@
 
 <?php
 session_start();
-include("datos.php");
+
 
 if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
   header("location: login.php");

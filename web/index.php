@@ -3,7 +3,6 @@
 
 <?php
 session_start();
-include("datos.php");
 
 if (isset($_SESSION["pos"]) == false) {
   header("location: login.php");

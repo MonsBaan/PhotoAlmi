@@ -1,7 +1,8 @@
 $(document).ready(function() {
     console.log("Documento Listo")
     var urlWebService = "http://192.168.6.195:8080/kalmihootApi/"
-    var urlHtml = "http://192.168.6.157/PhotoAlmi/web/php/ajax.php"
+
+    var urlHtml = "http://192.168.6.151/PhotoAlmi/web/php/ajax.php"
 
     $(".panelOculto").hide();
     $(".close2").hide();
@@ -34,6 +35,7 @@ $(document).ready(function() {
             var contr = $("#password").val();
             var reContr = $("#repassword").val();
             var telef = $("#phone").val();
+
             if (contr != reContr) {
                 $("#repassword").val("");
                 $("#repassword").css("background-color", "red");

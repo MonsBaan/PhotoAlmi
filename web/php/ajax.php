@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 header('Content-Type: application/JSON');
 
 $function = $_POST['function'];
-include './datos.php';
+
 session_start();
 
 

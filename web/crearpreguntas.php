@@ -3,7 +3,7 @@
 
 <?php
 //session_start();
-include("php/datos.php");
+
 
 //if (isset($_SESSION["pos"]) == false) {
 //header("location: login.php");
@@ -22,6 +22,7 @@ include("php/datos.php");
   <link rel='stylesheet' type='text/css' href='css/comun.css'>
 
   <link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>
+  <link rel='stylesheet' type='text/css' href='css/modal.css'>
 
 </head>
 
@@ -130,6 +131,15 @@ include("php/datos.php");
   </ul>
   </div>
 
+    <!-- mensaje de error-->
+    <div id="myModal" class="modal">
+            <div class="modal-content">
+
+                <p>kk</p>
+                <button id="aceptar" class="send">Aceptar</button>
+                <button id="cancelar" class="send">Cancelar</button>
+            </div>
+        </div>
 
   <div class="panelOculto" id="panelCentral">
     <h1>CREA PREGUNTAS</h1>
