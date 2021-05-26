@@ -21,7 +21,7 @@ if (isset($_SESSION["pos"]) == false) {
 
     <div id='titulo'>
 
-      <img  src='source/image/Kalmihoot.png'>
+      <img src='source/image/Kalmihoot.png'>
     </div>
 
     <?php
@@ -65,7 +65,7 @@ if (isset($_SESSION["pos"]) == false) {
           echo "<a href='borrarCategoria.php' id='liSuperUser'>";
           echo "<li>Delete Category</li>";
           echo "</a>";
-          
+
           echo "<a href='panelSuperUser.php' id='liSuperUser'>";
           echo "<li>SuperUser Manager</li>";
           echo "</a>";
@@ -89,14 +89,14 @@ if (isset($_SESSION["pos"]) == false) {
     </div>
 
     <!-- mensaje de error-->
-<div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close2">&times;</span>
-                <p>kk</p>
-                <button id="aceptar" class="send">Aceptar</button>
-                <button id="cancelar" class="send">Cancelar</button>
-            </div>
-        </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close2">&times;</span>
+        <p>kk</p>
+        <button id="aceptar" class="send">Aceptar</button>
+        <button id="cancelar" class="send">Cancelar</button>
+      </div>
+    </div>
 
     <!-- MUESTRA LOS DATOS DEL USUARIO QUE SE PUEDEN MODIFICAR, LLAMÁNDOLO A LA BBDD -->
     <form id="formulario" action="modificarUsuario.php" method="post">
@@ -123,6 +123,9 @@ if (isset($_SESSION["pos"]) == false) {
               <p>Repeat the Password:</p>
               <input type='password' id='repassword' name='password' placeholder='Type the password again' />
             </div>
+            <div id="editarDatos">
+              <input type="button" id="confirmarDatosUsuario" value="Confirm Changes" />
+            </div>
           </div>
         </div>
 
@@ -131,9 +134,7 @@ if (isset($_SESSION["pos"]) == false) {
             <img id='perfil' src=<?php echo $_SESSION['img']; ?>>
           </div>
 
-          <div id="editarDatos">
-            <input type="button" id="confirmarDatosUsuario" value="Confirm Changes" />
-          </div>
+
         </div>
       </div>
     </form>
@@ -162,15 +163,16 @@ if (isset($_SESSION["pos"]) == false) {
             <p>Charge: </p>
             <p id="posMostrar"><?php echo $_SESSION['pos'] ?></p>
           </div>
+          <div id="editarDatos">
+            <input type="button" id="editarDatosUsuario" value="Change Data" />
+          </div>
         </div>
       </div>
       <div id="fotosUsuario">
         <div id="imagenUsuario">
           <img id='perfil' src=<?php echo $_SESSION['img']; ?>>
         </div>
-        <div id="editarDatos">
-          <input type="button" id="editarDatosUsuario" value="Change Data" />
-        </div>
+
       </div>
     </div>
 

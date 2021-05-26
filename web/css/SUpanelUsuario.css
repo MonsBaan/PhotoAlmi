@@ -66,6 +66,20 @@
     flex: 3;
 }
 
+#confirmarDatosUsuario {
+    margin-bottom: -0.3%;
+    margin-left: -0.2%;
+    width: 101%;
+    margin-right: -7%;
+}
+
+#editarDatosUsuario {
+    margin-bottom: -0.3%;
+    margin-left: -0.2%;
+    width: 101%;
+    margin-right: -7%;
+}
+
 @media only screen and (max-width: 579px) and (min-width: 450px) {
     #imageeditar {
         width: 40%;
