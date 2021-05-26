@@ -105,7 +105,7 @@ $(document).ready(function() {
         $('.modal-content > p').text('¿Enviar pregunta?');
 
         $('#cancelar').click(function() {
-
+            $('#myModal').css('display', 'none');
             event.preventDefault();
             return;
         });
@@ -161,7 +161,7 @@ $(document).ready(function() {
 
             };
 
-
+            $('#myModal').css('display', 'none');
         });
     });
 

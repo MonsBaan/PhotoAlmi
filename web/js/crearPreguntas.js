@@ -156,14 +156,14 @@ $(document).ready(function() {
 
                 };
 
+                $('#myModal').css('display', 'none');
 
-                $('#cancelar').click(function() {
-                    event.preventDefault()
-                    $('#myModal').css('display', 'none');
-                });
             });
 
-
+            $('#cancelar').click(function() {
+                event.preventDefault()
+                $('#myModal').css('display', 'none');
+            });
         });
     });
 });
