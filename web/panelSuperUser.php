@@ -137,15 +137,16 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
                 <select name="puesto" id="puesto" class='input'>
                 </select>
               </div>
+              <div id="editarDatos">
+              <input type="button" id="confirmarDatosUsuario" value="Confirm Changes" />
+            </div>
             </div>
           </div>
           <div id="fotosUsuario">
             <div id="imagenUsuario">
               <img id='perfil' src=<?php echo $_SESSION['img']; ?>>
             </div>
-            <div id="editarDatos">
-              <input type="button" id="confirmarDatosUsuario" value="Confirm Changes" />
-            </div>
+            
           </div>
         </div>
       </form>
