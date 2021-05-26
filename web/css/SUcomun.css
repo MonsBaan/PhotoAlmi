@@ -49,7 +49,7 @@ body {
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
-    transform: translate(-200%, 0);
+    transform: translate(-500%, 0);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     display: grid;
 }
@@ -201,5 +201,17 @@ body {
     }
     #titulo {
         height: 10%;
+    }
+}
+
+@media only screen and (min-height: 714px) {
+    #liName {
+        margin-top: 100%;
+    }
+}
+
+@media only screen and (max-height: 714px) and (min-height: 0px) {
+    #liName {
+        margin-top: 10%;
     }
 }

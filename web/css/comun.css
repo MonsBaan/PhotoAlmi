@@ -3,6 +3,7 @@
     justify-content: center;
     display: flex;
 }
+
 input {
     width: 100%;
     padding: 12px 20px;
@@ -13,6 +14,7 @@ input {
     box-sizing: border-box;
     width: auto;
 }
+
 input[type="button"] {
     width: 100%;
     background-color: #06aadb;
@@ -23,6 +25,7 @@ input[type="button"] {
     cursor: pointer;
     margin-top: 4%;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -32,6 +35,7 @@ body {
     color: #cdcdcd;
     font-family: "Avenir Next", "Avenir", sans-serif;
 }
+
 #menuHamburguesa {
     display: block;
     position: fixed;
@@ -41,14 +45,17 @@ body {
     -webkit-user-select: none;
     user-select: none;
 }
+
 #menuHamburguesa a {
     text-decoration: none;
     color: #06AADB;
     transition: color 0.3s ease;
 }
+
 #menuHamburguesa a:hover {
     color: #FFFF;
 }
+
 #menuHamburguesa input {
     display: block;
     width: 40px;
@@ -62,6 +69,7 @@ body {
     z-index: 2;
     -webkit-touch-callout: none;
 }
+
 #menuHamburguesa span {
     display: block;
     width: 33px;
@@ -74,24 +82,30 @@ body {
     transform-origin: 4px 0px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
 }
+
 #menuHamburguesa span:first-child {
     transform-origin: 0% 0%;
 }
+
 #menuHamburguesa span:nth-last-child(2) {
     transform-origin: 0% 100%;
 }
+
 #menuHamburguesa input:checked~span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: #2B75AE;
 }
+
 #menuHamburguesa input:checked~span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
+
 #menuHamburguesa input:checked~span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
 }
+
 #menu {
     position: absolute;
     margin: -100px 0 0 -50px;
@@ -104,21 +118,25 @@ body {
     transform-origin: 0% 0%;
     transform: translate(-150%, 0);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-    display:grid;
+    display: grid;
 }
+
 #menu li {
     padding: 10px 0;
     font-size: 22px;
 }
+
 #menuHamburguesa input:checked~ul {
     position: fixed;
     transform: none;
 }
+
 @media only screen and (min-width: 680px) {
-    #menu{
-        width: auto;      
-     }
+    #menu {
+        width: auto;
+    }
 }
+
 @media only screen and (min-width: 879px) {
     #titulo {
         height: 20%;
@@ -127,6 +145,7 @@ body {
         margin-left: 395%;
     }
 }
+
 @media only screen and (max-width: 879px) and (min-width: 680px) {
     #titulo img {
         margin-left: 395%;
@@ -137,11 +156,12 @@ body {
         height: 15%;
     }
 }
+
 @media only screen and (max-width: 680px) and (min-width: 575px) {
-    #menu{
-        width: 100%; 
-     }
-     #titulo img {
+    #menu {
+        width: 100%;
+    }
+    #titulo img {
         margin-left: 395%;
         width: 450px;
         height: 120px;
@@ -149,16 +169,16 @@ body {
     #titulo {
         height: 10%;
     }
-    *{
+    * {
         font-size: 93%;
     }
 }
+
 @media only screen and (max-width: 575px) and (min-width: 0px) {
-    #menu{
-        width: 100%; 
-     }
-     #titulo img {
-        
+    #menu {
+        width: 100%;
+    }
+    #titulo img {
         margin-left: 480%;
         width: 350px;
         height: 100px;
@@ -166,8 +186,19 @@ body {
     #titulo {
         height: 10%;
     }
-    *{
+    * {
         font-size: 93%;
     }
 }
 
+@media only screen and (min-height: 714px) {
+    #liName {
+        margin-top: 100%;
+    }
+}
+
+@media only screen and (max-height: 714px) and (min-height: 0px) {
+    #liName {
+        margin-top: 10%;
+    }
+}
