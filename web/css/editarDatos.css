@@ -30,7 +30,7 @@
     margin-top: 3%;
 }
 
-.close {
+.close2 {
     color: #cdcdcd;
     float: right;
     font-size: 28px;
@@ -40,8 +40,8 @@
     position: absolute;
 }
 
-.close:hover,
-.close:focus {
+.close2:hover,
+.close2:focus {
     color: white;
     text-decoration: none;
     cursor: pointer;

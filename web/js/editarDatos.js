@@ -1,10 +1,11 @@
 $(document).ready(function() {
     console.log("Documento Listo")
     var urlWebService = "http://192.168.6.195:8080/kalmihootApi/"
-    var urlHtml = "http://192.168.6.157/PhotoAlmi/web/php/ajax.php"
+
+    var urlHtml = "http://192.168.6.151/PhotoAlmi/web/php/ajax.php"
 
     $(".panelOculto").hide();
-    $(".close").hide();
+    $(".close2").hide();
     var session;
     $.get('php/session.php', function(data) {
         session = JSON.parse(data);
@@ -14,7 +15,7 @@ $(document).ready(function() {
     $("#editarDatosUsuario").click(function() {
         $(".panelModificar").hide();
         $(".panelOculto").show();
-        $(".close").show();
+        $(".close2").show();
         $("#repassword").val("");
         $("#password").val("");
         $("#phone").val("");
@@ -26,10 +27,15 @@ $(document).ready(function() {
 
     $("#confirmarDatosUsuario").click(function(event) {
         var error = false;
-        if (window.confirm("Confirm the changes")) {
+
+        $('#myModal').css('display', 'block');
+        $('.modal-content > p').text('¿Deseas guardar los cambios?');
+        //aceptar
+        $('#aceptar').click(function() {
             var contr = $("#password").val();
             var reContr = $("#repassword").val();
             var telef = $("#phone").val();
+
             if (contr != reContr) {
                 $("#repassword").val("");
                 $("#repassword").css("background-color", "red");
@@ -100,7 +106,7 @@ $(document).ready(function() {
                             type: "post",
                             success: function(response) {
 
-
+                                console.log(response)
 
                             },
                         });
@@ -108,28 +114,39 @@ $(document).ready(function() {
                 });
                 $(".panelOculto").hide();
                 $(".panelModificar").show();
-                $(".close").hide();
+                $(".close2").hide();
             }
 
 
-        } else {
-            event.preventDefault();
-
-        }
-
+            $('#myModal').css('display', 'none');
+        });
+        //canelar
+        $('#cancelar').click(function() {
+            event.preventDefault()
+            $('#myModal').css('display', 'none');
+        });
     });
 
-    $(".close").click(function(event) {
-        if (window.confirm("Are you sure that you want to go back?")) {
-            $(".panelModificar").show();
-            $(".panelOculto").hide();
-            $(".close").hide();
 
 
-        } else {
-            event.preventDefault();
+});
 
-        }
+$(".close2").click(function() {
+
+
+    $('#myModal').css('display', 'block');
+    $('.modal-content > p').text('¿Deseas guardar los cambios?');
+    //aceptar
+    $('#aceptar').click(function() {
+        $(".panelModificar").show();
+
+        $('#myModal').css('display', 'none');
     });
-
+    //canelar
+    $('#cancelar').click(function() {
+        $(".panelModificar").show();
+        $(".panelOculto").hide();
+        $(".close2").hide();
+        $('#myModal').css('display', 'none');
+    });
 });

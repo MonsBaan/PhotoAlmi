@@ -3,7 +3,7 @@
 
 <?php
 session_start();
-include("datos.php");
+
 
 if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
   header("location: login.php");
@@ -33,7 +33,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
   <body>
     <div id="menuHamburguesa">
 
-      <input type="checkbox" />
+    <input type="checkbox" />
 
       <span></span>
       <span></span>
@@ -46,13 +46,17 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
         <a href="buscadorpreguntas.php">
           <li>All Questions</li>
         </a>
-        <a href="#">
+        <a href="crearpreguntas.php">
           <li>Add Question</li>
         </a>
         <?php
         if ($_SESSION['pos'] == "SuperUser") {
           echo "<a href='crearCategoria.php' id='liSuperUser'>";
           echo "<li>Create Category</li>";
+          echo "</a>";
+
+          echo "<a href='borrarCategoria.php' id='liSuperUser'>";
+          echo "<li>Delete Category</li>";
           echo "</a>";
 
           echo "<a href='panelSuperUser.php' id='liSuperUser'>";
