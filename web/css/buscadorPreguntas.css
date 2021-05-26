@@ -2,6 +2,9 @@
     text-align: center;
     margin-top: 6%;
 }
+#filtro{
+    width: auto;
+}
 
 #tablaPreguntas {
     text-align: center;

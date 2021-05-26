@@ -22,7 +22,7 @@ if (isset($_SESSION["pos"]) == false) {
 
     <div id='titulo'>
 
-      <img src='source/image/Kalmihoot.png'>
+      <img  src='source/image/Kalmihoot.png'>
     </div>
 
     <?php
