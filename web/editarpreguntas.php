@@ -2,16 +2,10 @@
 <html lang="es">
 
 <?php
-
-
-
-
-//session_start();
-
-
-//if (isset($_SESSION["pos"]) == false) {
-//header("location: login.php");
-//} else {
+session_start();
+if (isset($_SESSION["pos"]) == false) {
+header("location: login.php");
+} else {
 ?>
 
 <head>
@@ -33,7 +27,7 @@
 <body>
   <div id="menuHamburguesa">
 
-  <input type="checkbox" />
+    <input type="checkbox" />
 
     <span></span>
     <span></span>
@@ -90,7 +84,6 @@
   <!-- mensaje de error-->
   <div id="myModal" class="modal">
     <div class="modal-content">
-
       <p>kk</p>
       <button id="aceptar" class="send">Aceptar</button>
       <button id="cancelar" class="send">Cancelar</button>
@@ -104,22 +97,17 @@
       <form class="formSubir" action="editarpreguntas.php" method="post" enctype="multipart/form-data">
         <input type="file" name="fileToUpload" id="fileToUpload">
       </form>
-
+      <img id="imagen" src="" alt="">
       <br>
 
     </div>
 
-    <input type="text" id="campoPregunta2" for="question" value="<?php echo $_GET['id']; ?>">Pregunta: </input>
+    <input type="hidden" id="campoPregunta2" for="question" value="<?php echo $_GET['id']; ?>">Pregunta: </input>
     <form id="formularioEditarPregunta" action="editarpreguntas.php" method="put">
 
 
       <input type="text" id="question" name="question" /><br>
 
-      <label id="campoCategoria" for="category">Categoría: </label>
-      <select id="comboCategoria">
-
-      </select>
-      <br>
 
       <div id="respuesta1" class="respuesta">
         <input type="checkbox" id="check1" name="check1" />
@@ -163,7 +151,7 @@
 
 </body>
 <?php
-//}
+}
 ?>
 
 </html>
