@@ -1,5 +1,5 @@
 <?php
-echo $_FILES["file"]["name"];
+/*echo $_FILES["file"]["name"];
 
 
 if (($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/jpeg")  || ($_FILES["file"]["type"] == "image/png")  || ($_FILES["file"]["type"] == "image/gif")) {
@@ -11,10 +11,9 @@ if (($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "i
   
 } else {
   echo "Tipo de archivo no soportado";
-}
+}*/
 
-/*
-<?php
+
 $cont = 0;
 
 if (($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/jpeg")  || ($_FILES["file"]["type"] == "image/png")  || ($_FILES["file"]["type"] == "image/gif")) {
@@ -28,7 +27,3 @@ if (($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "i
 } else {
   echo "Tipo de archivo no soportado";
 }
-
-
-*/
-

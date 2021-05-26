@@ -13,15 +13,17 @@ $(document).ready(function() {
     $(document).on('click', '#EliminarPreguntas', function(event) {
         event.preventDefault();
         id = $(this).attr('href');
+        cat = $(this).parent().attr('id');
+
         $.ajax({
-            data: id,
-            url: urlDB + "contenido/" + id,
-            type: "delete",
+            url: urlDB + "pregunta/" + cat + "/" + id,
+            type: "put",
             success: function(response) {
                 console.log(response)
 
             }
         })
+
     });
     $(document).on('change', '#categorias', function() {
         var campoFiltrar = $('#categorias').val().toUpperCase();
@@ -85,7 +87,7 @@ $(document).ready(function() {
                         htmlappend +=
                             "<td><img id='EditarPreguntas' src='source/image/editarN.png' alt='Imagen Recargar' href='editarpreguntas.php?id=" + arrPreguntas[j]._id + "' class='imagenPanel'></img></td>";
                         htmlappend +=
-                            "<td><img id='EliminarPreguntas' src='source/image/papeleraN.png' alt='Imagen Recargar' href='" + arrPreguntas[j]._id + "' class='imagenPanel'></td>";
+                            "<td id=" + response.data[i]._id + "><img id='EliminarPreguntas' src='source/image/papeleraN.png' alt='Imagen Recargar' href='" + arrPreguntas[j]._id + "' class='imagenPanel'></td>";
                         htmlappend += '</tr>';
                         aux = j + 1;
                         con++;
