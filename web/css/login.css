@@ -37,8 +37,6 @@ body {
 
 .eye {
     float: right;
-    margin-left: -25px;
-    margin-top: 6%;
     position: relative;
     z-index: 2;
 }
@@ -99,6 +97,45 @@ body {
     }
     * {
         font-size: 93%;
+    }
+}
+
+@media only screen and (min-width: 1152px) {
+    .eye {
+        margin-left: -25px;
+        margin-top: 6%;
+    }
+}
+
+@media only screen and (max-width: 1152px) and (min-width: 760px) {
+    .eye {
+        margin-left: -25px;
+        margin-top: 8%;
+    }
+    #CuadradoLogin {
+        width: 105%;
+    }
+}
+
+@media only screen and (max-width: 760px) and (min-width: 525px) {
+    .eye {
+        margin-left: -25px;
+        margin-top: 11%;
+    }
+    #CuadradoLogin {
+        width: 115%;
+        margin-left: -25%;
+    }
+}
+
+@media only screen and (max-width: 525px) and (min-width: 0px) {
+    .eye {
+        margin-left: -25px;
+        margin-top: 13%;
+    }
+    #CuadradoLogin {
+        width: 140%;
+        margin-left: -25%;
     }
 }
 
