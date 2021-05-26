@@ -19,12 +19,18 @@ header("location: login.php");
   <title>KalmiHoot</title>
   <link rel="icon" href="source/image/StaleMans.png" type="image/icon type">
   <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
-  <link rel='stylesheet' type='text/css' href='css/comun.css'>
 
-  <link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>
+  //<link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>
   <link rel='stylesheet' type='text/css' href='css/modal.css'>
-  <link rel='stylesheet' type='text/css' href='css/SUcomun.css'>
-    <link rel='stylesheet' type='text/css' href='css/SuCrearUsuario.css'>
+  <?php
+    if ($_SESSION["pos"] == "SuperUser") {
+      echo "<link rel='stylesheet' type='text/css' href='css/SUcomun.css'>";
+      echo "<link rel='stylesheet' type='text/css' href='css/SUbuscadorPreguntas.css'>";
+    } else {
+      echo "<link rel='stylesheet' type='text/css' href='css/comun.css'>";
+      echo "<link rel='stylesheet' type='text/css' href='css/buscadorPreguntas.css'>";
+    }
+    ?>
 
 </head>
 

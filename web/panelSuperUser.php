@@ -27,6 +27,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
     <link rel='stylesheet' type='text/css' href='css/SUcomun.css'>
     <link rel='stylesheet' type='text/css' href='css/SUpanel.css'>
     <link rel='stylesheet' type='text/css' href='css/SUpanelUsuario.css'>
+    <link rel='stylesheet' type='text/css' href='css/modal.css'>
 
   </head>
 
@@ -86,6 +87,17 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
         <li></li>
       </ul>
     </div>
+
+        <!-- mensaje de error-->
+<div id="myModal" class="modal">
+            <div class="modal-content">
+
+                <p>¿Seguro que quieres eliminar a este usuario?</p>
+                <button id="aceptar" class="send">Aceptar</button>
+                <button id="cancelar" class="send">Cancelar</button>
+            </div>
+        </div>
+        
     <div id='cuerpo'>
 
       <form id="formulario" action="modificarUsuario.php" method="post">
