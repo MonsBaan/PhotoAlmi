@@ -48,6 +48,7 @@ $(document).ready(function() {
         },
     });
 
+    //CLICK SUBIR PREGUNTA
     $("#botonPregunta").click(function(event) {
         event.preventDefault();
 
@@ -82,54 +83,51 @@ $(document).ready(function() {
                     processData: false,
                     success: function(response) {
                         imagen = response;
-                        if (imagen == "StaleMans.png") {
-
+                        if (nombreDocumento == "0" | pregunta | respuesta1 | respuesta2 | respuesta3 | respuesta4 | explicacion == "" | controlCheck == "0") {
+                            $('#myModal').css('display', 'block');
+                            $('.modal-content > p').text('Rellena todos los datos');
+                            event.preventDefault();
                         } else {
-                            if (nombreDocumento == "0" | pregunta | respuesta1 | respuesta2 | respuesta3 | respuesta4 | explicacion == "" | controlCheck == "0") {
-                                $('#myModal').css('display', 'block');
-                                $('.modal-content > p').text('Rellena todos los datos');
-                                event.preventDefault();
-                            } else {
-                                let parametros = {
-                                    "imagen": 'http://192.168.6.151/PhotoAlmi/web/source/image/preguntas/' + imagen,
-                                    "pregunta": pregunta,
-                                    "respuestas": [{
-                                            "respuesta": respuesta1,
-                                            "correcta": $('#check1').is(':checked')
-                                        },
-                                        {
-                                            "respuesta": respuesta2,
-                                            "correcta": $('#check2').is(':checked')
-                                        },
-                                        {
-                                            "respuesta": respuesta3,
-                                            "correcta": $('#check3').is(':checked')
-                                        },
-                                        {
-                                            "respuesta": respuesta4,
-                                            "correcta": $('#check4').is(':checked')
-                                        }
-                                    ],
-                                    "correccion": explicacion,
-                                    "numAciertos": 0
-                                };
-
-
-                                $.ajax({
-                                    data: parametros,
-                                    url: urlDB + "actualizar/" + categoria,
-                                    type: "put",
-                                    success: function(response) {
-                                        document.location.href = './buscadorpreguntas.php';
-
-
-
+                            let parametros = {
+                                "imagen": 'http://192.168.6.151/PhotoAlmi/web/source/image/preguntas/' + imagen,
+                                "pregunta": pregunta,
+                                "respuestas": [{
+                                        "respuesta": respuesta1,
+                                        "correcta": $('#check1').is(':checked')
                                     },
-                                });
-
-
+                                    {
+                                        "respuesta": respuesta2,
+                                        "correcta": $('#check2').is(':checked')
+                                    },
+                                    {
+                                        "respuesta": respuesta3,
+                                        "correcta": $('#check3').is(':checked')
+                                    },
+                                    {
+                                        "respuesta": respuesta4,
+                                        "correcta": $('#check4').is(':checked')
+                                    }
+                                ],
+                                "correccion": explicacion,
+                                "numAciertos": 0
                             };
-                        }
+
+
+                            $.ajax({
+                                data: parametros,
+                                url: urlDB + "actualizar/" + categoria,
+                                type: "put",
+                                success: function(response) {
+                                    document.location.href = './buscadorpreguntas.php';
+
+
+
+                                },
+                            });
+
+
+                        };
+
                     },
                 });
 
