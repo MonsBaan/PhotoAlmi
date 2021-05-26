@@ -47,13 +47,17 @@ if (isset($_SESSION["pos"]) == false) {
         <a href="buscadorpreguntas.php">
           <li>All Questions</li>
         </a>
-        <a href="#">
+        <a href="crearpreguntas.php">
           <li>Add Question</li>
         </a>
         <?php
         if ($_SESSION['pos'] == "SuperUser") {
           echo "<a href='crearCategoria.php' id='liSuperUser'>";
           echo "<li>Create Category</li>";
+          echo "</a>";
+
+          echo "<a href='borrarCategoria.php' id='liSuperUser'>";
+          echo "<li>Delete Category</li>";
           echo "</a>";
 
           echo "<a href='panelSuperUser.php' id='liSuperUser'>";

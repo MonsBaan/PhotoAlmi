@@ -75,7 +75,7 @@ $(document).ready(function() {
         var explicacion = $("#expl").val();
 
 
-        $("#confirmarDatosUsuario").click(function(event) {
+        $("#botonPregunta").click(function(event) {
             var error = false;
             event.preventDefault();
             $('#myModal').css('display', 'block');

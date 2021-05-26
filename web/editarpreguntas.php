@@ -33,7 +33,7 @@
 <body>
   <div id="menuHamburguesa">
 
-    <input type="checkbox" />
+  <input type="checkbox" />
 
     <span></span>
     <span></span>
@@ -46,7 +46,7 @@
       <a href="buscadorpreguntas.php">
         <li>All Questions</li>
       </a>
-      <a href="#">
+      <a href="crearpreguntas.php">
         <li>Add Question</li>
       </a>
       <?php
@@ -55,12 +55,15 @@
         echo "<li>Create Category</li>";
         echo "</a>";
 
+        echo "<a href='borrarCategoria.php' id='liSuperUser'>";
+        echo "<li>Delete Category</li>";
+        echo "</a>";
+
         echo "<a href='panelSuperUser.php' id='liSuperUser'>";
         echo "<li>SuperUser Manager</li>";
         echo "</a>";
       }
       ?>
-
       <li></li>
       <li></li>
       <li></li>
@@ -82,57 +85,6 @@
       <li></li>
       <li></li>
     </ul>
-  </div>
-
-  <span></span>
-  <span></span>
-  <span></span>
-
-  <ul id="menu">
-    <a href="index.php">
-      <li>Profile</li>
-    </a>
-    <a href="buscadorpreguntas.php">
-      <li>All Questions</li>
-    </a>
-    <a href="#">
-      <li>Add Question</li>
-    </a>
-    <?php
-    if ($_SESSION['pos'] == "SuperUser") {
-      echo "<a href='#' id='liSuperUser'>";
-      echo "<li>Create Category</li>";
-      echo "</a>";
-
-      echo "<a href='panelSuperUser.php' id='liSuperUser'>";
-      echo "<li>SuperUser Manager</li>";
-      echo "</a>";
-    }
-    ?>
-
-
-
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <?php
-    if (isset($_SESSION["name"]) == true) {
-      echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
-      echo "<a href='php/cerrarUser.php'>";
-      echo "<li>Close Session</li>";
-      echo "</a>";
-    } else {
-      echo "No Session";
-    }
-    ?>
-    <li></li>
-
-    <li></li>
-    <li></li>
-  </ul>
   </div>
 
   <!-- mensaje de error-->
