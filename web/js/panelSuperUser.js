@@ -16,14 +16,9 @@ $(document).ready(function() {
                 $(':mobile-pagecontainer').pagecontainer('change', url); //navigate to page
             });
     });
-
-
     $(document).on('click', '#eliminar', function() {
-        id = $(this).parent().children('#idUser').text();
-        $('#myModal').css('display', 'block');
-
-
-        $('#aceptar').click(function() {
+        if (confirm('Estas seguro de eliminar este usuario?')) {
+            id = $(this).parent().children('#idUser').text();
             $.ajax({
                 url: urlDB + 'trabajadores/' + id,
                 type: 'DELETE',
@@ -31,15 +26,8 @@ $(document).ready(function() {
                     actualizarUsuarios();
                 },
             });
-            $('#myModal').css('display', 'none');
-        });
-
-        $('#cancelar').click(function() {
-            $('#myModal').css('display', 'none');
-        });
+        }
     });
-
-
     $(document).on('click', '#editar', function() {
         $('#puesto').html('');
 
@@ -146,8 +134,6 @@ $(document).ready(function() {
         });
     });
     $(document).on('click', '.close', function() {
-
-
         if (confirm('Cancelar los datos modificados? ')) {
             $('#tablaUsers').show();
             $('#accionesGeneral').show();
@@ -192,9 +178,9 @@ $(document).ready(function() {
                     html += '<td>' + trabajador.telefono + '</td>';
                     html += '<td>' + trabajador.descripcion + '</td>';
                     html +=
-                        "<td id='editar' ><img src='source/image/editarN.png' alt='Imagen Recargar' class='imagenPanel'></img></td>";
+                        "<td id='editar' ><img id='imageeditar'src='source/image/editarN.png' alt='Imagen Recargar' class='imagenPanel'></img></td>";
                     html +=
-                        "<td id='eliminar'><img src='source/image/papeleraN.png' alt='Imagen Recargar' class='imagenPanel'></img></td>";
+                        "<td id='eliminar'><img id='imageeliminar' src='source/image/papeleraN.png' alt='Imagen Recargar' class='imagenPanel'></img></td>";
                     html += '</tr>';
                 });
                 $('#tablaUsers').html(html);
