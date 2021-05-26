@@ -26,13 +26,14 @@
   <link rel='stylesheet' type='text/css' href='css/comun.css'>
 
   <link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>
+  <link rel='stylesheet' type='text/css' href='css/modal.css'>
 
 </head>
 
 <body>
   <div id="menuHamburguesa">
 
-    <input type="checkbox" />
+  <input type="checkbox" />
 
     <span></span>
     <span></span>
@@ -45,7 +46,7 @@
       <a href="buscadorpreguntas.php">
         <li>All Questions</li>
       </a>
-      <a href="#">
+      <a href="crearpreguntas.php">
         <li>Add Question</li>
       </a>
       <?php
@@ -54,12 +55,15 @@
         echo "<li>Create Category</li>";
         echo "</a>";
 
+        echo "<a href='borrarCategoria.php' id='liSuperUser'>";
+        echo "<li>Delete Category</li>";
+        echo "</a>";
+
         echo "<a href='panelSuperUser.php' id='liSuperUser'>";
         echo "<li>SuperUser Manager</li>";
         echo "</a>";
       }
       ?>
-
       <li></li>
       <li></li>
       <li></li>
@@ -83,57 +87,15 @@
     </ul>
   </div>
 
-  <span></span>
-  <span></span>
-  <span></span>
+  <!-- mensaje de error-->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
 
-  <ul id="menu">
-    <a href="index.php">
-      <li>Profile</li>
-    </a>
-    <a href="buscadorpreguntas.php">
-      <li>All Questions</li>
-    </a>
-    <a href="#">
-      <li>Add Question</li>
-    </a>
-    <?php
-    if ($_SESSION['pos'] == "SuperUser") {
-      echo "<a href='#' id='liSuperUser'>";
-      echo "<li>Create Category</li>";
-      echo "</a>";
-
-      echo "<a href='panelSuperUser.php' id='liSuperUser'>";
-      echo "<li>SuperUser Manager</li>";
-      echo "</a>";
-    }
-    ?>
-
-
-
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <?php
-    if (isset($_SESSION["name"]) == true) {
-      echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
-      echo "<a href='php/cerrarUser.php'>";
-      echo "<li>Close Session</li>";
-      echo "</a>";
-    } else {
-      echo "No Session";
-    }
-    ?>
-    <li></li>
-
-    <li></li>
-    <li></li>
-  </ul>
+      <p>kk</p>
+      <button id="aceptar" class="send">Aceptar</button>
+      <button id="cancelar" class="send">Cancelar</button>
+    </div>
   </div>
-
 
   <div class="panelOculto" id="panelCentral">
     <h1>EDITA LAS PREGUNTAS</h1>
@@ -151,7 +113,7 @@
     <form id="formularioEditarPregunta" action="editarpreguntas.php" method="put">
 
 
-      <input type="text" id="question" name="question"/><br>
+      <input type="text" id="question" name="question" /><br>
 
       <label id="campoCategoria" for="category">Categoría: </label>
       <select id="comboCategoria">
@@ -160,7 +122,7 @@
       <br>
 
       <div id="respuesta1" class="respuesta">
-        <input type="checkbox" id="check1" name="check1"/>
+        <input type="checkbox" id="check1" name="check1" />
         <label id="campoRespuesta1" for="ans1">Respuesta 1: </label>
         <input type="text" id="ans1" name="ans1" />
       </div>

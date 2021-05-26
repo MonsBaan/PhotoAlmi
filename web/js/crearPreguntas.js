@@ -1,10 +1,10 @@
-$(document).ready(function () {
+$(document).ready(function() {
     console.log("Documento Cargado");
     var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
     var nombreDocumento = "0";
     var controlCheck = "1";
 
-    $("input[type='checkbox']").on('change', function () {
+    $("input[type='checkbox']").on('change', function() {
         $(this).attr('value', 'false');
         // controlCheck = "0";
         if ($("#check1").is(':checked')) {
@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('change', "input[type='file']", function (event) {
+    $(document).on('change', "input[type='file']", function(event) {
         if ($(this).val()) {
             var filename = $(this).val().split("\\");
             nombreDocumento = filename = filename[filename.length - 1];
@@ -38,7 +38,7 @@ $(document).ready(function () {
         }
     });
 
-    $(document).submit('.formSubir', function () {
+    $(document).submit('.formSubir', function() {
 
 
 
@@ -47,7 +47,7 @@ $(document).ready(function () {
     $.ajax({
         url: urlDB + "preguntas",
         type: "get",
-        success: function (response) {
+        success: function(response) {
             let arrayCategorias = response.data;
             for (let i = 0; i < arrayCategorias.length; i++) {
                 let htmlappend;
@@ -58,7 +58,7 @@ $(document).ready(function () {
         },
     });
 
-    $("#botonPregunta").click(function (event) {
+    $("#botonPregunta").click(function(event) {
         event.preventDefault();
         var pregunta = $("#question").val();
 
@@ -75,85 +75,95 @@ $(document).ready(function () {
         var explicacion = $("#expl").val();
 
 
-
-        if (!window.confirm("¿Enviar pregunta?")) {
+        $("#botonPregunta").click(function(event) {
+            var error = false;
             event.preventDefault();
-        } else {
+            $('#myModal').css('display', 'block');
+            $('.modal-content > p').text('¿Deseas guardar los cambios?');
+            //aceptar
+            $('#aceptar').click(function() {
 
-            //COMPROBAR SI TODOS LOS CAMPOS ESTÁN COMPLETOS
-            if (nombreDocumento == "0" | pregunta | respuesta1 | respuesta2 | respuesta3 | respuesta4 | explicacion == "" | controlCheck == "0") {
-                window.confirm("Rellena todos los datos, por favor")
-                event.preventDefault();
-            } else {
+                //COMPROBAR SI TODOS LOS CAMPOS ESTÁN COMPLETOS
+                if (nombreDocumento == "0" | pregunta | respuesta1 | respuesta2 | respuesta3 | respuesta4 | explicacion == "" | controlCheck == "0") {
+                    $('#myModal').css('display', 'block');
+                    $('.modal-content > p').text('Rellena todos los datos');
+                    event.preventDefault();
+                } else {
 
 
-                let parametros = {
+                    let parametros = {
 
-                    "imagen": 'http://192.168.6.192/PhotoAlmi/web/source/image/' + nombreDocumento,
-                    "pregunta": pregunta,
-                    "respuestas": [{
-                        "respuesta": respuesta1,
-                        "correcta": $('#check1').is(':checked')
-                    },
-                    {
-                        "respuesta": respuesta2,
-                        "correcta": $('#check2').is(':checked')
-                    },
-                    {
-                        "respuesta": respuesta3,
-                        "correcta": $('#check3').is(':checked')
-                    },
-                    {
-                        "respuesta": respuesta4,
-                        "correcta": $('#check4').is(':checked')
-                    }
-                    ],
-                    "correccion": explicacion,
-                    "numAciertos": 0
+                        "imagen": 'http://192.168.6.192/PhotoAlmi/web/source/image/' + nombreDocumento,
+                        "pregunta": pregunta,
+                        "respuestas": [{
+                                "respuesta": respuesta1,
+                                "correcta": $('#check1').is(':checked')
+                            },
+                            {
+                                "respuesta": respuesta2,
+                                "correcta": $('#check2').is(':checked')
+                            },
+                            {
+                                "respuesta": respuesta3,
+                                "correcta": $('#check3').is(':checked')
+                            },
+                            {
+                                "respuesta": respuesta4,
+                                "correcta": $('#check4').is(':checked')
+                            }
+                        ],
+                        "correccion": explicacion,
+                        "numAciertos": 0
+                    };
+
+                    //console.log(parametros);
+                    //----------------------------------AJAX----------------------------------
+                    //OBTENER TODAS LAS PREGUNTAS DE MONGODB  
+                    $.ajax({
+                        data: parametros,
+                        url: urlDB + "actualizar/" + categoria,
+                        type: "put",
+                        success: function(response) {
+                            console.log(response);
+
+                            var formData = new FormData();
+                            var files = $('#fileToUpload')[0].files[0];
+                            formData.append('file', files);
+
+                            $.ajax({
+                                url: 'php/subirImagen.php',
+                                type: 'post',
+                                data: formData,
+                                contentType: false,
+                                processData: false,
+                                success: function(response) {
+                                    if (response != 0) {
+                                        console.log("Sucess: " + response);
+                                        //$(".formSubir").submit();
+
+                                    } else {
+                                        alert('Formato de imagen incorrecto.');
+                                    }
+                                },
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        },
+
+                    });
+
+
                 };
 
-                //console.log(parametros);
-                //----------------------------------AJAX----------------------------------
-                //OBTENER TODAS LAS PREGUNTAS DE MONGODB  
-                $.ajax({
-                    data: parametros,
-                    url: urlDB + "actualizar/" + categoria,
-                    type: "put",
-                    success: function (response) {
-                        console.log(response);
+                $('#myModal').css('display', 'none');
 
-                        var formData = new FormData();
-                        var files = $('#fileToUpload')[0].files[0];
-                        formData.append('file', files);
+            });
 
-                        $.ajax({
-                            url: 'php/subirImagen.php',
-                            type: 'post',
-                            data: formData,
-                            contentType: false,
-                            processData: false,
-                            success: function (response) {
-                                if (response != 0) {
-                                    console.log("Sucess: " + response);
-                                    //$(".formSubir").submit();
-
-                                } else {
-                                    alert('Formato de imagen incorrecto.');
-                                }
-                            },
-                            error: function (response) {
-                                console.log(response);
-                            }
-                        });
-                    },
-
-                });
-
-
-            };
-
-
-        }
+            $('#cancelar').click(function() {
+                event.preventDefault()
+                $('#myModal').css('display', 'none');
+            });
+        });
     });
-
 });

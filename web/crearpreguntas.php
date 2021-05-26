@@ -2,12 +2,12 @@
 <html lang="es">
 
 <?php
-//session_start();
-include("php/datos.php");
+session_start();
 
-//if (isset($_SESSION["pos"]) == false) {
-//header("location: login.php");
-//} else {
+
+if (isset($_SESSION["pos"]) == false) {
+header("location: login.php");
+} else {
 ?>
 
 <head>
@@ -19,123 +19,93 @@ include("php/datos.php");
   <title>KalmiHoot</title>
   <link rel="icon" href="source/image/StaleMans.png" type="image/icon type">
   <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
-  <link rel='stylesheet' type='text/css' href='css/comun.css'>
 
-  <link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>
+  //<link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>
+  <link rel='stylesheet' type='text/css' href='css/modal.css'>
+  <?php
+    if ($_SESSION["pos"] == "SuperUser") {
+      echo "<link rel='stylesheet' type='text/css' href='css/SUcomun.css'>";
+      echo "<link rel='stylesheet' type='text/css' href='css/SUbuscadorPreguntas.css'>";
+    } else {
+      echo "<link rel='stylesheet' type='text/css' href='css/comun.css'>";
+      echo "<link rel='stylesheet' type='text/css' href='css/buscadorPreguntas.css'>";
+    }
+    ?>
 
 </head>
 
 <body>
-  <div id="menuHamburguesa">
+<div id="menuHamburguesa">
 
-    <input type="checkbox" />
+<input type="checkbox" />
 
-    <span></span>
-    <span></span>
-    <span></span>
+<span></span>
+<span></span>
+<span></span>
 
-    <ul id="menu">
-      <a href="index.php">
-        <li>Profile</li>
-      </a>
-      <a href="buscadorpreguntas.php">
-        <li>All Questions</li>
-      </a>
-      <a href="#">
-        <li>Add Question</li>
-      </a>
-      <?php
-      if ($_SESSION['pos'] == "SuperUser") {
-        echo "<a href='crearCategoria.php' id='liSuperUser'>";
-        echo "<li>Create Category</li>";
-        echo "</a>";
+<ul id="menu">
+  <a href="index.php">
+    <li>Profile</li>
+  </a>
+  <a href="buscadorpreguntas.php">
+    <li>All Questions</li>
+  </a>
+  <a href="crearpreguntas.php">
+    <li>Add Question</li>
+  </a>
+  <?php
+  if ($_SESSION['pos'] == "SuperUser") {
+    echo "<a href='crearCategoria.php' id='liSuperUser'>";
+    echo "<li>Create Category</li>";
+    echo "</a>";
 
-        echo "<a href='panelSuperUser.php' id='liSuperUser'>";
-        echo "<li>SuperUser Manager</li>";
-        echo "</a>";
-      }
-      ?>
+    echo "<a href='borrarCategoria.php' id='liSuperUser'>";
+    echo "<li>Delete Category</li>";
+    echo "</a>";
+    
+    echo "<a href='panelSuperUser.php' id='liSuperUser'>";
+    echo "<li>SuperUser Manager</li>";
+    echo "</a>";
+  }
+  ?>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <?php
+  if (isset($_SESSION["name"]) == true) {
+    echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
+    echo "<a href='php/cerrarUser.php'>";
+    echo "<li>Close Session</li>";
+    echo "</a>";
+  } else {
+    echo "No Session";
+  }
+  ?>
+  <li></li>
 
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <?php
-      if (isset($_SESSION["name"]) == true) {
-        echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
-        echo "<a href='php/cerrarUser.php'>";
-        echo "<li>Close Session</li>";
-        echo "</a>";
-      } else {
-        echo "No Session";
-      }
-      ?>
-      <li></li>
+  <li></li>
+  <li></li>
+</ul>
+</div>
 
-      <li></li>
-      <li></li>
-    </ul>
+  <!-- mensaje de error-->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+
+      <p>kk</p>
+      <button id="aceptar" class="send">Aceptar</button>
+      <button id="cancelar" class="send">Cancelar</button>
+    </div>
   </div>
-
-  <span></span>
-  <span></span>
-  <span></span>
-
-  <ul id="menu">
-    <a href="index.php">
-      <li>Profile</li>
-    </a>
-    <a href="buscadorpreguntas.php">
-      <li>All Questions</li>
-    </a>
-    <a href="#">
-      <li>Add Question</li>
-    </a>
-    <?php
-    if ($_SESSION['pos'] == "SuperUser") {
-      echo "<a href='#' id='liSuperUser'>";
-      echo "<li>Create Category</li>";
-      echo "</a>";
-
-      echo "<a href='panelSuperUser.php' id='liSuperUser'>";
-      echo "<li>SuperUser Manager</li>";
-      echo "</a>";
-    }
-    ?>
-
-
-
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <?php
-    if (isset($_SESSION["name"]) == true) {
-      echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
-      echo "<a href='php/cerrarUser.php'>";
-      echo "<li>Close Session</li>";
-      echo "</a>";
-    } else {
-      echo "No Session";
-    }
-    ?>
-    <li></li>
-
-    <li></li>
-    <li></li>
-  </ul>
-  </div>
-
 
   <div class="panelOculto" id="panelCentral">
     <h1>CREA PREGUNTAS</h1>
     <div>
 
-      <form class = "formSubir" action="crearpreguntas.php" method="post" enctype="multipart/form-data">
+      <form class="formSubir" action="crearpreguntas.php" method="post" enctype="multipart/form-data">
         <input type="file" name="fileToUpload" id="fileToUpload">
       </form>
 
@@ -188,8 +158,8 @@ include("php/datos.php");
 
 
       <?php
-        echo "<input type='button' id='botonPregunta' value='Añadir pregunta' />";
- 
+      echo "<input type='button' id='botonPregunta' value='Añadir pregunta' />";
+
       ?>
 
 
@@ -205,7 +175,7 @@ include("php/datos.php");
 
 </body>
 <?php
-//}
+}
 ?>
 
 </html>

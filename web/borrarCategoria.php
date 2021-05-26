@@ -2,7 +2,6 @@
 <html lang="es">
 <?php
 session_start();
-include("php/datos.php");
 if (isset($_SESSION["pos"]) == false) {
   header("location: login.php");
 } else {
@@ -19,6 +18,7 @@ if (isset($_SESSION["pos"]) == false) {
     <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
     <link rel='stylesheet' type='text/css' href='css/SUcomun.css'>
     <link rel='stylesheet' type='text/css' href='css/SuCrearUsuario.css'>
+    <link rel='stylesheet' type='text/css' href='css/modal.css'>
   </head>
 
   <body>
@@ -37,7 +37,7 @@ if (isset($_SESSION["pos"]) == false) {
         <a href="buscadorpreguntas.php">
           <li>All Questions</li>
         </a>
-        <a href="#">
+        <a href="crearpreguntas.php">
           <li>Add Question</li>
         </a>
         <?php
@@ -46,17 +46,15 @@ if (isset($_SESSION["pos"]) == false) {
           echo "<li>Create Category</li>";
           echo "</a>";
 
+          echo "<a href='borrarCategoria.php' id='liSuperUser'>";
+          echo "<li>Delete Category</li>";
+          echo "</a>";
+
           echo "<a href='panelSuperUser.php' id='liSuperUser'>";
           echo "<li>SuperUser Manager</li>";
           echo "</a>";
         }
         ?>
-
-
-
-
-
-
         <li></li>
         <li></li>
         <li></li>
@@ -79,6 +77,16 @@ if (isset($_SESSION["pos"]) == false) {
         <li></li>
       </ul>
     </div>
+
+    <!-- mensaje de error-->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <p>kk</p>
+        <button id="aceptar" class="send">Aceptar</button>
+        <button id="cancelar" class="send">Cancelar</button>
+      </div>
+    </div>
+
     <div class="panelOculto" id="panelCentral">
       <h1>REMOVE CATEGORY</h1>
       <div>

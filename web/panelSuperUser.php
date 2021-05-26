@@ -3,7 +3,7 @@
 
 <?php
 session_start();
-include("datos.php");
+
 
 if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
   header("location: login.php");
@@ -27,13 +27,14 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
     <link rel='stylesheet' type='text/css' href='css/SUcomun.css'>
     <link rel='stylesheet' type='text/css' href='css/SUpanel.css'>
     <link rel='stylesheet' type='text/css' href='css/SUpanelUsuario.css'>
+    <link rel='stylesheet' type='text/css' href='css/modal.css'>
 
   </head>
 
   <body>
     <div id="menuHamburguesa">
 
-      <input type="checkbox" />
+    <input type="checkbox" />
 
       <span></span>
       <span></span>
@@ -46,13 +47,17 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
         <a href="buscadorpreguntas.php">
           <li>All Questions</li>
         </a>
-        <a href="#">
+        <a href="crearpreguntas.php">
           <li>Add Question</li>
         </a>
         <?php
         if ($_SESSION['pos'] == "SuperUser") {
           echo "<a href='crearCategoria.php' id='liSuperUser'>";
           echo "<li>Create Category</li>";
+          echo "</a>";
+
+          echo "<a href='borrarCategoria.php' id='liSuperUser'>";
+          echo "<li>Delete Category</li>";
           echo "</a>";
 
           echo "<a href='panelSuperUser.php' id='liSuperUser'>";
@@ -82,6 +87,17 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
         <li></li>
       </ul>
     </div>
+
+        <!-- mensaje de error-->
+<div id="myModal" class="modal">
+            <div class="modal-content">
+
+                <p>¿Seguro que quieres eliminar a este usuario?</p>
+                <button id="aceptar" class="send">Aceptar</button>
+                <button id="cancelar" class="send">Cancelar</button>
+            </div>
+        </div>
+        
     <div id='cuerpo'>
 
       <form id="formulario" action="modificarUsuario.php" method="post">
