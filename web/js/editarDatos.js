@@ -116,14 +116,22 @@ $(document).ready(function() {
                 $(".panelModificar").show();
                 $(".close2").hide();
             }
+            swal({
+                title: "The Changes Has Been Saved!",
+                text: "          ",
+                type: "success",
+                timer: 1500,
+                button: false,
+                icon: "success",
+            }).then(() => $('#myModal').css('display', 'none'));
 
-
-            $('#myModal').css('display', 'none');
         });
         //cancelar
         $('#cancelar').click(function() {
             event.preventDefault()
             $('#myModal').css('display', 'none');
+            return;
+
         });
     });
 
@@ -133,20 +141,19 @@ $(document).ready(function() {
 
 $(".close2").click(function() {
 
-
     $('#myModal').css('display', 'block');
-    $('.modal-content > p').text('Do you want not to save the changes?');
+    $('.modal-content > p').text('Do you want to discard the changes?');
     //aceptar
     $('#aceptar').click(function() {
+        $(".panelOculto").hide();
         $(".panelModificar").show();
-
+        $(".close2").hide();
         $('#myModal').css('display', 'none');
     });
     //canelar
     $('#cancelar').click(function() {
-        $(".panelModificar").show();
-        $(".panelOculto").hide();
-        $(".close2").hide();
         $('#myModal').css('display', 'none');
+        return;
+
     });
 });

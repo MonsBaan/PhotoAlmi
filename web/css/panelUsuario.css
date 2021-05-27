@@ -1,79 +1,101 @@
+#panelCentral {
+    display: flex;
+    margin: 10%;
+    height: auto;
+    top: 40%;
+    left: 25%;
+    background: #364278;
+    border-radius: 1rem;
+}
 
- #panelCentral
-{
-   display: flex;
-   margin: 10%;
-   height: auto;
-   top: 40%;
-   left: 25%;
-   background: #364278;
-   flex-flow: row;
-   border-radius: 1rem;
- }
-
- #panelCentral > div {
-   display: flex;
-   flex-flow: column;
+#panelCentral>div {
+    display: flex;
+    flex-flow: column;
     flex: 2;
-
- }
- #panelCentral > div:last-child {
-
-   flex: 1;  
-   background-color: #2D143F;
- }
-
-#fotosUsuario > div 
-{
-  text-align: center;
-  margin: 2%;
-  flex: 1;
 }
 
-#fotosUsuario > div:first-child
-{
-  flex: 3;
-  
+#panelCentral>div:last-child {
+    flex: 1;
+    background-color: #2D143F;
 }
 
-#imagenUsuario img
-{
-height: 100%;
-max-width: 100%;
+#fotosUsuario>div {
+    text-align: center;
+    margin: 2%;
+    flex: 1;
 }
 
-#datosUsuario > div {
-
-  flex: 1;
-  display: flex;
-  flex-flow: column;
-  text-align: center;
-  font-size: 150%;
+#fotosUsuario>div:first-child {
+    flex: 3;
 }
 
-#datosUsuario > div:last-child{
-  flex: 3;
-
+#imagenUsuario img {
+    height: 100%;
+    max-width: 100%;
 }
 
-#camposUsuario > div
-{
-  display: flex;
-  flex: 1;
-  flex-flow: row;
-  margin: 2px;
+#datosUsuario>div {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    font-size: 150%;
 }
 
-#camposUsuario > div p
-{
-  flex: 1;
-  font-size: 80%;
-  text-align: left;
-  padding-left: 5%;
-
-}
-#camposUsuario > div p:last-child
-{
-  flex:3;
+#datosUsuario>div:last-child {
+    flex: 3;
 }
 
+#camposUsuario>div {
+    display: flex;
+    flex: 1;
+    flex-flow: row;
+    margin: 2px;
+}
+
+#camposUsuario>div p {
+    flex: 1;
+    font-size: 80%;
+    text-align: left;
+    padding-left: 5%;
+}
+
+#camposUsuario>div p:last-child {
+    flex: 3;
+}
+
+@media only screen and (min-width: 650px) {
+    #panelCentral {
+        flex-flow: row;
+    }
+    #confirmarDatosUsuario {
+        margin-bottom: -0.3%;
+        margin-left: -0.3%;
+        width: 105%;
+        margin-right: -7%;
+    }
+    #editarDatosUsuario {
+        margin-bottom: -0.3%;
+        margin-left: -0.3%;
+        width: 105%;
+        margin-right: -7%;
+    }
+}
+
+@media only screen and (max-width: 650px) and (min-width: 0px) {
+    #panelCentral {
+        flex-flow: column-reverse;
+    }
+    #confirmarDatosUsuario {
+        margin-bottom: -0.3%;
+        margin-left: -0.3%;
+        width: 105%;
+        margin-right: -7%;
+    }
+    #editarDatosUsuario {
+        margin-bottom: -0.3%;
+        margin-left: -0.3%;
+        width: 101%;
+        margin-right: -7%;
+    }
+}

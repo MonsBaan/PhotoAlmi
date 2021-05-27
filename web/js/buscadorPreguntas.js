@@ -22,7 +22,16 @@ $(document).ready(function() {
                 url: urlDB + "pregunta/" + cat + "/" + id,
                 type: "put",
                 success: function(response) {
-                    actualizarTabla();
+                    swal({
+                        title: "The Question Has Being Removed!",
+                        text: "          ",
+                        type: "success",
+                        timer: 500,
+                        button: false,
+                        icon: "success",
+
+                    }).then(() => actualizarTabla());
+
                 }
             })
             $('#myModal').css('display', 'none');
@@ -31,6 +40,8 @@ $(document).ready(function() {
         $('#cancelar').click(function() {
             event.preventDefault()
             $('#myModal').css('display', 'none');
+            return;
+
         });
     });
 

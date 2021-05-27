@@ -153,6 +153,7 @@ if (isset($_SESSION["pos"]) == false) {
 
 
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/comun.js"></script>
     <script src="js/editarPreguntas.js"></script>
 

@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log('Documento funcional!');
     var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
-    
+
     //----------------------------------AJAX---------------------------------------
 
     $(document).on('click', '#Add', function(event) {
@@ -31,7 +31,16 @@ $(document).ready(function() {
                 url: urlDB + "nuevas",
                 type: "post",
                 success: function(response) {
-                    $("#formularioCrearUsuario").submit();
+                    swal({
+                        title: "The Category Has Being Added",
+                        text: "          ",
+                        type: "success",
+                        timer: 1500,
+                        button: false,
+                        icon: "success",
+
+                    }).then(() => $("#formularioCrearUsuario").submit());
+
                 },
 
             });

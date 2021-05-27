@@ -158,9 +158,15 @@ $(document).ready(function() {
                             url: urlDB + "actualizar/" + categoria,
                             type: "put",
                             success: function(response) {
-                                document.location.href = './buscadorpreguntas.php';
+                                swal({
+                                    title: "The Question Has Been Added!",
+                                    text: "          ",
+                                    type: "success",
+                                    timer: 1500,
+                                    button: false,
+                                    icon: "success",
 
-
+                                }).then(() => document.location.href = './buscadorpreguntas.php');
 
                             },
                         });
@@ -193,6 +199,7 @@ $(document).ready(function() {
         $('#cancelar').click(function() {
             event.preventDefault()
             $('#myModal').css('display', 'none');
+            return;
         });
     });
 });

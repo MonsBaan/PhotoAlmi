@@ -19,12 +19,21 @@ $(document).ready(function() {
         $('.modal-content > p').text("¿Are you sure that you want to remove this category and it's content?");
         //aceptar
         $('#aceptar').click(function() {
+
             id = $('#categorias').val();
             $.ajax({
                 url: urlDB + "contenido/" + id,
                 type: "delete",
                 success: function(response) {
-                    window.location.href = "buscadorpreguntas.php";
+                    swal({
+                        title: "The Category Has Being Removed!",
+                        text: "          ",
+                        type: "success",
+                        timer: 1500,
+                        button: false,
+                        icon: "success",
+
+                    }).then(() => window.location.href = "buscadorpreguntas.php");
                 }
             })
 
@@ -34,6 +43,7 @@ $(document).ready(function() {
 
         $('#cancelar').click(function() {
             event.preventDefault()
+            return;
             $('#myModal').css('display', 'none');
         });
 

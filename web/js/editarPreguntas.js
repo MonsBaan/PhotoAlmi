@@ -209,38 +209,82 @@ $(document).ready(function() {
                             $('.modal-content > p').text('Rellena todos los datos');
                             event.preventDefault();
                         } else {
-                            let parametros = {
-                                "imagen": 'http://192.168.6.151/PhotoAlmi/web/source/image/preguntas/' + imagen,
-                                "pregunta": pregunta,
-                                "respuestas": [{
-                                        "respuesta": respuesta1,
-                                        "correcta": $('#check1').is(':checked')
-                                    },
-                                    {
-                                        "respuesta": respuesta2,
-                                        "correcta": $('#check2').is(':checked')
-                                    },
-                                    {
-                                        "respuesta": respuesta3,
-                                        "correcta": $('#check3').is(':checked')
-                                    },
-                                    {
-                                        "respuesta": respuesta4,
-                                        "correcta": $('#check4').is(':checked')
-                                    }
-                                ],
-                                "correccion": explicacion,
-                                "numAciertos": 0
-                            };
+                            if (respuesta3 == "") {
+                                parametros = {
+                                    "imagen": "http://192.168.6.151/PhotoAlmi/web/source/image/preguntas/" + imagen,
+                                    "pregunta": pregunta,
+                                    "respuestas": [{
+                                            "respuesta": respuesta1,
+                                            "correcta": $('#check1').is(':checked')
+                                        },
+                                        {
+                                            "respuesta": respuesta2,
+                                            "correcta": $('#check2').is(':checked')
+                                        },
+                                    ],
+                                    "correccion": explicacion,
+                                    "numAciertos": 0
+                                };
+                            } else if (respuesta4 == "") {
+                                parametros = {
+                                    "imagen": "http://192.168.6.151/PhotoAlmi/web/source/image/preguntas/" + imagen,
+                                    "pregunta": pregunta,
+                                    "respuestas": [{
+                                            "respuesta": respuesta1,
+                                            "correcta": $('#check1').is(':checked')
+                                        },
+                                        {
+                                            "respuesta": respuesta2,
+                                            "correcta": $('#check2').is(':checked')
+                                        },
+                                        {
+                                            "respuesta": respuesta3,
+                                            "correcta": $('#check3').is(':checked')
+                                        },
+                                    ],
+                                    "correccion": explicacion,
+                                    "numAciertos": 0
+                                };
+                            } else {
+                                parametros = {
+                                    "imagen": "http://192.168.6.151/PhotoAlmi/web/source/image/preguntas/" + imagen,
+                                    "pregunta": pregunta,
+                                    "respuestas": [{
+                                            "respuesta": respuesta1,
+                                            "correcta": $('#check1').is(':checked')
+                                        },
+                                        {
+                                            "respuesta": respuesta2,
+                                            "correcta": $('#check2').is(':checked')
+                                        },
+                                        {
+                                            "respuesta": respuesta3,
+                                            "correcta": $('#check3').is(':checked')
+                                        },
+                                        {
+                                            "respuesta": respuesta4,
+                                            "correcta": $('#check4').is(':checked')
+                                        }
+                                    ],
+                                    "correccion": explicacion,
+                                    "numAciertos": 0
+                                };
+                            }
 
                             $.ajax({
                                 data: parametros,
                                 url: urlDB + "actualizar/pregunta/" + idCategoria + "/" + idPregunta,
                                 type: "put",
                                 success: function(response) {
-                                    document.location.href = './buscadorpreguntas.php';
+                                    swal({
+                                        title: "The Category Has Been Removed!",
+                                        text: "          ",
+                                        type: "success",
+                                        timer: 1500,
+                                        button: false,
+                                        icon: "success",
 
-
+                                    }).then(() => document.location.href = './buscadorpreguntas.php');
 
                                 },
                             });
@@ -261,6 +305,8 @@ $(document).ready(function() {
             $('#cancelar').click(function() {
                 event.preventDefault()
                 $('#myModal').css('display', 'none');
+                return;
+
             });
 
         }

@@ -17,7 +17,7 @@ input {
 
 input[type="button"] {
     width: 100%;
-    background-color: #06aadb;
+    background-color: #4f3264;
     color: white;
     padding: 14px 20px;
     border: none;
@@ -184,6 +184,11 @@ body {
         height: 100px;
     }
     #titulo {
+        @media only screen and (max-height: 714px) and (min-height: 480px) {
+            #liName {
+                margin-top: 180%;
+            }
+        }
         height: 10%;
     }
     * {
@@ -193,12 +198,18 @@ body {
 
 @media only screen and (min-height: 714px) {
     #liName {
-        margin-top: 100%;
+        margin-top: 280%;
     }
 }
 
-@media only screen and (max-height: 714px) and (min-height: 0px) {
+@media only screen and (max-height: 714px) and (min-height: 580px) {
     #liName {
-        margin-top: 10%;
+        margin-top: 180%;
+    }
+}
+
+@media only screen and (max-height: 580px) and (min-height: 0px) {
+    #liName {
+        margin-top: 90%;
     }
 }

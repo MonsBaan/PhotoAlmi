@@ -34,6 +34,8 @@ $(document).ready(function() {
 
         $('#cancelar').click(function() {
             $('#myModal').css('display', 'none');
+            return;
+
         });
 
 
@@ -171,6 +173,8 @@ $(document).ready(function() {
 
     $('#cancelar').click(function() {
         $('#myModal').css('display', 'none');
+        return;
+
     });
 
 

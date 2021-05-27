@@ -92,6 +92,7 @@ if (isset($_SESSION["pos"]) == false) {
         <input type="button" name='Add' value='Add' id='Add' />
       </form>
       <script src="js/jquery-3.6.0.min.js"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
       <script src="js/comun.js"></script>
       <script src="js/crearCategoria.js"></script>
   </body>
