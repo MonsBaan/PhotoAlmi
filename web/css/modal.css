@@ -34,21 +34,3 @@
     width: 30%;
     color: #FFFFFF;
 }
-
-
-/* The Close Button */
-
-.close {
-    color: rgb(80, 80, 80);
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: -3%;
-}
-
-.close:hover,
-.close:focus {
-    color: #aaaaaa;
-    text-decoration: none;
-    cursor: pointer;
-}

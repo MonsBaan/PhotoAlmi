@@ -148,7 +148,7 @@ $(document).ready(function() {
 
 
         $('#myModal').css('display', 'block');
-        $('.modal-content > p').text('¿Enviar pregunta?');
+        $('.modal-content > p').text('Change data?');
 
 
         $('#aceptar').click(function() {

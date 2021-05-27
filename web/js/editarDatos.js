@@ -29,7 +29,7 @@ $(document).ready(function() {
         var error = false;
 
         $('#myModal').css('display', 'block');
-        $('.modal-content > p').text('¿Deseas guardar los cambios?');
+        $('.modal-content > p').text('Do you want to save the changes?');
         //aceptar
         $('#aceptar').click(function() {
             var contr = $("#password").val();
@@ -135,7 +135,7 @@ $(".close2").click(function() {
 
 
     $('#myModal').css('display', 'block');
-    $('.modal-content > p').text('¿Deseas guardar los cambios?');
+    $('.modal-content > p').text('Do you want not to save the changes?');
     //aceptar
     $('#aceptar').click(function() {
         $(".panelModificar").show();

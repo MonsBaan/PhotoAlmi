@@ -46,8 +46,9 @@ $(document).ready(function() {
     });
     $('#filtro').on('keyup', function() {
         var busqueda = $(this).val().toUpperCase();
-        $('#tablaPreguntas tr').filter(function() {
-            $(this).toggle($(this).text().toUpperCase().indexOf(busqueda) > -1);
+        $('#tablaPreguntas td').filter(function() {
+            let $tabla = $(this).parent('tr');
+            $tabla.toggle($tabla.text().toUpperCase().indexOf(busqueda) > -1);
         });
     });
 
