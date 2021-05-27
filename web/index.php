@@ -93,8 +93,8 @@ if (isset($_SESSION["pos"]) == false) {
       <div class="modal-content">
         <span class="close2">&times;</span>
         <p>kk</p>
-        <button id="aceptar" class="send">Aceptar</button>
-        <button id="cancelar" class="send">Cancelar</button>
+        <button id="aceptar" class="send">Accept</button>
+        <button id="cancelar" class="send">Cancel</button>
       </div>
     </div>
 

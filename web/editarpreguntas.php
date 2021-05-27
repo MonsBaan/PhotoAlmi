@@ -17,9 +17,16 @@ if (isset($_SESSION["pos"]) == false) {
     <title>KalmiHoot</title>
     <link rel="icon" href="source/image/StaleMans.png" type="image/icon type">
     <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
-    <link rel='stylesheet' type='text/css' href='css/comun.css'>
 
-    <link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>
+    <?php
+    if ($_SESSION["pos"] == "SuperUser") {
+      echo "<link rel='stylesheet' type='text/css' href='css/SUcomun.css'>";
+      echo "<link rel='stylesheet' type='text/css' href='css/SUeditarPreguntas.css'>";
+    } else {
+      echo "<link rel='stylesheet' type='text/css' href='css/comun.css'>";
+      echo "<link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>";
+    }
+    ?>
     <link rel='stylesheet' type='text/css' href='css/modal.css'>
 
   </head>
@@ -58,6 +65,12 @@ if (isset($_SESSION["pos"]) == false) {
           echo "</a>";
         }
         ?>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
         <?php
         if (isset($_SESSION["name"]) == true) {
           echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
@@ -79,13 +92,13 @@ if (isset($_SESSION["pos"]) == false) {
     <div id="myModal" class="modal">
       <div class="modal-content">
         <p>kk</p>
-        <button id="aceptar" class="send">Aceptar</button>
-        <button id="cancelar" class="send">Cancelar</button>
+        <button id="aceptar" class="send">Accept</button>
+        <button id="cancelar" class="send">Cancel</button>
       </div>
     </div>
 
     <div class="panelOculto" id="panelCentral">
-      <h1>EDITA LAS PREGUNTAS</h1>
+      <h1>QUESTION EDITOR</h1>
       <div>
 
         <form class="formSubir" action="editarpreguntas.php" method="post" enctype="multipart/form-data">
@@ -96,7 +109,7 @@ if (isset($_SESSION["pos"]) == false) {
 
       </div>
 
-      <input type="hidden" id="campoPregunta2" for="question" value="<?php echo $_GET['id']; ?>">Pregunta: </input>
+      <input type="hidden" id="campoPregunta2" for="question" value="<?php echo $_GET['id']; ?>">Question: </input>
       <form id="formularioEditarPregunta" action="editarpreguntas.php" method="put">
 
 
@@ -105,31 +118,31 @@ if (isset($_SESSION["pos"]) == false) {
 
         <div id="respuesta1" class="respuesta">
           <input type="checkbox" id="check1" name="check1" />
-          <label id="campoRespuesta1" for="ans1">Respuesta 1: </label>
+          <label id="campoRespuesta1" for="ans1">Answer 1: </label>
           <input type="text" id="ans1" name="ans1" />
         </div>
 
 
         <div id="respuesta2" class="respuesta">
           <input type="checkbox" id="check2" name="check2" />
-          <label id="campoRespuesta2" for="ans2">Respuesta 2: </label>
+          <label id="campoRespuesta2" for="ans2">Answer 2: </label>
           <input type="text" id="ans2" name="ans2" />
         </div>
 
         <div id="respuesta3" class="respuesta">
           <input type="checkbox" id="check3" name="check3" />
-          <label id="campoRespuesta3" for="ans3">Respuesta 3: </label>
+          <label id="campoRespuesta3" for="ans3">Answer 3: </label>
           <input type="text" id="ans3" name="ans3" />
         </div>
 
         <div id="respuesta4" class="respuesta">
           <input type="checkbox" id="check4" name="check4" />
-          <label id="campoRespuesta4" for="ans4">Respuesta 4: </label>
+          <label id="campoRespuesta4" for="ans4">Answer 4: </label>
           <input type="text" id="ans4" name="ans4" />
         </div>
-        <label id="campoExplicacion" for="expl">Explicación: </label>
+        <label id="campoExplicacion" for="expl">Explaining: </label>
         <input type="text" id="expl" name="expl" />
-        <input type='button' id='botonPregunta' value='Editar pregunta' />
+        <input type='button' id='botonPregunta' value='Save Changes' />
 
 
 

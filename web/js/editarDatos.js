@@ -2,7 +2,7 @@ $(document).ready(function() {
     console.log("Documento Listo")
     var urlWebService = "http://192.168.6.195:8080/kalmihootApi/"
 
-    var urlHtml = "http://192.168.6.157/PhotoAlmi/web/php/ajax.php"
+    var urlHtml = "http://192.168.6.151/PhotoAlmi/web/php/ajax.php"
 
     $(".panelOculto").hide();
     $(".close2").hide();
@@ -29,7 +29,7 @@ $(document).ready(function() {
         var error = false;
 
         $('#myModal').css('display', 'block');
-        $('.modal-content > p').text('¿Deseas guardar los cambios?');
+        $('.modal-content > p').text('¿Save Changes?');
         //aceptar
         $('#aceptar').click(function() {
             var contr = $("#password").val();
@@ -120,7 +120,7 @@ $(document).ready(function() {
 
             $('#myModal').css('display', 'none');
         });
-        //canelar
+        //cancelar
         $('#cancelar').click(function() {
             event.preventDefault()
             $('#myModal').css('display', 'none');

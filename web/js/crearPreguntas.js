@@ -1,37 +1,41 @@
 $(document).ready(function() {
     console.log("Documento Cargado");
     var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
-    var nombreDocumento = "0";
-    var controlCheck = "1";
+    var controlCheck = false;
 
     //CONTROL DE CHECKS
     $("input[type='checkbox']").on('change', function() {
         $(this).attr('value', 'false');
         if ($("#check1").is(':checked')) {
             $("#check1").attr('value', 'true');
-
+            controlCheck = true;
         }
         if ($("#check2").is(':checked')) {
             $("#check2").attr('value', 'true');
+            controlCheck = true;
 
         }
         if ($("#check3").is(':checked')) {
             $("#check3").attr('value', 'true');
+            controlCheck = true;
         }
         if ($("#check4").is(':checked')) {
             $("#check4").attr('value', 'true');
-
+            controlCheck = true;
 
         }
 
     });
-    $(document).on('change', "input[type='file']", function(event) {
-        if ($(this).val()) {
-            var filename = $(this).val().split("\\");
-            nombreDocumento = filename = filename[filename.length - 1];
-            $('.fileName').text(filename);
+
+
+    $('#fileToUpload').change(function() {
+        const [file] = fileToUpload.files
+        if (file) {
+            imagen.src = URL.createObjectURL(file)
         }
-    });
+
+    })
+
 
     //GET CATEGORIAS
     $.ajax({
@@ -62,33 +66,68 @@ $(document).ready(function() {
         var explicacion = $("#expl").val();
 
 
-        $("#botonPregunta").click(function(event) {
-            event.preventDefault();
-
+        $('#myModal').css('display', 'block');
+        $('.modal-content > p').text('¿You want to upload this question?');
+        //aceptar
+        $('#aceptar').click(function() {
             var error = false;
             var formData = new FormData();
             var files = $('#fileToUpload')[0].files[0];
             formData.append('file', files);
-
-            $('#myModal').css('display', 'block');
-            $('.modal-content > p').text('¿Deseas guardar los cambios?');
-            //aceptar
-            $('#aceptar').click(function() {
+            var parametros
                 //SUBE LA IMAGEN
-                $.ajax({
-                    url: 'php/subirImagen.php',
-                    type: 'post',
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function(response) {
-                        imagen = response;
-                        if (nombreDocumento == "0" | pregunta | respuesta1 | respuesta2 | respuesta3 | respuesta4 | explicacion == "" | controlCheck == "0") {
-                            $('#myModal').css('display', 'block');
-                            $('.modal-content > p').text('Rellena todos los datos');
-                            event.preventDefault();
+            $.ajax({
+                url: 'php/subirImagen.php',
+                type: 'post',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    imagen = response;
+                    if (pregunta | respuesta1 | respuesta2 | explicacion == "" | controlCheck == false) {
+                        $('#myModal').css('display', 'block');
+                        $('.modal-content > p').text('Inserted Data is invalid');
+                        event.preventDefault();
+                        return;
+                    } else {
+                        if (respuesta3 == "") {
+                            parametros = {
+                                "imagen": 'http://192.168.6.151/PhotoAlmi/web/source/image/preguntas/' + imagen,
+                                "pregunta": pregunta,
+                                "respuestas": [{
+                                        "respuesta": respuesta1,
+                                        "correcta": $('#check1').is(':checked')
+                                    },
+                                    {
+                                        "respuesta": respuesta2,
+                                        "correcta": $('#check2').is(':checked')
+                                    },
+                                ],
+                                "correccion": explicacion,
+                                "numAciertos": 0
+                            };
+                        } else if (respuesta4 == "") {
+                            parametros = {
+                                "imagen": 'http://192.168.6.151/PhotoAlmi/web/source/image/preguntas/' + imagen,
+                                "pregunta": pregunta,
+                                "respuestas": [{
+                                        "respuesta": respuesta1,
+                                        "correcta": $('#check1').is(':checked')
+                                    },
+                                    {
+                                        "respuesta": respuesta2,
+                                        "correcta": $('#check2').is(':checked')
+                                    },
+                                    {
+                                        "respuesta": respuesta3,
+                                        "correcta": $('#check3').is(':checked')
+                                    },
+                                ],
+                                "correccion": explicacion,
+                                "numAciertos": 0
+                            };
                         } else {
-                            let parametros = {
+                            parametros = {
                                 "imagen": 'http://192.168.6.151/PhotoAlmi/web/source/image/preguntas/' + imagen,
                                 "pregunta": pregunta,
                                 "respuestas": [{
@@ -111,49 +150,49 @@ $(document).ready(function() {
                                 "correccion": explicacion,
                                 "numAciertos": 0
                             };
+                        }
 
 
-                            $.ajax({
-                                data: parametros,
-                                url: urlDB + "actualizar/" + categoria,
-                                type: "put",
-                                success: function(response) {
-                                    document.location.href = './buscadorpreguntas.php';
-
-
-
-                                },
-                            });
-
-
-                        };
-
-                    },
-                });
+                        $.ajax({
+                            data: parametros,
+                            url: urlDB + "actualizar/" + categoria,
+                            type: "put",
+                            success: function(response) {
+                                document.location.href = './buscadorpreguntas.php';
 
 
 
+                            },
+                        });
 
 
+                    };
 
-
-
-
-
-
-
-
-                //COMPROBAR SI TODOS LOS CAMPOS ESTÁN COMPLETOS
-
-
-                $('#myModal').css('display', 'none');
-
+                },
             });
 
-            $('#cancelar').click(function() {
-                event.preventDefault()
-                $('#myModal').css('display', 'none');
-            });
+
+
+
+
+
+
+
+
+
+
+
+
+            //COMPROBAR SI TODOS LOS CAMPOS ESTÁN COMPLETOS
+
+
+            $('#myModal').css('display', 'none');
+
+        });
+
+        $('#cancelar').click(function() {
+            event.preventDefault()
+            $('#myModal').css('display', 'none');
         });
     });
 });

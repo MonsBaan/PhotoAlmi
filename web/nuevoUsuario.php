@@ -74,7 +74,7 @@ if (isset($_SESSION["pos"]) == false) {
     </div>
 
     <div class="panelOculto" id="panelCentral">
-      <h1>CREATE WORKERS</h1>
+      <h1>CREATE WORKER</h1>
       <div>
       </div>
       <form id="formularioCrearUsuario" action="php/" method="post">

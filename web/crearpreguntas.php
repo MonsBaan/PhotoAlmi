@@ -20,18 +20,17 @@ if (isset($_SESSION["pos"]) == false) {
     <link rel="icon" href="source/image/StaleMans.png" type="image/icon type">
     <div id='titulo'><img src='source/image/Kalmihoot.png'></div>
 
-    //
-    <link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>
-    <link rel='stylesheet' type='text/css' href='css/modal.css'>
-    <?php
+
+<?php
     if ($_SESSION["pos"] == "SuperUser") {
       echo "<link rel='stylesheet' type='text/css' href='css/SUcomun.css'>";
-      echo "<link rel='stylesheet' type='text/css' href='css/SUbuscadorPreguntas.css'>";
+      echo "<link rel='stylesheet' type='text/css' href='css/SUeditarPreguntas.css'>";
     } else {
       echo "<link rel='stylesheet' type='text/css' href='css/comun.css'>";
-      echo "<link rel='stylesheet' type='text/css' href='css/buscadorPreguntas.css'>";
+      echo "<link rel='stylesheet' type='text/css' href='css/editarPreguntas.css'>";
     }
     ?>
+    <link rel='stylesheet' type='text/css' href='css/modal.css'>
 
   </head>
 
@@ -69,6 +68,12 @@ if (isset($_SESSION["pos"]) == false) {
           echo "</a>";
         }
         ?>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
         <?php
         if (isset($_SESSION["name"]) == true) {
           echo "<li id = 'liName'>" . "Hi, " . $_SESSION["name"] . "." . "</li>";
@@ -85,76 +90,71 @@ if (isset($_SESSION["pos"]) == false) {
         <li></li>
       </ul>
     </div>
+
     <!-- mensaje de error-->
     <div id="myModal" class="modal">
       <div class="modal-content">
 
         <p>kk</p>
-        <button id="aceptar" class="send">Aceptar</button>
-        <button id="cancelar" class="send">Cancelar</button>
+        <button id="aceptar" class="send">Accept</button>
+        <button id="cancelar" class="send">Cancel</button>
       </div>
     </div>
 
     <div class="panelOculto" id="panelCentral">
-      <h1>CREA PREGUNTAS</h1>
+      <h1>CREATE QUESTION</h1>
       <div>
 
         <form class="formSubir" action="crearpreguntas.php" method="post" enctype="multipart/form-data">
           <input type="file" name="fileToUpload" id="fileToUpload">
         </form>
+        <img id="imagen" src="source/image/StaleMans.png" alt="">
 
         <br>
 
       </div>
       <form id="formularioCrearPregunta" action="crearpreguntas.php" method="put">
 
-        <label id="campoPregunta" for="question">Pregunta: </label>
-        <input type="text" id="question" name="question" placeholder="¿Quién no se echaría un KALMIHOOT?" />
+        <label id="campoPregunta" for="question">Question: </label>
+        <input type="text" id="question" name="question" placeholder="" />
         <br>
 
-        <label id="campoCategoria" for="category">Categoría: </label>
+        <label id="campoCategoria" for="category">Category: </label>
         <select id="comboCategoria">
 
         </select>
         <br>
 
         <div id="respuesta">
-          <!--<label id="checkbox1" for="check1">Respuesta correcta: </label>-->
           <input type="checkbox" id="check1" name="check1" />
-          <label id="campoRespuesta1" for="ans1">Respuesta 1: </label>
-          <input type="text" id="ans1" name="ans1" placeholder="YO + CHECKBOX" />
+          <label id="campoRespuesta1" for="ans1">Answer 1: </label>
+          <input type="text" id="ans1" name="ans1" placeholder="" />
         </div>
 
 
         <div id="respuesta">
-          <!--<label id="checkbox2" for="check2">Respuesta correcta: </label>-->
           <input type="checkbox" id="check2" name="check2" />
-          <label id="campoRespuesta2" for="ans2">Respuesta 2: </label>
-          <input type="text" id="ans2" name="ans2" placeholder="YO" />
+          <label id="campoRespuesta2" for="ans2">Answer 2: </label>
+          <input type="text" id="ans2" name="ans2" placeholder="" />
         </div>
 
         <div id="respuesta">
-          <!--<label id="checkbox3" for="check3">Respuesta correcta: </label>-->
           <input type="checkbox" id="check3" name="check3" />
-          <label id="campoRespuesta3" for="ans3">Respuesta 3: </label>
-          <input type="text" id="ans3" name="ans3" placeholder="YO" />
+          <label id="campoRespuesta3" for="ans3">Answer 3: </label>
+          <input type="text" id="ans3" name="ans3" placeholder="" />
         </div>
 
         <div id="respuesta">
-          <!--<label id="checkbox4" for="check4">Respuesta correcta: </label>-->
           <input type="checkbox" id="check4" name="check4" />
-          <label id="campoRespuesta4" for="ans4">Respuesta 4: </label>
-          <input type="text" id="ans4" name="ans4" placeholder="YO" />
+          <label id="campoRespuesta4" for="ans4">Answer 4: </label>
+          <input type="text" id="ans4" name="ans4" placeholder="" />
         </div>
-        <label id="campoExplicacion" for="expl">Explicación: </label>
-        <input type="text" id="expl" name="expl" placeholder="¿Quién sino?" />
+        <label id="campoExplicacion" for="expl">Explaining: </label>
+        <input type="text" id="expl" name="expl" placeholder="" />
+
+        <input type='button' id='botonPregunta' value='Add Question' />
 
 
-
-        <?php
-        echo "<input type='button' id='botonPregunta' value='Añadir pregunta' />";
-
-        ?>
 
 
     </div>
