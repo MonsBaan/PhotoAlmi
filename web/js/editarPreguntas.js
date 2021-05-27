@@ -18,15 +18,22 @@ $(document).ready(function() {
                 arrayPreguntas.forEach(pregunta => {
                     if (pregunta._id == idPregunta) {
                         idCategoria = categoria._id
-                        console.log(pregunta)
                         imagenPregunta = pregunta.imagen;
+                        console.log(pregunta);
                         $("#question").val(pregunta.pregunta);
                         $("#ans1").val(pregunta.respuestas[0].respuesta);
                         $("#ans2").val(pregunta.respuestas[1].respuesta);
-                        $("#ans3").val(pregunta.respuestas[2].respuesta);
-                        $("#ans4").val(pregunta.respuestas[3].respuesta);
-                        $("#expl").val(pregunta.correccion);
 
+
+                        try {
+                            $("#ans3").val(pregunta.respuestas[2].respuesta);
+                            $("#ans4").val(pregunta.respuestas[3].respuesta);
+                        } catch (error) {
+
+                        }
+
+                        $("#expl").val(pregunta.correccion);
+                        $('#imagen').attr('src', imagenPregunta)
                         if (pregunta.respuestas[0].correcta) {
                             $('#check1').prop('checked', true);
                         }
@@ -34,20 +41,34 @@ $(document).ready(function() {
                             $('#check2').prop('checked', true);
 
                         }
-                        if (pregunta.respuestas[2].correcta) {
-                            $('#check3').prop('checked', true);
+
+                        try {
+                            if (pregunta.respuestas[2].correcta) {
+                                $('#check3').prop('checked', true);
+
+                            }
+                            if (pregunta.respuestas[3].correcta) {
+                                $('#check4').prop('checked', true);
+
+                            }
+                        } catch (error) {
 
                         }
-                        if (pregunta.respuestas[3].correcta) {
-                            $('#check4').prop('checked', true);
 
-                        }
                         return;
                     }
                 });
             });
         }
     });
+
+    $('#fileToUpload').change(function() {
+        const [file] = fileToUpload.files
+        if (file) {
+            imagen.src = URL.createObjectURL(file)
+        }
+
+    })
 
     //CONTROL DE CHECKS
     $("input[type='checkbox']").on('change', function() {
@@ -82,46 +103,83 @@ $(document).ready(function() {
     $("#botonPregunta").click(function(event) {
         event.preventDefault();
 
-        let categoria = $("#comboCategoria").val();
         var pregunta = $("#question").val();
         var respuesta1 = $("#ans1").val();
         var respuesta2 = $("#ans2").val();
         var respuesta3 = $("#ans3").val();
         var respuesta4 = $("#ans4").val();
         var explicacion = $("#expl").val();
+        var parametros;
 
         if ($('#fileToUpload').val() == "") {
-            let parametros = {
-                "imagen": imagenPregunta,
-                "pregunta": pregunta,
-                "respuestas": [{
-                        "respuesta": respuesta1,
-                        "correcta": $('#check1').is(':checked')
-                    },
-                    {
-                        "respuesta": respuesta2,
-                        "correcta": $('#check2').is(':checked')
-                    },
-                    {
-                        "respuesta": respuesta3,
-                        "correcta": $('#check3').is(':checked')
-                    },
-                    {
-                        "respuesta": respuesta4,
-                        "correcta": $('#check4').is(':checked')
-                    }
-                ],
-                "correccion": explicacion,
-                "numAciertos": 0
-            };
+            if (respuesta3 == "") {
+                parametros = {
+                    "imagen": imagenPregunta,
+                    "pregunta": pregunta,
+                    "respuestas": [{
+                            "respuesta": respuesta1,
+                            "correcta": $('#check1').is(':checked')
+                        },
+                        {
+                            "respuesta": respuesta2,
+                            "correcta": $('#check2').is(':checked')
+                        },
+                    ],
+                    "correccion": explicacion,
+                    "numAciertos": 0
+                };
+            } else if (respuesta4 == "") {
+                parametros = {
+                    "imagen": imagenPregunta,
+                    "pregunta": pregunta,
+                    "respuestas": [{
+                            "respuesta": respuesta1,
+                            "correcta": $('#check1').is(':checked')
+                        },
+                        {
+                            "respuesta": respuesta2,
+                            "correcta": $('#check2').is(':checked')
+                        },
+                        {
+                            "respuesta": respuesta3,
+                            "correcta": $('#check3').is(':checked')
+                        },
+                    ],
+                    "correccion": explicacion,
+                    "numAciertos": 0
+                };
+            } else {
+                parametros = {
+                    "imagen": imagenPregunta,
+                    "pregunta": pregunta,
+                    "respuestas": [{
+                            "respuesta": respuesta1,
+                            "correcta": $('#check1').is(':checked')
+                        },
+                        {
+                            "respuesta": respuesta2,
+                            "correcta": $('#check2').is(':checked')
+                        },
+                        {
+                            "respuesta": respuesta3,
+                            "correcta": $('#check3').is(':checked')
+                        },
+                        {
+                            "respuesta": respuesta4,
+                            "correcta": $('#check4').is(':checked')
+                        }
+                    ],
+                    "correccion": explicacion,
+                    "numAciertos": 0
+                };
+            }
 
             $.ajax({
                 data: parametros,
                 url: urlDB + "actualizar/pregunta/" + idCategoria + "/" + idPregunta,
                 type: "put",
                 success: function(response) {
-                    console.log(response);
-                    //document.location.href = './buscadorpreguntas.php';
+                    document.location.href = './buscadorpreguntas.php';
 
 
 
@@ -146,7 +204,7 @@ $(document).ready(function() {
                     processData: false,
                     success: function(response) {
                         imagen = response;
-                        if (nombreDocumento == "0" | pregunta | respuesta1 | respuesta2 | respuesta3 | respuesta4 | explicacion == "" | controlCheck == "0") {
+                        if (nombreDocumento == "0" | pregunta | respuesta1 | respuesta2 | explicacion == "" | controlCheck == "0") {
                             $('#myModal').css('display', 'block');
                             $('.modal-content > p').text('Rellena todos los datos');
                             event.preventDefault();
@@ -180,8 +238,7 @@ $(document).ready(function() {
                                 url: urlDB + "actualizar/pregunta/" + idCategoria + "/" + idPregunta,
                                 type: "put",
                                 success: function(response) {
-                                    console.log(response);
-                                    //document.location.href = './buscadorpreguntas.php';
+                                    document.location.href = './buscadorpreguntas.php';
 
 
 

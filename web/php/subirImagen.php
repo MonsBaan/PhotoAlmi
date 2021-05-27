@@ -9,8 +9,8 @@ if (($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "i
   if (move_uploaded_file($_FILES["file"]["tmp_name"], "../source/image/preguntas/" . $cont)) {
     echo $cont;
   } else {
-    echo "StaleMans.png";
+    echo "../source/image/StaleMans.png";
   }
 } else {
-  echo "Tipo de archivo no soportado";
+  echo "StaleMans.png";
 }

@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log('Documento Listo');
     var urlDB = 'http://192.168.6.195:8080/kalmihootApi/';
-    var urlHtml = 'http://192.168.6.157/PhotoAlmi/web/';
+    var urlHtml = 'http://192.168.6.151/PhotoAlmi/web/';
 
     //----------------------------------AJAX----------------------------------
     //OBTENER TODAS LAS PREGUNTAS DE MONGODB
@@ -14,17 +14,26 @@ $(document).ready(function() {
         event.preventDefault();
         id = $(this).attr('href');
         cat = $(this).parent().attr('id');
-
-        $.ajax({
-            url: urlDB + "pregunta/" + cat + "/" + id,
-            type: "put",
-            success: function(response) {
-                console.log(response)
-
-            }
-        })
-
+        $('#myModal').css('display', 'block');
+        $('.modal-content > p').text('¿Are you sure that you want to remove this?');
+        //aceptar
+        $('#aceptar').click(function() {
+            $.ajax({
+                url: urlDB + "pregunta/" + cat + "/" + id,
+                type: "put",
+                success: function(response) {
+                    actualizarTabla();
+                }
+            })
+            $('#myModal').css('display', 'none');
+        });
+        //cancelar
+        $('#cancelar').click(function() {
+            event.preventDefault()
+            $('#myModal').css('display', 'none');
+        });
     });
+
     $(document).on('change', '#categorias', function() {
         var campoFiltrar = $('#categorias').val().toUpperCase();
         console.log(campoFiltrar);

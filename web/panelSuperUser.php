@@ -87,7 +87,7 @@ if (isset($_SESSION["pos"]) == false || $_SESSION["pos"] != "SuperUser") {
     <div id="myModal" class="modal">
       <div class="modal-content">
 
-        <p></p>
+        <p>¿Are you sure that you want to delete this user?</p>
         <button id="aceptar" class="send">Accept</button>
         <button id="cancelar" class="send">Cancel</button>
       </div>

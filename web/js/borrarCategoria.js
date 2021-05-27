@@ -16,7 +16,7 @@ $(document).ready(function() {
     $('#remove').click(function(event) {
         event.preventDefault();
         $('#myModal').css('display', 'block');
-        $('.modal-content > p').text('¿Seguro que quieres eliminar la categoria y su contenido?');
+        $('.modal-content > p').text("¿Are you sure that you want to remove this category and it's content?");
         //aceptar
         $('#aceptar').click(function() {
             id = $('#categorias').val();
