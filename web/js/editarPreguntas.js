@@ -192,7 +192,7 @@ $(document).ready(function() {
             formData.append('file', files);
 
             $('#myModal').css('display', 'block');
-            $('.modal-content > p').text('¿Deseas guardar los cambios?');
+            $('.modal-content > p').text('The Changes Have Been Saved!');
             //aceptar
             $('#aceptar').click(function() {
                 //SUBE LA IMAGEN
@@ -206,7 +206,7 @@ $(document).ready(function() {
                         imagen = response;
                         if (nombreDocumento == "0" | pregunta | respuesta1 | respuesta2 | explicacion == "" | controlCheck == "0") {
                             $('#myModal').css('display', 'block');
-                            $('.modal-content > p').text('Rellena todos los datos');
+                            $('.modal-content > p').text('Fill All The Gaps');
                             event.preventDefault();
                         } else {
                             if (respuesta3 == "") {

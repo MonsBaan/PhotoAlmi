@@ -38,7 +38,7 @@ $(document).ready(function() {
 
             if (contr != reContr) {
                 $("#repassword").val("");
-                $("#repassword").css("background-color", "red");
+                $("#repassword").css("background-color", "pink");
                 error = true;
             } else {
 
@@ -48,14 +48,23 @@ $(document).ready(function() {
 
             if (isNaN(telef)) {
                 $("#phone").val("");
-                $("#phone").css("background-color", "red");
+                $("#phone").css("background-color", "pink");
                 error = true;
             } else {
                 $("#phone").css("background-color", "");
             }
 
             if (error) {
+                swal({
+                    title: "Some values are invalid",
+                    text: "          ",
+                    type: "error",
+                    timer: 1500,
+                    button: false,
+                    icon: "error",
+                }).then(() => $('#myModal').css('display', 'none'));
                 event.preventDefault();
+                return;
             } else {
                 var id = session.id;
                 var direccionUser = $("#address").val().trim();
@@ -117,7 +126,7 @@ $(document).ready(function() {
                 $(".close2").hide();
             }
             swal({
-                title: "The Changes Has Been Saved!",
+                title: "The Changes Have Been Saved!",
                 text: "          ",
                 type: "success",
                 timer: 1500,

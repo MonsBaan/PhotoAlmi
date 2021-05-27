@@ -150,7 +150,7 @@ $(document).ready(function() {
 
 
         $('#myModal').css('display', 'block');
-        $('.modal-content > p').text('Change data?');
+        $('.modal-content > p').text('Change Data?');
 
 
         $('#aceptar').click(function() {

@@ -32,7 +32,7 @@ $(document).ready(function() {
                 type: "post",
                 success: function(response) {
                     swal({
-                        title: "The Category Has Being Added",
+                        title: "The Category Has Been Added",
                         text: "          ",
                         type: "success",
                         timer: 1500,

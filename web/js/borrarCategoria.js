@@ -16,7 +16,7 @@ $(document).ready(function() {
     $('#remove').click(function(event) {
         event.preventDefault();
         $('#myModal').css('display', 'block');
-        $('.modal-content > p').text("¿Are you sure that you want to remove this category and it's content?");
+        $('.modal-content > p').text("Are you sure that you want to remove this category and it's content?");
         //aceptar
         $('#aceptar').click(function() {
 
@@ -26,7 +26,7 @@ $(document).ready(function() {
                 type: "delete",
                 success: function(response) {
                     swal({
-                        title: "The Category Has Being Removed!",
+                        title: "The Category Has Been Removed!",
                         text: "          ",
                         type: "success",
                         timer: 1500,

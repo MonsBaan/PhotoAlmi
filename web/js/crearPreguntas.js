@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 
         $('#myModal').css('display', 'block');
-        $('.modal-content > p').text('¿You want to upload this question?');
+        $('.modal-content > p').text('Do You want to upload this question?');
         //aceptar
         $('#aceptar').click(function() {
             var error = false;
@@ -86,7 +86,7 @@ $(document).ready(function() {
                     imagen = response;
                     if (pregunta | respuesta1 | respuesta2 | explicacion == "" | controlCheck == false) {
                         $('#myModal').css('display', 'block');
-                        $('.modal-content > p').text('Inserted Data is invalid');
+                        $('.modal-content > p').text('Inserted Data Is Invalid');
                         event.preventDefault();
                         return;
                     } else {

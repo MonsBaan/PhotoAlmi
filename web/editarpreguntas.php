@@ -140,7 +140,7 @@ if (isset($_SESSION["pos"]) == false) {
           <label id="campoRespuesta4" for="ans4">Answer 4: </label>
           <input type="text" id="ans4" name="ans4" />
         </div>
-        <label id="campoExplicacion" for="expl">Explaining: </label>
+        <label id="campoExplicacion" for="expl">Explanation: </label>
         <input type="text" id="expl" name="expl" />
         <input type='button' id='botonPregunta' value='Save Changes' />
 

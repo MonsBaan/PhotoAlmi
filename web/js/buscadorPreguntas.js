@@ -15,7 +15,7 @@ $(document).ready(function() {
         id = $(this).attr('href');
         cat = $(this).parent().attr('id');
         $('#myModal').css('display', 'block');
-        $('.modal-content > p').text('¿Are you sure that you want to remove this?');
+        $('.modal-content > p').text('Are you sure that you want to remove this?');
         //aceptar
         $('#aceptar').click(function() {
             $.ajax({
@@ -23,7 +23,7 @@ $(document).ready(function() {
                 type: "put",
                 success: function(response) {
                     swal({
-                        title: "The Question Has Being Removed!",
+                        title: "The Question Has Been Removed!",
                         text: "          ",
                         type: "success",
                         timer: 500,
